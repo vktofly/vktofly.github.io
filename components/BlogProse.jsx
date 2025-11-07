@@ -8,7 +8,9 @@ export default function BlogProse({ html }) {
         prose-h3:text-xl prose-h3:mb-3 prose-h3:mt-8 prose-h3:font-semibold
         prose-h4:text-lg prose-h4:mb-2 prose-h4:mt-6
         prose-p:leading-[1.75] prose-p:text-palette-secondary prose-p:my-5 prose-p:text-[17px]
-        prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
+        prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-a:transition-colors
+        prose-a[href^='/']:text-brand-600 dark:prose-a[href^='/']:text-brand-400
+        prose-a[href^='http']:text-blue-600 dark:prose-a[href^='http']:text-blue-400
         prose-strong:text-palette-primary prose-strong:font-semibold prose-strong:font-sans
         prose-em:text-palette-secondary prose-em:italic
         prose-code:text-sm prose-code:font-mono prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-palette-primary

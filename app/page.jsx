@@ -8,7 +8,6 @@ import ProfilePhoto from "../components/ProfilePhoto";
 import JsonLd from "../components/JsonLd";
 import Container from "../components/Container";
 import AnimatedStat from "../components/AnimatedStat";
-import FadeInSection from "../components/FadeInSection";
 import { generateOgImageMetadata } from "../lib/og-images";
 import { getAllPostsMeta } from "../lib/blog";
 import projects from "../data/projects";
@@ -267,101 +266,43 @@ export default async function HomePage() {
       </Section>
 
       {/* Stats Section */}
-      <FadeInSection>
-        <Section className="py-12 sm:py-16 bg-zinc-50 dark:bg-zinc-900/30 relative overflow-hidden">
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-50/20 to-transparent dark:via-brand-950/10 pointer-events-none" />
-          <Container className="relative z-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-              <AnimatedStat value="23+" label="Companies Founded" suffix="+" />
-              <AnimatedStat value="20+" label="Years Experience" suffix="+" />
-              <AnimatedStat value="5+" label="Domains" suffix="+" />
-              <AnimatedStat value="∞" label="Infinite Growth" />
-            </div>
-          </Container>
-        </Section>
-      </FadeInSection>
+      <Section className="py-12 sm:py-16 bg-zinc-50 dark:bg-zinc-900/30 relative overflow-hidden">
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-50/20 to-transparent dark:via-brand-950/10 pointer-events-none" />
+        <Container className="relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            <AnimatedStat value="23+" label="Companies Founded" suffix="+" />
+            <AnimatedStat value="20+" label="Years Experience" suffix="+" />
+            <AnimatedStat value="5+" label="Domains" suffix="+" />
+            <AnimatedStat value="∞" label="Infinite Growth" />
+          </div>
+        </Container>
+      </Section>
 
       <SectionDivider variant="geometric" />
 
       {/* Featured Principle Section */}
-      <FadeInSection delay={100}>
-        <Section className="py-12 sm:py-16">
-          <Container>
-            <div className="max-w-3xl mx-auto">
-              <div className="rounded-lg border-2 border-brand-200 dark:border-brand-800 bg-brand-50/50 dark:bg-brand-950/30 p-8 sm:p-10">
-                <div className="text-center mb-4">
-                  <span className="text-sm font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wide">
-                    Core Principle
-                  </span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-semibold text-palette-primary text-center mb-4">
-                  Truth is the foundation of all progress.
-                </h2>
-                <p className="text-base sm:text-lg text-palette-secondary text-center leading-relaxed">
-                  Illusions may comfort, but only truth compounds.
-                </p>
-                <div className="mt-6 text-center">
-                  <a
-                    href="/about/#principles"
-                    className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:underline font-medium text-sm"
-                  >
-                    View all principles
-                    <svg
-                      className="w-4 h-4 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </a>
-                </div>
+      <Section className="py-12 sm:py-16">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <div className="rounded-lg border-2 border-brand-200 dark:border-brand-800 bg-brand-50/50 dark:bg-brand-950/30 p-8 sm:p-10">
+              <div className="text-center mb-4">
+                <span className="text-sm font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wide">
+                  Core Principle
+                </span>
               </div>
-            </div>
-          </Container>
-        </Section>
-      </FadeInSection>
-
-      <SectionDivider variant="minimal" />
-
-      {/* Domain Expertise Tags */}
-      {skills.length > 0 && (
-        <FadeInSection delay={200}>
-          <Section
-            title="Core Domains"
-            intro="Areas of deep expertise and exploration"
-          >
-            <Container>
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-                {skills.map((skill) => (
-                  <div
-                    key={skill.name}
-                    className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 px-5 py-3 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-md"
-                  >
-                    <h3 className="font-semibold text-base group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                      {skill.name}
-                    </h3>
-                    {skill.items && skill.items.length > 0 && (
-                      <p className="text-xs text-palette-secondary mt-1">
-                        {skill.items.slice(0, 2).join(", ")}
-                        {skill.items.length > 2 && " +"}
-                      </p>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 text-center">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-palette-primary text-center mb-4">
+                Truth is the foundation of all progress.
+              </h2>
+              <p className="text-base sm:text-lg text-palette-secondary text-center leading-relaxed">
+                Illusions may comfort, but only truth compounds.
+              </p>
+              <div className="mt-6 text-center">
                 <a
-                  href="/skills/"
+                  href="/about/#principles"
                   className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:underline font-medium text-sm"
                 >
-                  View all skills
+                  View all principles
                   <svg
                     className="w-4 h-4 ml-1"
                     fill="none"
@@ -377,9 +318,61 @@ export default async function HomePage() {
                   </svg>
                 </a>
               </div>
-            </Container>
-          </Section>
-        </FadeInSection>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <SectionDivider variant="minimal" />
+
+      {/* Domain Expertise Tags */}
+      {skills.length > 0 && (
+        <Section
+          title="Core Domains"
+          intro="Areas of deep expertise and exploration"
+        >
+          <Container>
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+              {skills.map((skill) => (
+                <div
+                  key={skill.name}
+                  className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 px-5 py-3 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-md"
+                >
+                  <h3 className="font-semibold text-base group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                    {skill.name}
+                  </h3>
+                  {skill.items && skill.items.length > 0 && (
+                    <p className="text-xs text-palette-secondary mt-1">
+                      {skill.items.slice(0, 2).join(", ")}
+                      {skill.items.length > 2 && " +"}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+              <a
+                href="/skills/"
+                className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:underline font-medium text-sm"
+              >
+                View all skills
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            </div>
+          </Container>
+        </Section>
       )}
 
       <SectionDivider
@@ -389,179 +382,172 @@ export default async function HomePage() {
 
       {/* Journey/Timeline Preview */}
       {experience.length > 0 && (
-        <FadeInSection delay={300}>
-          <Section title="Journey" intro="Key milestones across two decades">
-            <Container>
-              <TimelinePreview items={experience} maxItems={4} />
-            </Container>
-          </Section>
-        </FadeInSection>
+        <Section title="Journey" intro="Key milestones across two decades">
+          <Container>
+            <TimelinePreview items={experience} maxItems={4} />
+          </Container>
+        </Section>
       )}
 
       <SectionDivider variant="pattern" />
 
       {/* Current Focus Section */}
-      <FadeInSection delay={350}>
-        <Section className="py-12 sm:py-16 bg-zinc-50 dark:bg-zinc-900/30 relative overflow-hidden">
-          {/* Subtle pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.015] dark:opacity-[0.02] pointer-events-none"
-            style={{
-              backgroundImage: `linear-gradient(45deg, currentColor 1px, transparent 1px),
+      <Section className="py-12 sm:py-16 bg-zinc-50 dark:bg-zinc-900/30 relative overflow-hidden">
+        {/* Subtle pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.015] dark:opacity-[0.02] pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(45deg, currentColor 1px, transparent 1px),
                                 linear-gradient(-45deg, currentColor 1px, transparent 1px)`,
-              backgroundSize: "30px 30px",
-            }}
-          />
-          <Container className="relative z-10">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-6 text-center text-palette-primary">
-                Current Focus (2025–2030)
-              </h2>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
-                  <h3 className="font-semibold text-base mb-2 text-palette-primary">
-                    AI as Civilizational Substrate
-                  </h3>
-                  <p className="text-sm text-palette-secondary">
-                    Designing AI systems as the new infrastructure of knowledge.
-                  </p>
-                </div>
-                <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
-                  <h3 className="font-semibold text-base mb-2 text-palette-primary">
-                    Autonomous Space Colonies
-                  </h3>
-                  <p className="text-sm text-palette-secondary">
-                    Enabling self-replicating robotic systems for off-world
-                    expansion.
-                  </p>
-                </div>
-                <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
-                  <h3 className="font-semibold text-base mb-2 text-palette-primary">
-                    Cognitive Architecture of Creativity
-                  </h3>
-                  <p className="text-sm text-palette-secondary">
-                    Mapping how insight emerges in human and synthetic minds.
-                  </p>
-                </div>
-                <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
-                  <h3 className="font-semibold text-base mb-2 text-palette-primary">
-                    Human Agency in the Age of AI
-                  </h3>
-                  <p className="text-sm text-palette-secondary">
-                    Preserving choice and meaning in an automated civilization.
-                  </p>
-                </div>
+            backgroundSize: "30px 30px",
+          }}
+        />
+        <Container className="relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-6 text-center text-palette-primary">
+              Current Focus (2025–2030)
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
+                <h3 className="font-semibold text-base mb-2 text-palette-primary">
+                  Building Intelligent Companies
+                </h3>
+                <p className="text-sm text-palette-secondary">
+                  Building intelligent, scalable companies grounded in
+                  innovation and long-term value.
+                </p>
+              </div>
+              <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
+                <h3 className="font-semibold text-base mb-2 text-palette-primary">
+                  MyPrinciple Framework
+                </h3>
+                <p className="text-sm text-palette-secondary">
+                  Synthesizing philosophy, science, and engineering into a
+                  personal framework (MyPrinciple).
+                </p>
+              </div>
+              <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
+                <h3 className="font-semibold text-base mb-2 text-palette-primary">
+                  Inner Freedom & Clarity
+                </h3>
+                <p className="text-sm text-palette-secondary">
+                  Cultivating inner freedom and psychological clarity for
+                  sustained creative flow.
+                </p>
+              </div>
+              <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
+                <h3 className="font-semibold text-base mb-2 text-palette-primary">
+                  Civilization-Scale Systems
+                </h3>
+                <p className="text-sm text-palette-secondary">
+                  Designing civilization-scale systems that integrate AI,
+                  ethics, and human evolution.
+                </p>
               </div>
             </div>
-          </Container>
-        </Section>
-      </FadeInSection>
+          </div>
+        </Container>
+      </Section>
 
       {/* Quick Navigation */}
-      <FadeInSection delay={400}>
-        <Section className="py-12 sm:py-16">
-          <Container>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-              <a
-                href="/about/"
-                className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
-              >
-                <h3 className="font-semibold text-lg mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                  About
-                </h3>
-                <p className="text-sm text-palette-secondary">
-                  Learn about my philosophy, mission, and work
-                </p>
-              </a>
-              <a
-                href="/projects/"
-                className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
-              >
-                <h3 className="font-semibold text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2">
-                  Projects
-                </h3>
-                <p className="text-sm text-palette-secondary">
-                  Explore my technology ventures and research
-                </p>
-              </a>
-              <a
-                href="/blog/"
-                className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
-              >
-                <h3 className="font-semibold text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2">
-                  Blog
-                </h3>
-                <p className="text-sm text-palette-secondary">
-                  Essays on knowledge, systems, and the future
-                </p>
-              </a>
-              <a
-                href="/vision/"
-                className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
-              >
-                <h3 className="font-semibold text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2">
-                  Vision
-                </h3>
-                <p className="text-sm text-palette-secondary">
-                  The Infinite Growth Principle philosophy
-                </p>
-              </a>
-            </div>
-          </Container>
-        </Section>
-      </FadeInSection>
+      <Section className="py-12 sm:py-16">
+        <Container>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <a
+              href="/about/"
+              className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
+            >
+              <h3 className="font-semibold text-lg mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                About
+              </h3>
+              <p className="text-sm text-palette-secondary">
+                Learn about my philosophy, mission, and work
+              </p>
+            </a>
+            <a
+              href="/projects/"
+              className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
+            >
+              <h3 className="font-semibold text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2">
+                Projects
+              </h3>
+              <p className="text-sm text-palette-secondary">
+                Explore my technology ventures and research
+              </p>
+            </a>
+            <a
+              href="/blog/"
+              className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
+            >
+              <h3 className="font-semibold text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2">
+                Blog
+              </h3>
+              <p className="text-sm text-palette-secondary">
+                Essays on knowledge, systems, and the future
+              </p>
+            </a>
+            <a
+              href="/vision/"
+              className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
+            >
+              <h3 className="font-semibold text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2">
+                Vision
+              </h3>
+              <p className="text-sm text-palette-secondary">
+                The Infinite Growth Principle philosophy
+              </p>
+            </a>
+          </div>
+        </Container>
+      </Section>
 
       <SectionDivider variant="minimal" />
 
       {/* Featured Blog Post */}
       {featuredPost && (
-        <FadeInSection delay={500}>
-          <Section>
-            <Container>
-              <FeaturedBlogPost post={featuredPost} />
-            </Container>
-          </Section>
-        </FadeInSection>
+        <Section>
+          <Container>
+            <FeaturedBlogPost post={featuredPost} />
+          </Container>
+        </Section>
       )}
 
       <SectionDivider variant="geometric" />
 
       {/* Latest Blog Posts */}
       {latestPosts.length > 0 && (
-        <FadeInSection delay={600}>
-          <Section title="Latest Writing" intro="Recent essays and thoughts">
-            <Container>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {latestPosts.map((post) => (
-                  <BlogPostCard key={post.slug} post={post} />
-                ))}
-              </div>
-              {allPosts.length > (featuredPost ? 4 : 3) && (
-                <div className="mt-8 text-center">
-                  <a
-                    href="/blog/"
-                    className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:underline font-medium"
+        <Section title="Latest Writing" intro="Recent essays and thoughts">
+          <Container>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {latestPosts.map((post) => (
+                <BlogPostCard key={post.slug} post={post} />
+              ))}
+            </div>
+            {allPosts.length > (featuredPost ? 4 : 3) && (
+              <div className="mt-8 text-center">
+                <a
+                  href="/blog/"
+                  className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:underline font-medium"
+                >
+                  View all posts
+                  <svg
+                    className="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
                   >
-                    View all posts
-                    <svg
-                      className="w-4 h-4 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              )}
-            </Container>
-          </Section>
-        </FadeInSection>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </a>
+              </div>
+            )}
+          </Container>
+        </Section>
       )}
 
       <SectionDivider
@@ -571,77 +557,73 @@ export default async function HomePage() {
 
       {/* Featured Projects */}
       {featuredProjects.length > 0 && (
-        <FadeInSection delay={700}>
-          <Section title="Featured Projects" intro="Selected work and research">
-            <Container>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {featuredProjects.map((p) => (
-                  <ProjectCard key={p.title} project={p} />
-                ))}
-              </div>
-              {projects.length > 2 && (
-                <div className="mt-8 text-center">
-                  <a
-                    href="/projects/"
-                    className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:underline font-medium"
+        <Section title="Featured Projects" intro="Selected work and research">
+          <Container>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {featuredProjects.map((p) => (
+                <ProjectCard key={p.title} project={p} />
+              ))}
+            </div>
+            {projects.length > 2 && (
+              <div className="mt-8 text-center">
+                <a
+                  href="/projects/"
+                  className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:underline font-medium"
+                >
+                  View all projects
+                  <svg
+                    className="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
                   >
-                    View all projects
-                    <svg
-                      className="w-4 h-4 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              )}
-            </Container>
-          </Section>
-        </FadeInSection>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </a>
+              </div>
+            )}
+          </Container>
+        </Section>
       )}
 
       <SectionDivider variant="infinity" />
 
       {/* Call-to-Action Section */}
-      <FadeInSection delay={800}>
-        <Section className="py-16 sm:py-20 bg-gradient-to-b from-transparent via-zinc-50/50 to-zinc-50 dark:via-zinc-900/30 dark:to-zinc-900/30 relative overflow-hidden">
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5 pointer-events-none" />
-          <Container className="relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-4 text-palette-primary">
-                Let's Build the Future Together
-              </h2>
-              <p className="text-lg sm:text-xl text-palette-secondary mb-8 leading-relaxed">
-                Whether you're exploring collaboration, seeking insights on
-                systems thinking, or interested in advancing civilization-scale
-                technologies, I'd love to connect.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <a
-                  href="/contact/"
-                  className="inline-flex items-center justify-center rounded-md bg-brand-500 hover:bg-brand-600 text-white px-8 py-3 font-medium transition-colors shadow-sm hover:shadow-md"
-                >
-                  Get in Touch
-                </a>
-                <a
-                  href="/about/"
-                  className="inline-flex items-center justify-center rounded-md border-2 border-zinc-300 dark:border-zinc-700 text-palette-primary hover:bg-zinc-50 dark:hover:bg-zinc-900 px-8 py-3 font-medium transition-colors"
-                >
-                  Learn More
-                </a>
-              </div>
+      <Section className="py-16 sm:py-20 bg-gradient-to-b from-transparent via-zinc-50/50 to-zinc-50 dark:via-zinc-900/30 dark:to-zinc-900/30 relative overflow-hidden">
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5 pointer-events-none" />
+        <Container className="relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-4 text-palette-primary">
+              Let's Build the Future Together
+            </h2>
+            <p className="text-lg sm:text-xl text-palette-secondary mb-8 leading-relaxed">
+              Whether you're exploring collaboration, seeking insights on
+              systems thinking, or interested in advancing civilization-scale
+              technologies, I'd love to connect.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="/contact/"
+                className="inline-flex items-center justify-center rounded-md bg-brand-500 hover:bg-brand-600 text-white px-8 py-3 font-medium transition-colors shadow-sm hover:shadow-md"
+              >
+                Get in Touch
+              </a>
+              <a
+                href="/about/"
+                className="inline-flex items-center justify-center rounded-md border-2 border-zinc-300 dark:border-zinc-700 text-palette-primary hover:bg-zinc-50 dark:hover:bg-zinc-900 px-8 py-3 font-medium transition-colors"
+              >
+                Learn More
+              </a>
             </div>
-          </Container>
-        </Section>
-      </FadeInSection>
+          </div>
+        </Container>
+      </Section>
     </>
   );
 }

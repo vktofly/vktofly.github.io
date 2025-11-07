@@ -3,6 +3,9 @@ import BlogProse from "../../../components/BlogProse";
 import ReadingProgress from "../../../components/ReadingProgress";
 import Toc from "../../../components/Toc";
 import KeyTakeaways from "../../../components/KeyTakeaways";
+import BlogPostCTA from "../../../components/BlogPostCTA";
+import RelatedPosts from "../../../components/RelatedPosts";
+import BlogPostNavigation from "../../../components/BlogPostNavigation";
 import JsonLd from "../../../components/JsonLd";
 import Image from "next/image";
 import { generateOgImageMetadata, getOgImage } from "../../../lib/og-images";
@@ -109,6 +112,7 @@ export default async function BlogPostPage({ params }) {
   const url = `https://vktofly.github.io/blog/${post.slug}/`;
   const ogImage = getOgImage("blog", post.slug);
   const hasOgImage = await ogImageExists(post.slug);
+  const allPosts = await getAllPostsMeta();
 
   return (
     <>
@@ -189,6 +193,15 @@ export default async function BlogPostPage({ params }) {
             className={showToc ? "" : "max-w-3xl mx-auto"}
           >
             <BlogProse html={post.html} />
+
+            {/* Blog Post Navigation */}
+            <BlogPostNavigation currentPost={post} allPosts={allPosts} />
+
+            {/* CTA Section */}
+            <BlogPostCTA />
+
+            {/* Related Posts */}
+            <RelatedPosts currentPost={post} allPosts={allPosts} />
           </div>
         </div>
       </Section>
