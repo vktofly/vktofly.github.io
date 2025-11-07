@@ -1,8 +1,29 @@
 import Section from '../../components/Section';
+import { generateOgImageMetadata } from '../../lib/og-images';
 import skills from '../../data/skills';
 
 export const metadata = {
   title: 'Skills — Vikash',
+  description: 'Core domains and tools across artificial intelligence, quantum computing, robotics, space systems, cognitive interfaces, and systems thinking.',
+  keywords: [
+    'skills',
+    'expertise',
+    'AI',
+    'quantum computing',
+    'robotics',
+    'programming',
+    'systems thinking',
+    'technologies',
+  ],
+  openGraph: {
+    title: 'Skills — Vikash',
+    description: 'Core domains and tools across AI, quantum computing, robotics, and space systems.',
+    url: 'https://vktofly.github.io/skills/',
+    images: [generateOgImageMetadata('skills', null, 'Skills — Vikash')],
+  },
+  alternates: {
+    canonical: '/skills/',
+  },
 };
 
 export default function SkillsPage() {

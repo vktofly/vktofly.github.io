@@ -1,14 +1,34 @@
 import Section from '../../components/Section';
+import { generateOgImageMetadata } from '../../lib/og-images';
 
 export const metadata = {
   title: 'Contact — Vikash',
+  description: 'Get in touch for collaborations, inquiries, or discussions about AI, quantum computing, robotics, space systems, and civilization-scale thinking.',
+  keywords: [
+    'contact',
+    'collaboration',
+    'inquiry',
+    'email',
+    'reach out',
+  ],
+  openGraph: {
+    title: 'Contact — Vikash',
+    description: 'Get in touch for collaborations, inquiries, or discussions.',
+    url: 'https://vktofly.github.io/contact/',
+    images: [generateOgImageMetadata('contact', null, 'Contact — Vikash')],
+  },
+  alternates: {
+    canonical: '/contact/',
+  },
 };
 
 export default function ContactPage() {
+  const id = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+  const action = id ? `https://formspree.io/f/${id}` : '#';
   return (
     <Section title="Contact" intro="Get in touch">
       <div className="max-w-xl">
-        <form action="#" method="post" className="grid gap-4">
+        <form action={action} method="POST" className="grid gap-4">
           <div>
             <label className="block text-sm mb-1">Name</label>
             <input name="name" className="w-full rounded-md border border-zinc-300 dark:border-zinc-700 bg-transparent px-3 py-2" />

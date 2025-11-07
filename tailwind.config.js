@@ -16,10 +16,16 @@ module.exports = {
       },
       colors: {
         brand: {
-          DEFAULT: '#10b981',
-          500: '#10b981',
-          600: '#059669',
-          700: '#047857',
+          DEFAULT: '#222222',
+          500: '#222222',
+          600: '#1a1a1a',
+          700: '#111111',
+        },
+        palette: {
+          primary: '#222222',
+          secondary: '#7B7B7B',
+          tertiary: '#F8F8F8',
+          white: '#FFFFFF',
         },
       },
     },
