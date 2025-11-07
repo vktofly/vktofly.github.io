@@ -4,13 +4,20 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  
   useEffect(() => setMounted(true), []);
 
-  const isDark = (resolvedTheme || theme) === 'dark';
+  if (!mounted) {
+    return (
+      <div className="inline-flex items-center justify-center rounded-md border border-zinc-300 dark:border-zinc-700 px-3 py-2 text-sm">
+        <span className="opacity-0">Dark</span>
+      </div>
+    );
+  }
 
-  if (!mounted) return null;
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const isDark = (resolvedTheme || theme) === 'dark';
 
   return (
     <button

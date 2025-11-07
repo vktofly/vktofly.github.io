@@ -223,7 +223,7 @@ export default async function AboutPage() {
           <div className="hidden md:block md:sticky md:top-24 self-start print:hidden">
             <Toc rootId="about-content" />
           </div>
-          <div id="about-content">
+          <div id="about-content" className="max-w-3xl">
             <Prose html={html} />
           </div>
         </div>
