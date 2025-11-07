@@ -5,4 +5,78 @@
 html, body, #__next { height: 100%; }
 body { margin: 0; }
 
+/* About Page Styles */
+/* Section Icons */
+#about-content h2#philosophy::before {
+  content: "🧠 ";
+}
+#about-content h2#mission::before {
+  content: "🎯 ";
+}
+#about-content h2#work::before {
+  content: "💼 ";
+}
+#about-content h2#companies::before {
+  content: "🏢 ";
+}
+#about-content h2#research::before {
+  content: "🔬 ";
+}
+#about-content h2#principles::before {
+  content: "⚖️ ";
+}
+#about-content h2#influences::before {
+  content: "📚 ";
+}
+#about-content h2#current-inquiry-2025-2030::before {
+  content: "🔍 ";
+}
+#about-content h2#beyond-entrepreneurship::before {
+  content: "🚀 ";
+}
+#about-content h2#selected-works-writing::before {
+  content: "📝 ";
+}
+#about-content h2#connect::before {
+  content: "📧 ";
+}
+
+/* Print Styles */
+@media print {
+  .print\:hidden {
+    display: none !important;
+  }
+  .print\:block {
+    display: block !important;
+  }
+  body {
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+  }
+  .prose {
+    max-width: 100% !important;
+  }
+  .prose h1,
+  .prose h2,
+  .prose h3 {
+    page-break-after: avoid;
+    color: #000 !important;
+  }
+  .prose p,
+  .prose li {
+    page-break-inside: avoid;
+  }
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    color: #666;
+  }
+}
+
 

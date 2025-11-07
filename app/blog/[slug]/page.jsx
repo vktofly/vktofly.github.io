@@ -4,7 +4,7 @@ import ReadingProgress from "../../../components/ReadingProgress";
 import Toc from "../../../components/Toc";
 import KeyTakeaways from "../../../components/KeyTakeaways";
 import JsonLd from "../../../components/JsonLd";
-import { generateOgImageMetadata } from "../../../lib/og-images";
+import { generateOgImageMetadata, getOgImage } from "../../../lib/og-images";
 import { getAllPostsMeta, getPostBySlug } from "../../../lib/blog";
 
 function formatDate(date) {
@@ -64,6 +64,7 @@ export async function generateMetadata({ params }) {
       title: post.title,
       description: post.description || post.summary,
       creator: "@vktofly1",
+      images: [generateOgImageMetadata("blog", post.slug, post.title).url],
     },
     alternates: {
       canonical: `/blog/${post.slug}/`,
@@ -87,6 +88,7 @@ export default async function BlogPostPage({ params }) {
     ? new Date(post.date).toISOString()
     : undefined;
   const url = `https://vktofly.github.io/blog/${post.slug}/`;
+  const ogImage = getOgImage("blog", post.slug);
 
   return (
     <>
@@ -113,7 +115,7 @@ export default async function BlogPostPage({ params }) {
             "@type": "WebPage",
             "@id": url,
           },
-          image: "https://vktofly.github.io/og.png",
+          image: ogImage.url,
           keywords: post.tags?.join(", ") || "",
           wordCount: post.words,
           timeRequired: `PT${post.readingTime}M`,
