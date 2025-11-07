@@ -24,7 +24,7 @@ export default function Header() {
           className="flex items-center gap-2 text-base font-semibold tracking-tight"
         >
           <Image
-            src="/logo/personal logo.png"
+            src="/logo/logo.png"
             alt="Vikash Kumar Logo"
             width={40}
             height={40}

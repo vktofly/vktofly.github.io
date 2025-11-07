@@ -4,8 +4,11 @@ import ReadingProgress from "../../../components/ReadingProgress";
 import Toc from "../../../components/Toc";
 import KeyTakeaways from "../../../components/KeyTakeaways";
 import JsonLd from "../../../components/JsonLd";
+import Image from "next/image";
 import { generateOgImageMetadata, getOgImage } from "../../../lib/og-images";
 import { getAllPostsMeta, getPostBySlug } from "../../../lib/blog";
+import fs from "fs/promises";
+import path from "path";
 
 function formatDate(date) {
   if (!date) return "";
@@ -72,6 +75,22 @@ export async function generateMetadata({ params }) {
   };
 }
 
+async function ogImageExists(slug) {
+  try {
+    const imagePath = path.join(
+      process.cwd(),
+      "public",
+      "og",
+      "blog",
+      `${slug}.png`
+    );
+    await fs.access(imagePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export default async function BlogPostPage({ params }) {
   const post = await getPostBySlug(params.slug);
   if (!post) {
@@ -89,6 +108,7 @@ export default async function BlogPostPage({ params }) {
     : undefined;
   const url = `https://vktofly.github.io/blog/${post.slug}/`;
   const ogImage = getOgImage("blog", post.slug);
+  const hasOgImage = await ogImageExists(post.slug);
 
   return (
     <>
@@ -128,6 +148,21 @@ export default async function BlogPostPage({ params }) {
           post.readingTime
         } min read • ${post.words.toLocaleString()} words`}
       >
+        {/* OG Image Display */}
+        {hasOgImage && (
+          <div className="mb-10">
+            <div className="relative w-full aspect-[1200/630] overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
+              <Image
+                src={ogImage.url}
+                alt={ogImage.alt}
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+              />
+            </div>
+          </div>
+        )}
         {post.summary && (
           <div className="mb-10 rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 p-6">
             <h3 className="text-base font-semibold mb-3 text-palette-primary">

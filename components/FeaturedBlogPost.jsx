@@ -1,4 +1,18 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import { getOgImage } from '../lib/og-images';
+import fs from 'fs/promises';
+import path from 'path';
+
+async function ogImageExists(slug) {
+  try {
+    const imagePath = path.join(process.cwd(), 'public', 'og', 'blog', `${slug}.png`);
+    await fs.access(imagePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 function formatDate(date) {
   if (!date) return "";
@@ -23,8 +37,11 @@ function formatDate(date) {
   return String(date);
 }
 
-export default function FeaturedBlogPost({ post }) {
+export default async function FeaturedBlogPost({ post }) {
   if (!post) return null;
+
+  const ogImage = getOgImage("blog", post.slug);
+  const hasOgImage = await ogImageExists(post.slug);
 
   return (
     <article className="rounded-lg border-2 border-brand-200 dark:border-brand-800 bg-gradient-to-br from-brand-50/50 to-transparent dark:from-brand-950/30 dark:to-transparent p-8 sm:p-10 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
@@ -33,6 +50,19 @@ export default function FeaturedBlogPost({ post }) {
           Featured Essay
         </span>
       </div>
+      {hasOgImage && (
+        <div className="mb-6">
+          <Link href={`/blog/${post.slug}/`} className="block relative w-full aspect-[1200/630] overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
+            <Image
+              src={ogImage.url}
+              alt={ogImage.alt}
+              fill
+              className="object-cover transition-transform hover:scale-[1.02]"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+            />
+          </Link>
+        </div>
+      )}
       <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-3 text-palette-primary">
         <Link href={`/blog/${post.slug}/`} className="hover:underline">
           {post.title}
