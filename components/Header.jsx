@@ -3,14 +3,45 @@ import Image from "next/image";
 import Container from "./Container";
 import ThemeToggle from "./ThemeToggle";
 import MobileNav from "./MobileNav";
+import NavDropdown from "./NavDropdown";
+import {
+  UserIcon,
+  BriefcaseIcon,
+  RocketIcon,
+  LightningIcon,
+  BookIcon,
+  UsersIcon,
+  LibraryIcon,
+} from "./Icons";
 
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/about/", label: "About" },
-  { href: "/experience/", label: "Experience" },
-  { href: "/projects/", label: "Projects" },
+  {
+    type: "dropdown",
+    label: "About",
+    items: [
+      { href: "/about/", label: "About Me", icon: <UserIcon /> },
+      { href: "/experience/", label: "Experience", icon: <BriefcaseIcon /> },
+    ],
+  },
+  {
+    type: "dropdown",
+    label: "Work",
+    items: [
+      { href: "/projects/", label: "Projects", icon: <RocketIcon /> },
+      { href: "/skills/", label: "Skills", icon: <LightningIcon /> },
+    ],
+  },
+  {
+    type: "dropdown",
+    label: "Resources",
+    items: [
+      { href: "/books/", label: "Books", icon: <BookIcon /> },
+      { href: "/people/", label: "People", icon: <UsersIcon /> },
+      { href: "/resources/", label: "All Resources", icon: <LibraryIcon /> },
+    ],
+  },
   { href: "/blog/", label: "Blog" },
-  { href: "/skills/", label: "Skills" },
   { href: "/vision/", label: "Vision" },
   { href: "/contact/", label: "Contact" },
 ];
@@ -33,15 +64,27 @@ export default function Header() {
           <span>Vikash Kr.</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="hover:text-brand-600"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {nav.map((item, index) => {
+            if (item.type === "dropdown") {
+              return (
+                <NavDropdown
+                  key={`dropdown-${index}`}
+                  label={item.label}
+                  icon={item.icon}
+                  items={item.items}
+                />
+              );
+            }
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
         <div className="flex items-center gap-3">
           <a

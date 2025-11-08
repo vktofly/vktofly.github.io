@@ -37,10 +37,11 @@ export const metadata = {
 export default async function HomePage() {
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 2);
   const allPosts = await getAllPostsMeta();
-  // Featured post: longest/most comprehensive post, or first one
+  // Featured post: explicit featured flag, or longest/most comprehensive post
   const featuredPost =
     allPosts.length > 0
-      ? allPosts.reduce((prev, current) =>
+      ? allPosts.find((p) => p.featured) ||
+        allPosts.reduce((prev, current) =>
           (current.words || 0) > (prev.words || 0) ? current : prev
         )
       : null;
@@ -91,58 +92,78 @@ export default async function HomePage() {
       />
 
       {/* Hero Section */}
-      <Section className="pt-12 sm:pt-16 pb-8 sm:pb-12">
-        <Container>
-          <div className="grid items-center gap-8 md:grid-cols-[1fr_auto] lg:gap-12">
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-tight">
-                  <span className="text-palette-primary">{profile.name}</span>
-                  <br />
-                  <span className="text-palette-secondary text-2xl sm:text-3xl md:text-4xl">
+      <Section className="pt-16 sm:pt-20 pb-12 sm:pb-16 relative overflow-hidden">
+        {/* Subtle background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-50/50 dark:from-zinc-950 dark:via-black dark:to-zinc-950/50 pointer-events-none" />
+        <Container className="relative z-10">
+          <div className="grid items-center gap-12 md:grid-cols-[1fr_auto] lg:gap-16">
+            <div className="space-y-8 animate-fade-in-up">
+              <div className="space-y-5">
+                <div className="space-y-3">
+                  <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1]">
+                    <span className="text-palette-primary dark:text-white">
+                      {profile.name}
+                    </span>
+                  </h1>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-medium text-palette-secondary dark:text-zinc-400 leading-relaxed">
                     {profile.role}
-                  </span>
-                </h1>
-                <p className="text-lg sm:text-xl md:text-2xl text-palette-secondary leading-relaxed max-w-2xl">
+                  </p>
+                </div>
+                <p className="text-lg sm:text-xl md:text-2xl text-palette-primary dark:text-zinc-200 font-light leading-relaxed max-w-2xl">
                   {profile.headline}
                 </p>
               </div>
 
-              <p className="text-base sm:text-lg text-palette-secondary leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg text-palette-secondary dark:text-zinc-400 leading-relaxed max-w-2xl">
                 {profile.summary}
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <a
                   href="/projects/"
-                  className="inline-flex items-center justify-center rounded-md bg-brand-500 hover:bg-brand-600 text-white px-6 py-3 font-medium transition-colors shadow-sm hover:shadow-md"
+                  className="group inline-flex items-center justify-center rounded-lg bg-brand-500 hover:bg-brand-600 dark:bg-brand-600 dark:hover:bg-brand-700 text-white px-7 py-3.5 font-medium transition-all duration-200 shadow-soft hover:shadow-soft-lg hover:-translate-y-0.5"
                 >
                   View Projects
+                  <svg
+                    className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
                 </a>
                 <a
                   href="/about/"
-                  className="inline-flex items-center justify-center rounded-md border-2 border-zinc-300 dark:border-zinc-700 text-palette-primary hover:bg-zinc-50 dark:hover:bg-zinc-900 px-6 py-3 font-medium transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-palette-primary dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800 px-7 py-3.5 font-medium transition-all duration-200 shadow-sm hover:shadow-md"
                 >
                   Learn More
                 </a>
                 <a
                   href="/contact/"
-                  className="inline-flex items-center justify-center rounded-md border-2 border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950/30 px-6 py-3 font-medium transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg border-2 border-brand-500 dark:border-brand-600 text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950/30 px-7 py-3.5 font-medium transition-all duration-200"
                 >
                   Contact
                 </a>
               </div>
 
               {/* Social Links */}
-              <div className="flex items-center gap-4 pt-2">
-                <span className="text-sm text-palette-secondary">Connect:</span>
-                <div className="flex items-center gap-3">
+              <div className="flex items-center gap-5 pt-4">
+                <span className="text-sm font-medium text-palette-secondary dark:text-zinc-500">
+                  Connect:
+                </span>
+                <div className="flex items-center gap-4">
                   <a
                     href={socials.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-palette-secondary hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                    className="text-palette-secondary dark:text-zinc-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-200 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800"
                     aria-label="GitHub"
                   >
                     <svg
@@ -157,7 +178,7 @@ export default async function HomePage() {
                     href={socials.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-palette-secondary hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                    className="text-palette-secondary dark:text-zinc-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-200 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800"
                     aria-label="X (Twitter)"
                   >
                     <svg
@@ -172,7 +193,7 @@ export default async function HomePage() {
                     href={socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-palette-secondary hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                    className="text-palette-secondary dark:text-zinc-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-200 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800"
                     aria-label="LinkedIn"
                   >
                     <svg
@@ -185,7 +206,7 @@ export default async function HomePage() {
                   </a>
                   <a
                     href={`mailto:${socials.email}`}
-                    className="text-palette-secondary hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                    className="text-palette-secondary dark:text-zinc-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-200 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800"
                     aria-label="Email"
                   >
                     <svg
@@ -208,10 +229,11 @@ export default async function HomePage() {
 
             {/* Profile Photo */}
             <div className="flex justify-center md:justify-end">
-              <div className="relative">
+              <div className="relative animate-fade-in">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-500/20 to-transparent rounded-full blur-2xl" />
                 <ProfilePhoto
                   size={200}
-                  className="w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] md:w-[220px] md:h-[220px]"
+                  className="relative w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] border-2 border-zinc-200 dark:border-zinc-800 shadow-soft-lg"
                 />
               </div>
             </div>
@@ -222,10 +244,10 @@ export default async function HomePage() {
       <SectionDivider variant="infinity" />
 
       {/* Featured Quote/Philosophy Section */}
-      <Section className="py-16 sm:py-20 bg-gradient-to-b from-zinc-50 via-zinc-50/50 to-transparent dark:from-zinc-900/50 dark:via-zinc-900/30 dark:to-transparent relative overflow-hidden">
+      <Section className="py-20 sm:py-24 bg-gradient-to-b from-zinc-50/80 via-white to-transparent dark:from-zinc-950/80 dark:via-black dark:to-transparent relative overflow-hidden">
         {/* Subtle pattern overlay */}
         <div
-          className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03] pointer-events-none"
+          className="absolute inset-0 opacity-[0.015] dark:opacity-[0.02] pointer-events-none"
           style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
             backgroundSize: "40px 40px",
@@ -233,21 +255,21 @@ export default async function HomePage() {
         />
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <blockquote className="text-2xl sm:text-3xl md:text-4xl font-light italic text-palette-primary leading-relaxed mb-6">
+            <blockquote className="text-3xl sm:text-4xl md:text-5xl font-light italic text-palette-primary dark:text-zinc-100 leading-relaxed mb-8 px-4">
               "Knowledge is the only infinite resource — and the only one that
               creates every other resource."
             </blockquote>
-            <p className="text-base sm:text-lg text-palette-secondary">
+            <p className="text-base sm:text-lg text-palette-secondary dark:text-zinc-400 font-medium mb-10">
               — The Infinite Growth Principle
             </p>
-            <div className="mt-8">
+            <div className="mt-10">
               <a
                 href="/vision/"
-                className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:underline font-medium"
+                className="group inline-flex items-center text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 font-medium transition-colors duration-200"
               >
                 Explore the philosophy
                 <svg
-                  className="w-4 h-4 ml-1"
+                  className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -266,14 +288,14 @@ export default async function HomePage() {
       </Section>
 
       {/* Stats Section */}
-      <Section className="py-12 sm:py-16 bg-zinc-50 dark:bg-zinc-900/30 relative overflow-hidden">
+      <Section className="py-16 sm:py-20 bg-gradient-to-b from-white via-zinc-50/50 to-white dark:from-black dark:via-zinc-950/50 dark:to-black relative overflow-hidden">
         {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-50/20 to-transparent dark:via-brand-950/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-50/30 to-transparent dark:via-brand-950/20 pointer-events-none" />
         <Container className="relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-            <AnimatedStat value="23+" label="Companies Founded" suffix="+" />
-            <AnimatedStat value="20+" label="Years Experience" suffix="+" />
-            <AnimatedStat value="5+" label="Domains" suffix="+" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
+            <AnimatedStat value="2" label="Companies Founded" suffix="+" />
+            <AnimatedStat value="5+" label="Years Experience" suffix="+" />
+            <AnimatedStat value="6+" label="Domains" suffix="+" />
             <AnimatedStat value="∞" label="Infinite Growth" />
           </div>
         </Container>
@@ -282,29 +304,29 @@ export default async function HomePage() {
       <SectionDivider variant="geometric" />
 
       {/* Featured Principle Section */}
-      <Section className="py-12 sm:py-16">
+      <Section className="py-16 sm:py-20">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <div className="rounded-lg border-2 border-brand-200 dark:border-brand-800 bg-brand-50/50 dark:bg-brand-950/30 p-8 sm:p-10">
-              <div className="text-center mb-4">
-                <span className="text-sm font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wide">
+            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-white to-zinc-50/50 dark:from-zinc-950 dark:to-zinc-900/50 p-10 sm:p-12 shadow-soft hover:shadow-soft-lg transition-shadow duration-300">
+              <div className="text-center mb-6">
+                <span className="inline-block text-xs font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wider px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/50">
                   Core Principle
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-semibold text-palette-primary text-center mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-palette-primary dark:text-zinc-100 text-center mb-5 leading-tight">
                 Truth is the foundation of all progress.
               </h2>
-              <p className="text-base sm:text-lg text-palette-secondary text-center leading-relaxed">
+              <p className="text-lg sm:text-xl text-palette-secondary dark:text-zinc-400 text-center leading-relaxed font-light">
                 Illusions may comfort, but only truth compounds.
               </p>
-              <div className="mt-6 text-center">
+              <div className="mt-8 text-center">
                 <a
                   href="/about/#principles"
-                  className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:underline font-medium text-sm"
+                  className="group inline-flex items-center text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 font-medium text-sm transition-colors duration-200"
                 >
                   View all principles
                   <svg
-                    className="w-4 h-4 ml-1"
+                    className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -332,17 +354,17 @@ export default async function HomePage() {
           intro="Areas of deep expertise and exploration"
         >
           <Container>
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
               {skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 px-5 py-3 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-md"
+                  className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-6 py-4 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft hover:-translate-y-1"
                 >
-                  <h3 className="font-semibold text-base group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                  <h3 className="font-semibold text-base text-palette-primary dark:text-zinc-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {skill.name}
                   </h3>
                   {skill.items && skill.items.length > 0 && (
-                    <p className="text-xs text-palette-secondary mt-1">
+                    <p className="text-xs text-palette-secondary dark:text-zinc-500 mt-1.5">
                       {skill.items.slice(0, 2).join(", ")}
                       {skill.items.length > 2 && " +"}
                     </p>
@@ -350,14 +372,14 @@ export default async function HomePage() {
                 </div>
               ))}
             </div>
-            <div className="mt-8 text-center">
+            <div className="mt-10 text-center">
               <a
                 href="/skills/"
-                className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:underline font-medium text-sm"
+                className="group inline-flex items-center text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 font-medium text-sm transition-colors duration-200"
               >
                 View all skills
                 <svg
-                  className="w-4 h-4 ml-1"
+                  className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -392,10 +414,10 @@ export default async function HomePage() {
       <SectionDivider variant="pattern" />
 
       {/* Current Focus Section */}
-      <Section className="py-12 sm:py-16 bg-zinc-50 dark:bg-zinc-900/30 relative overflow-hidden">
+      <Section className="py-16 sm:py-20 bg-gradient-to-b from-white via-zinc-50/30 to-white dark:from-black dark:via-zinc-950/30 dark:to-black relative overflow-hidden">
         {/* Subtle pattern */}
         <div
-          className="absolute inset-0 opacity-[0.015] dark:opacity-[0.02] pointer-events-none"
+          className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03] pointer-events-none"
           style={{
             backgroundImage: `linear-gradient(45deg, currentColor 1px, transparent 1px),
                                 linear-gradient(-45deg, currentColor 1px, transparent 1px)`,
@@ -404,42 +426,47 @@ export default async function HomePage() {
         />
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-6 text-center text-palette-primary">
-              Current Focus (2025–2030)
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
-                <h3 className="font-semibold text-base mb-2 text-palette-primary">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3 text-palette-primary dark:text-zinc-100">
+                Current Focus (2025–2030)
+              </h2>
+              <p className="text-palette-secondary dark:text-zinc-400 text-lg">
+                Strategic initiatives shaping the next phase of growth
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft hover:-translate-y-0.5">
+                <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200">
                   Building Intelligent Companies
                 </h3>
-                <p className="text-sm text-palette-secondary">
+                <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
                   Building intelligent, scalable companies grounded in
                   innovation and long-term value.
                 </p>
               </div>
-              <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
-                <h3 className="font-semibold text-base mb-2 text-palette-primary">
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft hover:-translate-y-0.5">
+                <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200">
                   MyPrinciple Framework
                 </h3>
-                <p className="text-sm text-palette-secondary">
+                <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
                   Synthesizing philosophy, science, and engineering into a
                   personal framework (MyPrinciple).
                 </p>
               </div>
-              <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
-                <h3 className="font-semibold text-base mb-2 text-palette-primary">
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft hover:-translate-y-0.5">
+                <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200">
                   Inner Freedom & Clarity
                 </h3>
-                <p className="text-sm text-palette-secondary">
+                <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
                   Cultivating inner freedom and psychological clarity for
                   sustained creative flow.
                 </p>
               </div>
-              <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5 hover:border-brand-500 dark:hover:border-brand-500 transition-colors">
-                <h3 className="font-semibold text-base mb-2 text-palette-primary">
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft hover:-translate-y-0.5">
+                <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200">
                   Civilization-Scale Systems
                 </h3>
-                <p className="text-sm text-palette-secondary">
+                <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
                   Designing civilization-scale systems that integrate AI,
                   ethics, and human evolution.
                 </p>
@@ -450,50 +477,50 @@ export default async function HomePage() {
       </Section>
 
       {/* Quick Navigation */}
-      <Section className="py-12 sm:py-16">
+      <Section className="py-16 sm:py-20">
         <Container>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
             <a
               href="/about/"
-              className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
+              className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg hover:-translate-y-1"
             >
-              <h3 className="font-semibold text-lg mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                 About
               </h3>
-              <p className="text-sm text-palette-secondary">
+              <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
                 Learn about my philosophy, mission, and work
               </p>
             </a>
             <a
               href="/projects/"
-              className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
+              className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg hover:-translate-y-1"
             >
-              <h3 className="font-semibold text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2">
+              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                 Projects
               </h3>
-              <p className="text-sm text-palette-secondary">
+              <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
                 Explore my technology ventures and research
               </p>
             </a>
             <a
               href="/blog/"
-              className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
+              className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg hover:-translate-y-1"
             >
-              <h3 className="font-semibold text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2">
+              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                 Blog
               </h3>
-              <p className="text-sm text-palette-secondary">
+              <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
                 Essays on knowledge, systems, and the future
               </p>
             </a>
             <a
               href="/vision/"
-              className="group rounded-lg border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all hover:shadow-lg hover:-translate-y-1"
+              className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg hover:-translate-y-1"
             >
-              <h3 className="font-semibold text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2">
+              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                 Vision
               </h3>
-              <p className="text-sm text-palette-secondary">
+              <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
                 The Infinite Growth Principle philosophy
               </p>
             </a>
@@ -591,18 +618,18 @@ export default async function HomePage() {
         </Section>
       )}
 
-      <SectionDivider variant="infinity" />
+      <SectionDivider variant="geometric" />
 
       {/* Call-to-Action Section */}
-      <Section className="py-16 sm:py-20 bg-gradient-to-b from-transparent via-zinc-50/50 to-zinc-50 dark:via-zinc-900/30 dark:to-zinc-900/30 relative overflow-hidden">
+      <Section className="py-20 sm:py-24 bg-gradient-to-b from-transparent via-zinc-50/80 to-zinc-50 dark:via-zinc-950/50 dark:to-zinc-950/80 relative overflow-hidden">
         {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-50/20 via-transparent to-transparent dark:from-brand-950/10 pointer-events-none" />
         <Container className="relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-4 text-palette-primary">
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6 text-palette-primary dark:text-zinc-100">
               Let's Build the Future Together
             </h2>
-            <p className="text-lg sm:text-xl text-palette-secondary mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-palette-secondary dark:text-zinc-400 mb-10 leading-relaxed px-4">
               Whether you're exploring collaboration, seeking insights on
               systems thinking, or interested in advancing civilization-scale
               technologies, I'd love to connect.
@@ -610,13 +637,26 @@ export default async function HomePage() {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/contact/"
-                className="inline-flex items-center justify-center rounded-md bg-brand-500 hover:bg-brand-600 text-white px-8 py-3 font-medium transition-colors shadow-sm hover:shadow-md"
+                className="group inline-flex items-center justify-center rounded-lg bg-brand-500 hover:bg-brand-600 dark:bg-brand-600 dark:hover:bg-brand-700 text-white px-8 py-3.5 font-medium transition-all duration-200 shadow-soft hover:shadow-soft-lg hover:-translate-y-0.5"
               >
                 Get in Touch
+                <svg
+                  className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </a>
               <a
                 href="/about/"
-                className="inline-flex items-center justify-center rounded-md border-2 border-zinc-300 dark:border-zinc-700 text-palette-primary hover:bg-zinc-50 dark:hover:bg-zinc-900 px-8 py-3 font-medium transition-colors"
+                className="inline-flex items-center justify-center rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-palette-primary dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800 px-8 py-3.5 font-medium transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 Learn More
               </a>

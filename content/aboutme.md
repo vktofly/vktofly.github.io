@@ -38,6 +38,10 @@ It's rooted in the works of:
 
 Their ideas converge in mine: To grow infinitely, one must learn infinitely — and to learn infinitely, one must be free.
 
+> **Explore more:** [Influential People](/people/) — A deeper look at the thinkers, philosophers, and builders who have shaped my approach to knowledge, creation, and infinite growth.
+
+> **Read more:** [What is a Hero? — On Universal Constructors and the Responsibility of Creation](/blog/what-is-a-hero/) — An exploration of heroism as universal construction, knowledge creation, and the responsibility of advancing civilization.
+
 ## Freedom from the Known
 
 For me, innovation is impossible without inner freedom. You cannot create the future while being unconsciously shaped by the past.
@@ -71,6 +75,8 @@ I see creation not as ambition, but as responsibility. If you've been given the 
 That's what drives me — the quiet, endless pursuit of understanding and the translation of that understanding into things that matter.
 
 My companies are simply extensions of this: Living organisms of knowledge that evolve as they operate, learn as they grow, and contribute to humanity's collective intelligence.
+
+This understanding of creation as responsibility—of the creator as hero—is explored in depth in my essay: [What is a Hero?](/blog/what-is-a-hero/)
 
 ## My Work Today
 

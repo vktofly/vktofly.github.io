@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import Providers from './providers';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ErrorBoundary from '../components/ErrorBoundary';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -88,9 +89,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${mono.variable}`}>
       <body className="font-sans min-h-screen bg-[color:var(--tertiary,#F8F8F8)] text-[color:var(--primary,#222222)] dark:bg-black dark:text-zinc-100">
         <Providers>
-          <Header />
-          <main className="py-24">{children}</main>
-          <Footer />
+          <ErrorBoundary>
+            <Header />
+            <main className="py-24">{children}</main>
+            <Footer />
+          </ErrorBoundary>
         </Providers>
       </body>
     </html>

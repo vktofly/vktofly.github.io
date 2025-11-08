@@ -6,6 +6,7 @@ import KeyTakeaways from "../../../components/KeyTakeaways";
 import BlogPostCTA from "../../../components/BlogPostCTA";
 import RelatedPosts from "../../../components/RelatedPosts";
 import BlogPostNavigation from "../../../components/BlogPostNavigation";
+import TextToSpeech from "../../../components/TextToSpeech";
 import JsonLd from "../../../components/JsonLd";
 import Image from "next/image";
 import { generateOgImageMetadata, getOgImage } from "../../../lib/og-images";
@@ -148,9 +149,15 @@ export default async function BlogPostPage({ params }) {
       <ReadingProgress targetId="article-content" />
       <Section
         title={post.title}
-        intro={`${formatDate(post.date)} • ${
-          post.readingTime
-        } min read • ${post.words.toLocaleString()} words`}
+        intro={
+          <div className="flex flex-wrap items-center gap-4">
+            <span>
+              {formatDate(post.date)} • {post.readingTime} min read •{" "}
+              {post.words.toLocaleString()} words
+            </span>
+            <TextToSpeech text={post.html} title={post.title} />
+          </div>
+        }
       >
         {/* OG Image Display */}
         {hasOgImage && (

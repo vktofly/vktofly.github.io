@@ -16,6 +16,13 @@ const experience = [
     location: 'Delhi',
     summary:
       'Now building companies, ideas, and frameworks that scale human potential. This phase is about creation at civilization scale — merging philosophy, AI, and design into systems that expand knowledge and consciousness. Not just growth in wealth, but growth in understanding.',
+    achievements: [
+      'Founded 23+ technology companies',
+      'Building AGI architectures',
+      'Civilization-scale systems design',
+    ],
+    skills: ['Venture Architecture', 'AGI Architectures', 'Systems Thinking', 'Organizational Design'],
+    // logo: '/logos/company.png', // Optional: Add company logo
   },
   {
     company: 'Return to Delhi: Integration & Innovation',
@@ -56,6 +63,11 @@ const experience = [
     location: 'Engineering College',
     summary:
       'Pursued Computer Science and Engineering. Transitioned from equations to systems, from curiosity to creation. Explored AI, robotics, cosmology, quantum theory, and philosophy. Began to see technology as the most direct way to materialize imagination.',
+    achievements: [
+      'Computer Science Engineering degree',
+      'Explored AI, robotics, quantum theory',
+    ],
+    skills: ['AI & Cognitive Systems', 'Quantum Computing', 'Robotics', 'Systems Thinking'],
   },
   {
     company: 'Competition & Self-Mastery',
@@ -64,6 +76,10 @@ const experience = [
     location: 'Delhi',
     summary:
       'Prepared for JEE, India\'s most competitive engineering exam. This phase forged discipline, intellectual endurance, and the first brush with large-scale ambition.',
+    achievements: [
+      'Prepared for India\'s most competitive exam',
+      'Forged discipline and intellectual endurance',
+    ],
   },
   {
     company: 'The Fall that Awakened Me',
@@ -80,6 +96,10 @@ const experience = [
     location: 'School',
     summary:
       'Topped almost every class from 6th to 10th. Became deeply curious about cosmology, physics, and the hidden structure of reality. Those years built the mental skeleton for how I see the world — as a complex, self-evolving system.',
+    achievements: [
+      'Topped almost every class (6th-10th)',
+      'Built foundation for systems thinking',
+    ],
   },
   {
     company: 'First Recognition',

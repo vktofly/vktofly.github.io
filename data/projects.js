@@ -21,17 +21,19 @@ const projects = [
     longDescription: 'A comprehensive exploration of how knowledge compounds and systems evolve...', // Optional
     href: '#', // External link to project
     github: 'https://github.com/vktofly/project', // Optional
-    image: '/images/projects/infinite-growth.jpg', // Optional - add to public/images/projects/
+    image: '/images/projects/infinite-growth.jpg', // Optional - add to public/images/projects/ or use Unsplash
+    category: 'systems', // 'ai' | 'quantum' | 'robotics' | 'space' | 'philosophy' | 'systems'
     tags: ['Philosophy', 'Systems', 'Writing'],
     status: 'active', // 'active' | 'completed' | 'archived'
     featured: true, // Show on homepage
     date: '2024-01-15', // Launch/completion date
     technologies: ['React', 'Next.js', 'TypeScript'], // Optional
-    // metrics: { // Optional - impressive numbers
-    //   users: '10K+',
-    //   revenue: '$500K',
-    //   impact: '50+ companies',
-    // },
+    metrics: { // Optional - impressive numbers
+      users: '10K+',
+      revenue: '$500K',
+      impact: '50+ companies',
+      companies: '23+',
+    },
   },
   // Add more projects here...
   // {
