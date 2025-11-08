@@ -152,9 +152,7 @@ export default async function BookBlogPage({ params }) {
 
             {/* Blog Content */}
             <div id="book-blog-content" className="min-w-0">
-              <Prose>
-                <div dangerouslySetInnerHTML={{ __html: blog.html }} />
-              </Prose>
+              <Prose html={blog.html || ''} />
 
               {/* Recommended Books Section */}
               {recommendedBooks.length > 0 && (
