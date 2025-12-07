@@ -18,7 +18,7 @@ Every stage of my life — from the chaos of failure to the calm of understandin
 
 For years, I chased answers — in equations, algorithms, and ideas. But I realized that answers aren't the end of thinking — they're the beginning of creation.
 
-That realization transformed my path. I stopped being just a learner of knowledge and became a creator of knowledge systems — using technology and philosophy as dual instruments.
+That realization transformed my path. I stopped being just a learner of knowledge and became a creator of knowledge systems — using technology and philosophy as dual instruments. My [Professional Experience](/experience/) traces this evolution from curiosity to creation.
 
 In science, I see the search for truth. In technology, the embodiment of that truth. In philosophy, the courage to question the truth itself.
 
@@ -26,7 +26,7 @@ Together, they form my lifelong triad: **Understand deeply. Build consciously. L
 
 ## My Philosophy: Infinite Growth
 
-My core philosophy is what I call **Infinite Growth** — the belief that every system, from a single human mind to civilization itself, can evolve endlessly through the creation of knowledge and the refinement of understanding.
+My core philosophy is what I call **[Infinite Growth](/vision/)** — the belief that every system, from a single human mind to civilization itself, can evolve endlessly through the creation of knowledge and the refinement of understanding.
 
 Growth here doesn't mean expansion of scale or wealth. It means the deepening of explanation, creativity, and consciousness.
 
@@ -74,7 +74,7 @@ I see creation not as ambition, but as responsibility. If you've been given the 
 
 That's what drives me — the quiet, endless pursuit of understanding and the translation of that understanding into things that matter.
 
-My companies are simply extensions of this: Living organisms of knowledge that evolve as they operate, learn as they grow, and contribute to humanity's collective intelligence.
+My [companies and projects](/projects/) are simply extensions of this: Living organisms of knowledge that evolve as they operate, learn as they grow, and contribute to humanity's collective intelligence.
 
 This understanding of creation as responsibility—of the creator as hero—is explored in depth in my essay: [What is a Hero?](/blog/what-is-a-hero/)
 

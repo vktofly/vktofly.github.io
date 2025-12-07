@@ -111,6 +111,7 @@ export function BookImageFetcher({ onImageFetched }) {
               Found Image:
             </div>
             <div className="relative w-full aspect-[2/3] rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={imageUrl}
                 alt="Book cover"
@@ -207,6 +208,7 @@ export function PersonImageFetcher({ onImageFetched }) {
               Image URL:
             </div>
             <div className="relative w-full aspect-square rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={imageUrl}
                 alt="Person"

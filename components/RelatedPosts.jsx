@@ -26,32 +26,68 @@ function formatDate(date) {
 export default function RelatedPosts({ currentPost, allPosts, maxPosts = 3 }) {
   if (!currentPost || !allPosts || allPosts.length === 0) return null;
 
-  // Find related posts by shared tags
-  const relatedPosts = allPosts
-    .filter((post) => {
-      // Exclude current post
-      if (post.slug === currentPost.slug) return false;
-      
-      // If current post has tags, find posts with matching tags
-      if (currentPost.tags && currentPost.tags.length > 0) {
-        const sharedTags = post.tags?.filter((tag) =>
-          currentPost.tags.includes(tag)
-        );
-        return sharedTags && sharedTags.length > 0;
-      }
-      
-      // If no tags, return false
-      return false;
-    })
-    .slice(0, maxPosts);
+  // Advanced related posts algorithm
+  const findRelatedPosts = (current, posts) => {
+    const related = posts
+      .filter((post) => post.slug !== current.slug)
+      .map((post) => {
+        let score = 0;
 
-  // If no related posts by tags, show recent posts
+        // Tag matching (highest weight)
+        if (current.tags && post.tags) {
+          const sharedTags = current.tags.filter(tag => post.tags.includes(tag));
+          score += sharedTags.length * 10;
+        }
+
+        // Category matching (medium weight)
+        if (current.category && post.category && current.category === post.category) {
+          score += 5;
+        }
+
+        // Title keyword matching (lower weight)
+        if (current.title && post.title) {
+          const currentWords = current.title.toLowerCase().split(/\s+/);
+          const postWords = post.title.toLowerCase().split(/\s+/);
+          const sharedWords = currentWords.filter(word =>
+            word.length > 3 && postWords.includes(word)
+          );
+          score += sharedWords.length * 2;
+        }
+
+        // Recency boost (slight preference for recent content)
+        if (post.date) {
+          const postDate = new Date(post.date);
+          const now = new Date();
+          const daysSince = (now - postDate) / (1000 * 60 * 60 * 24);
+          if (daysSince < 365) {
+            score += Math.max(0, (365 - daysSince) / 365); // Boost recent posts
+          }
+        }
+
+        return { ...post, relevanceScore: score };
+      })
+      .filter((post) => post.relevanceScore > 0)
+      .sort((a, b) => b.relevanceScore - a.relevanceScore)
+      .slice(0, maxPosts);
+
+    return related;
+  };
+
+  const relatedPosts = findRelatedPosts(currentPost, allPosts);
+
+  // If no highly related posts, show recent posts as fallback
   const postsToShow =
-    relatedPosts.length > 0
+    relatedPosts.length >= 2
       ? relatedPosts
-      : allPosts
-          .filter((post) => post.slug !== currentPost.slug)
-          .slice(0, maxPosts);
+      : [
+          ...relatedPosts,
+          ...allPosts
+            .filter((post) =>
+              post.slug !== currentPost.slug &&
+              !relatedPosts.some((rp) => rp.slug === post.slug)
+            )
+            .slice(0, maxPosts - relatedPosts.length)
+        ];
 
   if (postsToShow.length === 0) return null;
 

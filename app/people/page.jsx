@@ -23,6 +23,9 @@ export const metadata = {
     "Leonardo da Vinci",
     "influences",
     "intellectual network",
+    "intellectual genealogy",
+    "mental models",
+    "thought leaders",
   ],
   openGraph: {
     title: "Influential People — Vikash",

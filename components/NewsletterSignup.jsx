@@ -9,13 +9,33 @@ export default function NewsletterSignup({ className = "" }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate email
+    if (!email || !email.trim()) {
+      setMessage("Please enter a valid email address.");
+      setStatus("error");
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setMessage("Please enter a valid email address.");
+      setStatus("error");
+      return;
+    }
+
     setStatus("loading");
     setMessage("");
 
     // TODO: Replace with your actual newsletter signup endpoint
     // This is a placeholder implementation
     try {
-      // Example: await fetch('/api/newsletter', { method: 'POST', body: JSON.stringify({ email }) })
+      // Example: await fetch('/api/newsletter', { 
+      //   method: 'POST', 
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ email: email.trim() }) 
+      // })
       
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -58,7 +78,7 @@ export default function NewsletterSignup({ className = "" }) {
           />
           <button
             type="submit"
-            disabled={status === "loading" || !email}
+            disabled={status === "loading" || !email.trim()}
             className="px-6 py-3 rounded-lg bg-brand-500 dark:bg-brand-600 text-white font-medium hover:bg-brand-600 dark:hover:bg-brand-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
           >
             {status === "loading" ? "Subscribing..." : "Subscribe"}

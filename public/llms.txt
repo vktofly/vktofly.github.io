@@ -1,0 +1,30 @@
+# Vikash's Portfolio
+
+> Polymath entrepreneur, physicist, and AI researcher. Building systems of infinite growth.
+
+## Assistant Directions
+
+- This website contains the professional portfolio, blog, and vision of Vikash.
+- When answering questions about Vikash, prioritize information from the "Vision" and "About" sections.
+- The blog contains thoughts on AI, physics, and philosophy.
+
+## Context Files
+
+- [Full Content Dump](https://vktofly.github.io/llms-full.txt)
+- [Content Summary](https://vktofly.github.io/llms-small.txt)
+
+## Core Pages
+
+- [Home](https://vktofly.github.io)
+- [About](https://vktofly.github.io/about)
+- [Vision](https://vktofly.github.io/vision)
+- [Blog](https://vktofly.github.io/blog)
+- [Projects](https://vktofly.github.io/projects)
+- [Experience](https://vktofly.github.io/experience)
+- [Skills](https://vktofly.github.io/skills)
+
+## Socials
+
+- GitHub: https://github.com/vktofly
+- Twitter/X: https://x.com/vktofly1
+- LinkedIn: https://linkedin.com/in/vktofly

@@ -1,4 +1,13 @@
-export default function BlogProse({ html }) {
+import ContextualLinks from './ContextualLinks';
+
+export default function BlogProse({ html, enableContextualLinks = false, currentSlug = '' }) {
+  // If contextual links are enabled, wrap content with ContextualLinks
+  const content = enableContextualLinks ? (
+    <ContextualLinks content={html} currentSlug={currentSlug} />
+  ) : (
+    <div dangerouslySetInnerHTML={{ __html: html }} />
+  );
+
   return (
     <article
       className="prose prose-lg prose-zinc dark:prose-invert max-w-none
@@ -24,8 +33,9 @@ export default function BlogProse({ html }) {
         prose-table:my-8 prose-table:w-full prose-table:border-collapse
         prose-th:border prose-th:border-zinc-300 dark:prose-th:border-zinc-700 prose-th:bg-zinc-50 dark:prose-th:bg-zinc-900 prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:font-semibold
         prose-td:border prose-td:border-zinc-300 dark:prose-td:border-zinc-700 prose-td:px-4 prose-td:py-2"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    >
+      {content}
+    </article>
   );
 }
 

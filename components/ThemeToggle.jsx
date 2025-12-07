@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
   
   useEffect(() => setMounted(true), []);
 
@@ -16,7 +17,6 @@ export default function ThemeToggle() {
     );
   }
 
-  const { theme, setTheme, resolvedTheme } = useTheme();
   const isDark = (resolvedTheme || theme) === 'dark';
 
   return (

@@ -17,4 +17,6 @@ pnpm-debug.log*
 
 .env*
 
+.localdata
+
 

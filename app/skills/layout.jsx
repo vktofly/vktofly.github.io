@@ -1,4 +1,5 @@
 import { generateOgImageMetadata } from '../../lib/og-images';
+import JsonLd from '../../components/JsonLd';
 
 export const metadata = {
   title: 'Skills & Expertise — Vikash',
@@ -27,6 +28,50 @@ export const metadata = {
 };
 
 export default function SkillsLayout({ children }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Skills & Expertise",
+          "description": "Comprehensive overview of technical and cognitive skills",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Meta Skills"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Methodologies"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Philosophical Foundations"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Leadership & Strategy"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Research & Exploration"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "Core Domains"
+            }
+          ]
+        }}
+      />
+      {children}
+    </>
+  );
 }
 

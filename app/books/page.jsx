@@ -1,5 +1,6 @@
 import BooksPageClient from "./BooksPageClient";
 import { generateOgImageMetadata } from "../../lib/og-images";
+import JsonLd from "../../components/JsonLd";
 import books from "../../data/books";
 
 export const metadata = {
@@ -19,6 +20,11 @@ export const metadata = {
     "Naval Ravikant",
     "infinite growth",
     "knowledge compounding",
+    "intellectual curriculum",
+    "founder reading list",
+    "polymath library",
+    "autodidact resources",
+    "mental models",
   ],
   openGraph: {
     title: "Books — Vikash",
@@ -26,6 +32,14 @@ export const metadata = {
       "A curated collection of books that have shaped thinking, philosophy, and work. Knowledge compounds infinitely.",
     url: "https://vktofly.github.io/books/",
     images: [generateOgImageMetadata("books", null, "Books — Vikash")],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Books — Vikash",
+    description: "A curated library for the infinite learner.",
+    creator: "@vktofly1",
+    site: "@vktofly1",
+    images: [generateOgImageMetadata("books", null, "Books — Vikash").url],
   },
   alternates: {
     canonical: "/books/",
@@ -77,6 +91,39 @@ export default function BooksPage() {
   const navigationSections = booksByCategory.map((cat) => ({
     id: `category-${cat.id}`,
     label: cat.label,
+  }));
+
+  // Generate structured data for books
+  const booksStructuredData = books.map((book) => ({
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": book.title,
+    "author": {
+      "@type": "Person",
+      "name": book.author
+    },
+    "datePublished": book.year?.toString(),
+    "description": book.whyItMatters,
+    "genre": book.category,
+    "image": book.coverImage,
+    "url": `https://vktofly.github.io/books/${book.slug}/`,
+    "publisher": book.publisher || undefined,
+    "isbn": book.isbn || undefined,
+    "inLanguage": "en",
+    "about": book.tags,
+    "review": {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Vikash"
+      },
+      "reviewBody": book.whyItMatters,
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": book.impact === "high" ? "5" : "4",
+        "bestRating": "5"
+      }
+    }
   }));
 
   return (

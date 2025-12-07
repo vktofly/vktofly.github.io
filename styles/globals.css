@@ -13,6 +13,47 @@ body, #__next {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  @apply bg-cosmic-950 text-slate-200 selection:bg-cosmic-100/20 selection:text-white;
+}
+
+/* Cosmic Background Utilities */
+/* Cosmic Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030712; 
+}
+::-webkit-scrollbar-thumb {
+  background: #334155; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; 
+}
+
+.bg-stars {
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #ffffff 50%, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, #ffffff 50%, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 50px 160px, #ffffff 50%, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #ffffff 50%, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 130px 80px, #ffffff 50%, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 160px 120px, #ffffff 50%, rgba(0,0,0,0));
+  background-size: 200px 200px;
+  opacity: 0.15;
+}
+
+.bg-nebula {
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.05), transparent 50%),
+    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.05), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.05), transparent 40%);
+  filter: blur(60px);
+  z-index: -1;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
 }
 
 /* Professional focus states */
@@ -157,6 +198,23 @@ a, button {
   }
   #skills-content .space-y-12 > * + * {
     margin-top: 1.5rem !important;
+  }
+}
+
+/* Giscus Comments Styles */
+.giscus {
+  max-width: 100%;
+}
+
+.giscus-frame {
+  color-scheme: light dark;
+}
+
+/* Hide comments in print */
+@media print {
+  .giscus,
+  .giscus-frame {
+    display: none !important;
   }
 }
 

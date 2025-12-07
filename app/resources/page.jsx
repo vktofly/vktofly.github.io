@@ -3,6 +3,7 @@ import Container from "../../components/Container";
 import SectionDivider from "../../components/SectionDivider";
 import Image from "next/image";
 import ResourcesFilter from "./ResourcesFilter";
+import JsonLd from "../../components/JsonLd";
 import { generateOgImageMetadata } from "../../lib/og-images";
 import books from "../../data/books";
 import podcasts from "../../data/podcasts";
@@ -26,6 +27,10 @@ export const metadata = {
     "AI",
     "systems thinking",
     "infinite growth",
+    "knowledge management",
+    "learning resources for founders",
+    "autodidact curriculum",
+    "intellectual tools",
   ],
   openGraph: {
     title: "Resources — Vikash",
@@ -33,6 +38,14 @@ export const metadata = {
       "A curated collection of books, podcasts, videos, and influential people that have shaped my thinking and work.",
     url: "https://vktofly.github.io/resources/",
     images: [generateOgImageMetadata("resources", null, "Resources — Vikash")],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resources — Vikash",
+    description: "Curated tools for thought and knowledge creation.",
+    creator: "@vktofly1",
+    site: "@vktofly1",
+    images: [generateOgImageMetadata("resources", null, "Resources — Vikash").url],
   },
   alternates: {
     canonical: "/resources/",
@@ -45,6 +58,32 @@ export default function ResourcesPage() {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Resources & Tools for Thought",
+          "description": "Curated collection of books, podcasts, and influential thinkers.",
+          "url": "https://vktofly.github.io/resources/",
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "url": "https://vktofly.github.io/books/",
+                "name": "Books"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "url": "https://vktofly.github.io/people/",
+                "name": "Influential People"
+              }
+            ]
+          }
+        }}
+      />
       {/* Hero Section */}
       <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
         {/* Subtle background image */}

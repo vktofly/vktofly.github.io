@@ -52,44 +52,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Person",
-          name: profile.name,
-          jobTitle: profile.role,
-          description: profile.summary,
-          url: "https://vktofly.github.io",
-          email: profile.email,
-          image: "https://vktofly.github.io/proflephoto/profile%20photo.jpg",
-          sameAs: [socials.github, socials.twitter, socials.linkedin],
-          knowsAbout: [
-            "Artificial Intelligence",
-            "Quantum Computing",
-            "Robotics",
-            "Space Systems",
-            "Epistemology",
-            "Systems Thinking",
-            "Entrepreneurship",
-            "Physics",
-          ],
-          alumniOf: "Multiple ventures and research institutions",
-          founder: "23+ technology companies",
-        }}
-      />
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "Vikash",
-          url: "https://vktofly.github.io",
-          description: profile.summary,
-          author: {
-            "@type": "Person",
-            name: profile.name,
-          },
-        }}
-      />
+
 
       {/* Hero Section */}
       <Section className="pt-16 sm:pt-20 pb-12 sm:pb-16 relative overflow-hidden">
@@ -256,8 +219,8 @@ export default async function HomePage() {
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <blockquote className="text-3xl sm:text-4xl md:text-5xl font-light italic text-palette-primary dark:text-zinc-100 leading-relaxed mb-8 px-4">
-              "Knowledge is the only infinite resource — and the only one that
-              creates every other resource."
+              &ldquo;Knowledge is the only infinite resource — and the only one that
+              creates every other resource.&rdquo;
             </blockquote>
             <p className="text-base sm:text-lg text-palette-secondary dark:text-zinc-400 font-medium mb-10">
               — The Infinite Growth Principle
@@ -627,12 +590,12 @@ export default async function HomePage() {
         <Container className="relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6 text-palette-primary dark:text-zinc-100">
-              Let's Build the Future Together
+              Let&apos;s Build the Future Together
             </h2>
             <p className="text-lg sm:text-xl text-palette-secondary dark:text-zinc-400 mb-10 leading-relaxed px-4">
-              Whether you're exploring collaboration, seeking insights on
+              Whether you&apos;re exploring collaboration, seeking insights on
               systems thinking, or interested in advancing civilization-scale
-              technologies, I'd love to connect.
+              technologies, I&apos;d love to connect.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a

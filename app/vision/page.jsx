@@ -18,6 +18,12 @@ export const metadata = {
     'epistemology',
     'systems thinking',
     'MyPrinciple',
+    'future of humanity',
+    'civilization design',
+    'evolutionary epistemology',
+    'technological singularity',
+    'post-humanism',
+    'existential risk',
   ],
   openGraph: {
     title: 'Vision — The Infinite Growth Principle',
@@ -25,6 +31,14 @@ export const metadata = {
     url: 'https://vktofly.github.io/vision/',
     type: 'article',
     images: [generateOgImageMetadata('vision', null, 'Vision — The Infinite Growth Principle')],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vision — The Infinite Growth Principle',
+    description: 'A philosophy of creation, civilization, and the future of intelligence.',
+    creator: '@vktofly1',
+    site: '@vktofly1',
+    images: [generateOgImageMetadata('vision', null, 'Vision — The Infinite Growth Principle').url],
   },
   alternates: {
     canonical: '/vision/',
@@ -37,6 +51,8 @@ export default async function VisionPage() {
   
   return (
     <>
+      <div className="fixed inset-0 z-0 bg-stars pointer-events-none" />
+      <div className="fixed inset-0 z-0 bg-nebula opacity-30 pointer-events-none" />
       <JsonLd
         data={{
           "@context": "https://schema.org",

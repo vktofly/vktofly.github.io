@@ -3,12 +3,14 @@ import Container from "../../components/Container";
 import Prose from "../../components/Prose";
 import ProfilePhoto from "../../components/ProfilePhoto";
 import JsonLd from "../../components/JsonLd";
+import FAQSchema from "../../components/FAQSchema";
 import ReadingProgress from "../../components/ReadingProgress";
 import Toc from "../../components/Toc";
 import BackToTop from "../../components/BackToTop";
 import Image from "next/image";
 import { generateOgImageMetadata } from "../../lib/og-images";
 import profile from "../../data/profile";
+import { generalFAQs } from "../../data/faqs";
 import { loadMarkdownAsHtml } from "../../lib/markdown";
 
 export const metadata = {
@@ -28,6 +30,11 @@ export const metadata = {
     "space systems",
     "epistemology",
     "infinite growth",
+    "civilization design",
+    "architect of understanding",
+    "deep tech founder",
+    "scientific leadership",
+    "cognitive architecture",
   ],
   openGraph: {
     title: "About — Vikash",
@@ -36,6 +43,15 @@ export const metadata = {
     url: "https://vktofly.github.io/about/",
     type: "profile",
     images: [generateOgImageMetadata("about", null, "About — Vikash")],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About — Vikash",
+    description:
+      "Polymath entrepreneur, physicist, and AI researcher. Building systems of infinite growth.",
+    creator: "@vktofly1",
+    site: "@vktofly1",
+    images: [generateOgImageMetadata("about", null, "About — Vikash").url],
   },
   alternates: {
     canonical: "/about/",
@@ -46,6 +62,9 @@ export default async function AboutPage() {
   const html = await loadMarkdownAsHtml("aboutme");
   return (
     <>
+      <div className="fixed inset-0 z-0 bg-stars pointer-events-none" />
+      <div className="fixed inset-0 z-0 bg-nebula opacity-30 pointer-events-none" />
+      <FAQSchema faqs={generalFAQs} />
       <ReadingProgress targetId="about-content" />
       <BackToTop />
 
@@ -153,7 +172,7 @@ export default async function AboutPage() {
                 — and progress is the acceleration of that evolution. Knowledge,
                 not capital, is the only resource that compounds infinitely, and
                 every company, algorithm, or philosophy that deepens
-                understanding becomes part of civilization's codebase. My work
+                understanding becomes part of civilization&apos;s codebase. My work
                 explores how technology — especially AI, quantum computation,
                 and cognitive systems — can be designed to make knowledge create
                 more knowledge, enabling human and machine intelligence to

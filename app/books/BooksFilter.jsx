@@ -492,7 +492,7 @@ export default function BooksFilter({ books }) {
                               {book.keyQuote && (
                                 <blockquote className="mt-3 mb-3 pb-3 border-b border-zinc-200 dark:border-zinc-800">
                                   <p className="text-sm text-palette-primary dark:text-zinc-200 italic leading-relaxed">
-                                    "{book.keyQuote}"
+                                    &ldquo;{book.keyQuote}&rdquo;
                                   </p>
                                 </blockquote>
                               )}
@@ -557,7 +557,7 @@ export default function BooksFilter({ books }) {
           ) : (
             <div
               className={
-                viewMode === "grid" ? "grid sm:grid-cols-2 gap-6" : "space-y-6"
+                viewMode === "grid" ? "grid md:grid-cols-2 gap-6" : "space-y-6"
               }
             >
               {filteredBooks.map((book) => (

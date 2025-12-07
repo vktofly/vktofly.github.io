@@ -3,6 +3,7 @@ import Container from '../../components/Container';
 import SectionDivider from '../../components/SectionDivider';
 import Image from 'next/image';
 import { generateOgImageMetadata } from '../../lib/og-images';
+import JsonLd from '../../components/JsonLd';
 import projects from '../../data/projects';
 import caseStudies from '../../data/caseStudies';
 import ProjectsFilter from './ProjectsFilter';
@@ -20,6 +21,10 @@ export const metadata = {
     'space systems',
     'technology',
     'startups',
+    'R&D',
+    'deep tech',
+    'software engineering',
+    'product development',
   ],
   openGraph: {
     title: 'Projects — Vikash',
@@ -33,8 +38,35 @@ export const metadata = {
 };
 
 export default function ProjectsPage() {
+  // Generate structured data for projects
+  const projectsStructuredData = projects.map((project) => ({
+    "@context": "https://schema.org",
+    "@type": project.category === 'ai' || project.category === 'quantum' || project.category === 'robotics' || project.category === 'space' ? "SoftwareApplication" : "CreativeWork",
+    "name": project.title,
+    "description": project.description,
+    "url": project.href || `https://vktofly.github.io/projects/${project.slug}/`,
+    "author": {
+      "@type": "Person",
+      "name": "Vikash",
+      "url": "https://vktofly.github.io"
+    },
+    "datePublished": project.date,
+    "applicationCategory": project.category,
+    "operatingSystem": project.technologies ? project.technologies.join(", ") : undefined,
+    "offers": project.href ? {
+      "@type": "Offer",
+      "url": project.href
+    } : undefined,
+    "keywords": project.tags?.join(", "),
+    "image": project.image,
+    "creativeWorkStatus": project.status === 'active' ? "Active" : project.status === 'completed' ? "Completed" : "Archived"
+  }));
+
   return (
+    
     <>
+      <div className="fixed inset-0 z-0 bg-stars pointer-events-none" />
+      <div className="fixed inset-0 z-0 bg-nebula opacity-30 pointer-events-none" />
       <Section 
         title="Projects" 
         intro="Selected work and experiments across AI, quantum computing, robotics, space systems, and cognitive interfaces"

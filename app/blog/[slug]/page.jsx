@@ -7,10 +7,14 @@ import BlogPostCTA from "../../../components/BlogPostCTA";
 import RelatedPosts from "../../../components/RelatedPosts";
 import BlogPostNavigation from "../../../components/BlogPostNavigation";
 import TextToSpeech from "../../../components/TextToSpeech";
+import InternalLinkMap from "../../../components/InternalLinkMap";
+import ContextualLinks from "../../../components/ContextualLinks";
+import BlogComments from "../../../components/BlogComments";
 import JsonLd from "../../../components/JsonLd";
 import Image from "next/image";
 import { generateOgImageMetadata, getOgImage } from "../../../lib/og-images";
 import { getAllPostsMeta, getPostBySlug } from "../../../lib/blog";
+import { generateMetaDescription } from "../../../lib/meta-generator";
 import fs from "fs/promises";
 import path from "path";
 
@@ -51,14 +55,20 @@ export async function generateMetadata({ params }) {
     : undefined;
   const url = `https://vktofly.github.io/blog/${post.slug}/`;
 
+  // Generate dynamic meta description (AI-enhanced if available)
+  const metaDescription = await generateMetaDescription(post, {
+    useAI: process.env.OPENAI_API_KEY ? true : false,
+    enhanceExisting: true,
+  });
+
   return {
     title: `${post.title} — Vikash`,
-    description: post.description || post.summary,
+    description: metaDescription,
     keywords: post.tags || [],
     authors: [{ name: "Vikash" }],
     openGraph: {
       title: post.title,
-      description: post.description || post.summary,
+      description: metaDescription,
       type: "article",
       url,
       publishedTime,
@@ -69,13 +79,22 @@ export async function generateMetadata({ params }) {
     twitter: {
       card: "summary_large_image",
       title: post.title,
-      description: post.description || post.summary,
+      description: metaDescription,
       creator: "@vktofly1",
+      site: "@vktofly1",
       images: [generateOgImageMetadata("blog", post.slug, post.title).url],
     },
     alternates: {
       canonical: `/blog/${post.slug}/`,
+      amp: `/blog/${post.slug}/amp/`,
     },
+    other: {
+      "citation_title": post.title,
+      "citation_author": "Vikash",
+      "citation_publication_date": publishedTime ? publishedTime.split('T')[0] : undefined,
+      "citation_online_date": publishedTime ? publishedTime.split('T')[0] : undefined,
+      "citation_language": "en",
+    }
   };
 }
 
@@ -146,6 +165,28 @@ export default async function BlogPostPage({ params }) {
           timeRequired: `PT${post.readingTime}M`,
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://vktofly.github.io"
+          },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://vktofly.github.io/blog"
+          },{
+            "@type": "ListItem",
+            "position": 3,
+            "name": post.title,
+            "item": url
+          }]
+        }}
+      />
       <ReadingProgress targetId="article-content" />
       <Section
         title={post.title}
@@ -199,16 +240,40 @@ export default async function BlogPostPage({ params }) {
             id="article-content"
             className={showToc ? "" : "max-w-3xl mx-auto"}
           >
-            <BlogProse html={post.html} />
+            <BlogProse
+              html={post.html}
+              enableContextualLinks={true}
+              currentSlug={post.slug}
+            />
 
             {/* Blog Post Navigation */}
             <BlogPostNavigation currentPost={post} allPosts={allPosts} />
 
+            {/* AMP Link */}
+            <div className="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-800">
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                <a
+                  href={`/blog/${post.slug}/amp/`}
+                  className="text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300 underline"
+                  rel="amphtml"
+                >
+                  View AMP version
+                </a>
+                {" "}for faster mobile loading
+              </p>
+            </div>
+
             {/* CTA Section */}
             <BlogPostCTA />
 
+            {/* Comments Section */}
+            <BlogComments slug={post.slug} />
+
             {/* Related Posts */}
             <RelatedPosts currentPost={post} allPosts={allPosts} />
+
+            {/* Internal Link Map for SEO */}
+            <InternalLinkMap currentPath={`/blog/${post.slug}/`} />
           </div>
         </div>
       </Section>

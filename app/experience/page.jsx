@@ -3,6 +3,7 @@ import Container from "../../components/Container";
 import Image from "next/image";
 import Link from "next/link";
 import InteractiveTimelineItem from "../../components/InteractiveTimelineItem";
+import JsonLd from "../../components/JsonLd";
 import { generateOgImageMetadata } from "../../lib/og-images";
 import experience from "../../data/experience";
 import skills from "../../data/skills";
@@ -23,6 +24,11 @@ export const metadata = {
     "entrepreneurship",
     "philosophy",
     "transformation",
+    "CV",
+    "resume",
+    "professional history",
+    "founder journey",
+    "executive career",
   ],
   openGraph: {
     title: "My Journey — From Curiosity to Creation",
@@ -85,6 +91,22 @@ export default function ExperiencePage() {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Professional Experience",
+          "itemListElement": experience.map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+              "@type": "Organization",
+              "name": item.company,
+              "description": item.description
+            }
+          }))
+        }}
+      />
       <Section
         title="My Journey"
         intro="From Curiosity to Creation — A timeline of how wonder evolved into purpose. From a village boy fascinated by the stars to an entrepreneur shaping the architecture of future civilizations."

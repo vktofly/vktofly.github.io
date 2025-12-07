@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 function extractTextFromHtml(html) {
   if (typeof document === 'undefined') return '';
@@ -14,10 +15,40 @@ export default function TextToSpeech({ text, title }) {
   const [isPaused, setIsPaused] = useState(false);
   const [isSupported, setIsSupported] = useState(false);
   const utteranceRef = useRef(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     setIsSupported('speechSynthesis' in window);
   }, []);
+
+  // Stop TTS when navigating away from the page
+  useEffect(() => {
+    const stopTTS = () => {
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      setIsPlaying(false);
+      setIsPaused(false);
+      utteranceRef.current = null;
+    };
+
+    // Stop TTS when pathname changes (navigation)
+    stopTTS();
+
+    // Also stop on page visibility change (tab switch, minimize, etc.)
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopTTS();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      stopTTS();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [pathname]);
 
   const getTextToSpeak = () => {
     if (typeof document === 'undefined') return title || '';
@@ -96,9 +127,15 @@ export default function TextToSpeech({ text, title }) {
     utteranceRef.current = null;
   };
 
+  // Cleanup on unmount
   useEffect(() => {
     return () => {
-      window.speechSynthesis.cancel();
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      setIsPlaying(false);
+      setIsPaused(false);
+      utteranceRef.current = null;
     };
   }, []);
 

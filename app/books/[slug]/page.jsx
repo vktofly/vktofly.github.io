@@ -160,7 +160,7 @@ export default async function BookBlogPage({ params }) {
                   <h2 className="text-2xl font-bold text-palette-primary dark:text-zinc-100 mb-6">
                     Recommended Books
                   </h2>
-                  <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-6">
                     {recommendedBooks.map((recBook) => (
                       <BookCard key={recBook.slug} book={recBook} />
                     ))}

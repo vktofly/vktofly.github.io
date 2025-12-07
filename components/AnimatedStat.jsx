@@ -1,37 +1,13 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
 export default function AnimatedStat({ value, label, suffix = '' }) {
   const [displayValue, setDisplayValue] = useState(value === '∞' ? '∞' : 0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            animateValue();
-            setHasAnimated(true);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [hasAnimated]);
-
-  const animateValue = () => {
+  const animateValue = useCallback(() => {
     // Handle infinity symbol - no animation needed
     if (value === '∞') {
       setDisplayValue('∞');
@@ -59,7 +35,32 @@ export default function AnimatedStat({ value, label, suffix = '' }) {
         setDisplayValue(Math.floor(current));
       }
     }, duration / steps);
-  };
+  }, [value]);
+
+  useEffect(() => {
+    const currentRef = ref.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            animateValue();
+            setHasAnimated(true);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [hasAnimated, animateValue]);
 
   // Handle special cases like infinity symbol
   const displayText = value === '∞' || displayValue === '∞' ? '∞' : `${displayValue}${suffix}`;

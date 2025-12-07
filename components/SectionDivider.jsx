@@ -40,7 +40,7 @@ export default function SectionDivider({
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="flex-1 h-px bg-zinc-200 dark:bg-zinc-800" />
-            <div className="text-brand-500 dark:text-brand-400 text-2xl">"</div>
+            <div className="text-brand-500 dark:text-brand-400 text-2xl">&ldquo;</div>
             <div className="flex-1 h-px bg-zinc-200 dark:bg-zinc-800" />
           </div>
           <p className="text-sm sm:text-base text-palette-secondary italic leading-relaxed">

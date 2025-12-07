@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,397 +14,177 @@ const categoryIcons = {
   default: "📖",
 };
 
-// Badge colors for "Better Explanations" system
-const badgeStyles = {
-  "Paradigm Shift": "bg-purple-500/10 dark:bg-purple-600/20 text-purple-700 dark:text-purple-400 border-purple-500/20 dark:border-purple-600/30",
-  Foundation: "bg-blue-500/10 dark:bg-blue-600/20 text-blue-700 dark:text-blue-400 border-blue-500/20 dark:border-blue-600/30",
-  Compounding: "bg-green-500/10 dark:bg-green-600/20 text-green-700 dark:text-green-400 border-green-500/20 dark:border-green-600/30",
-  Questioning: "bg-amber-500/10 dark:bg-amber-600/20 text-amber-700 dark:text-amber-400 border-amber-500/20 dark:border-amber-600/30",
-};
-
-// Reading status styles
+// Reading status styles - Refined for a more professional look
 const readingStatusStyles = {
-  "want-to-read": "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400",
-  reading: "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400",
-  "re-reading": "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400",
-  mastered: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400",
-  read: "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400",
+  "want-to-read": "bg-zinc-100/90 text-zinc-600 dark:bg-zinc-800/90 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700",
+  reading: "bg-blue-50/90 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border-blue-200 dark:border-blue-800",
+  "re-reading": "bg-purple-50/90 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 border-purple-200 dark:border-purple-800",
+  mastered: "bg-emerald-50/90 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800",
+  read: "bg-zinc-50/90 text-zinc-600 dark:bg-zinc-800/90 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700",
 };
 
-// Impact visualization
+// Impact visualization - cleaner dots style
 function ImpactIndicator({ impact }) {
   if (!impact) return null;
   
   const impactMap = {
-    high: { stars: 5, label: "High Impact" },
-    medium: { stars: 3, label: "Medium Impact" },
-    low: { stars: 1, label: "Low Impact" },
+    high: { count: 3, label: "High Impact" },
+    medium: { count: 2, label: "Medium Impact" },
+    low: { count: 1, label: "Low Impact" },
   };
   
-  const { stars, label } = impactMap[impact] || { stars: 0, label: "" };
+  const { count, label } = impactMap[impact] || { count: 0, label: "" };
   
   return (
-    <div className="flex items-center gap-1" title={label}>
-      {[...Array(5)].map((_, i) => (
-        <svg
-          key={i}
-          className={`w-3 h-3 ${
-            i < stars
-              ? "text-amber-500 dark:text-amber-400 fill-current"
-              : "text-zinc-300 dark:text-zinc-700"
-          }`}
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
+    <div className="flex flex-col gap-0.5" title={label}>
+      <span className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500 dark:text-zinc-400">Impact</span>
+      <div className="flex gap-1">
+        {[...Array(3)].map((_, i) => (
+          <div
+            key={i}
+            className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+              i < count
+                ? "bg-brand-500 dark:bg-brand-400"
+                : "bg-zinc-200 dark:bg-zinc-700"
+            }`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
 export default function BookCard({ book }) {
-  const [expandedWhy, setExpandedWhy] = useState(false);
-  const [expandedInsights, setExpandedInsights] = useState(false);
-
   // Determine badges based on book properties
   const badges = [];
-  if (book.paradigmShift) badges.push("Paradigm Shift");
-  if (book.impact === "high" && !book.paradigmShift) badges.push("Foundation");
-  if (book.knowledgeCompounding) badges.push("Compounding");
-  if (book.paradigmShift && book.category === "philosophy") badges.push("Questioning");
+  if (book.paradigmShift) badges.push({ label: "Paradigm Shift", color: "purple" });
+  if (book.impact === "high" && !book.paradigmShift) badges.push({ label: "Foundation", color: "blue" });
+  if (book.knowledgeCompounding) badges.push({ label: "Compounding", color: "green" });
+  if (book.paradigmShift && book.category === "philosophy") badges.push({ label: "Questioning", color: "amber" });
 
   const categoryIcon = categoryIcons[book.category] || categoryIcons.default;
   const readingStatus = readingStatusStyles[book.readingStatus] || readingStatusStyles.read;
-  
-  // Check if book has a blog post
   const hasBlog = !!book.blog;
 
+  // Badge color helper
+  const getBadgeStyle = (color) => {
+    const styles = {
+      purple: "bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-900/20 dark:text-purple-300 dark:border-purple-800",
+      blue: "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800",
+      green: "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/20 dark:text-emerald-300 dark:border-emerald-800",
+      amber: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-300 dark:border-amber-800",
+    };
+    return styles[color] || styles.blue;
+  };
+
   return (
-    <article className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg flex flex-col">
-      {/* Book Cover Image */}
-      {book.coverImage && (
-        <div className="relative h-64 overflow-hidden bg-zinc-100 dark:bg-zinc-800 border-b border-zinc-200 dark:border-zinc-800">
-          <Image
-            src={book.coverImage}
-            alt={`${book.title} by ${book.author}`}
-            fill
-            className="object-cover transition-all duration-300 group-hover:scale-105"
-            unoptimized={book.coverImage.startsWith("http")}
-          />
-          {/* Reading Status Badge */}
-          {book.readingStatus && (
-            <div className="absolute top-3 right-3">
-              <span
-                className={`px-2.5 py-1 rounded-full text-xs font-semibold backdrop-blur-sm capitalize ${readingStatus}`}
-              >
-                {book.readingStatus.replace("-", " ")}
-              </span>
+    <article className="group h-full flex flex-col bg-white dark:bg-zinc-900/50 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden hover:border-brand-500/50 dark:hover:border-brand-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-500/5 dark:hover:shadow-brand-900/10">
+      
+      {/* Header Section: Cover + Meta */}
+      <div className="relative flex border-b border-zinc-100 dark:border-zinc-800/50">
+        {/* Book Cover - Fixed Aspect Ratio */}
+        <div className="relative w-28 sm:w-36 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800">
+          {book.coverImage ? (
+            <Image
+              src={book.coverImage}
+              alt={`${book.title} by ${book.author}`}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              unoptimized={book.coverImage.startsWith("http")}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-4xl">
+              {categoryIcon}
             </div>
           )}
-          {/* Impact Indicator */}
-          {book.impact && (
-            <div className="absolute top-3 left-3">
-              <div className="px-2.5 py-1 rounded-lg bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm border border-zinc-200 dark:border-zinc-700">
-                <ImpactIndicator impact={book.impact} />
-              </div>
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/5 to-transparent dark:from-black/20 pointer-events-none" />
+        </div>
+
+        {/* Header Content */}
+        <div className="flex-1 p-6 sm:p-7 flex flex-col justify-between relative bg-gradient-to-br from-zinc-50/50 to-transparent dark:from-zinc-900/50">
+            {/* Top Row: Status */}
+            <div className="flex justify-between items-start mb-4">
+                 <div className="flex flex-col gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[10px] uppercase tracking-wider font-bold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700">
+                        {categoryIcon} {book.category}
+                    </span>
+                 </div>
+                 {book.readingStatus && (
+                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold border backdrop-blur-md ${readingStatus}`}>
+                        {book.readingStatus.replace("-", " ")}
+                    </span>
+                 )}
             </div>
-          )}
+
+            {/* Title & Author */}
+            <div className="mb-2">
+                <h3 className="text-xl font-bold text-palette-primary dark:text-zinc-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors leading-tight mb-1">
+                    {book.title}
+                </h3>
+                <p className="text-sm font-medium text-palette-secondary dark:text-zinc-400">
+                    by <span className="text-palette-primary dark:text-zinc-300">{book.author}</span>
+                </p>
+            </div>
+
+            {/* Impact & Badges */}
+            <div className="mt-5 pt-5 border-t border-zinc-200/50 dark:border-zinc-700/50 flex flex-wrap items-end justify-between gap-4">
+                 <ImpactIndicator impact={book.impact} />
+                 
+                 <div className="flex flex-wrap gap-1.5 justify-end">
+                    {badges.map((badge) => (
+                        <span
+                        key={badge.label}
+                        className={`px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-wider border ${getBadgeStyle(badge.color)}`}
+                        >
+                        {badge.label}
+                        </span>
+                    ))}
+                 </div>
+            </div>
+        </div>
+      </div>
+
+      {/* Body Content - Mini Summary */}
+      {book.whyItMatters && (
+        <div className="p-6 sm:p-7 pb-5 flex flex-col flex-1">
+            <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed line-clamp-4">
+                {book.whyItMatters}
+            </p>
         </div>
       )}
 
-      {/* Content */}
-      <div className="p-6 sm:p-8 flex flex-col flex-1">
-        {/* Title and Author */}
-        <div className="mb-4">
-          <h3 className="text-2xl font-bold text-palette-primary dark:text-zinc-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors leading-tight mb-2">
-            {book.title}
-          </h3>
-          <p className="text-base font-medium text-palette-secondary dark:text-zinc-400">
-            by {book.author}
-          </p>
-        </div>
-
-        {/* Quote First (if available and no blog) */}
-        {book.keyQuote && !hasBlog && (
-          <blockquote className="mb-4 pb-4 border-b border-zinc-200 dark:border-zinc-800">
-            <p className="text-lg font-medium text-palette-primary dark:text-zinc-200 italic leading-relaxed">
-              "{book.keyQuote}"
-            </p>
-            <p className="mt-2 text-sm text-palette-secondary dark:text-zinc-500">
-              — {book.author}
-            </p>
-          </blockquote>
-        )}
-
-        {/* Badges */}
-        <div className="flex flex-wrap items-center gap-2 mb-4">
-          {/* Category Badge */}
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold bg-zinc-100 dark:bg-zinc-800 text-palette-primary dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
-            <span>{categoryIcon}</span>
-            <span className="capitalize">{book.category}</span>
-          </span>
-
-          {/* Better Explanations Badges */}
-          {badges.map((badge) => (
-            <span
-              key={badge}
-              className="px-3 py-1 rounded-lg text-xs font-semibold bg-zinc-100 dark:bg-zinc-800 text-palette-primary dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
-            >
-              {badge}
-            </span>
-          ))}
-
-          {/* Knowledge Compounding Symbol */}
-          {book.knowledgeCompounding && (
-            <span className="px-2 py-1 text-lg" title="Knowledge Compounding">
-              ∞
-            </span>
-          )}
-        </div>
-
-        {/* Year Read */}
-        {book.yearRead && (
-          <p className="text-xs text-palette-secondary dark:text-zinc-500 mb-4">
-            Read in {book.yearRead}
-          </p>
-        )}
-
-        {/* If book has blog, show minimal content */}
-        {hasBlog ? (
-          <>
-            {/* Brief description if available */}
-            {book.whyItMatters && (
-              <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed mb-4 line-clamp-3">
-                {book.whyItMatters}
-              </p>
-            )}
-            {/* Link to blog post */}
-            <div className="mb-4">
-              <Link
-                href={`/books/${book.slug}/`}
-                className="inline-flex items-center gap-2 text-sm font-medium text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors"
-              >
-                Read full review
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-            </div>
-          </>
-        ) : (
-          <>
-            {/* Expandable "Why This Matters" */}
-            {book.whyItMatters && (
-              <div className="mb-4">
-                <button
-                  onClick={() => setExpandedWhy(!expandedWhy)}
-                  className="w-full text-left flex items-center justify-between gap-2 text-sm font-semibold text-palette-primary dark:text-zinc-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  <span>Why This Matters</span>
-                  <svg
-                    className={`w-4 h-4 transition-transform ${expandedWhy ? "rotate-180" : ""}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+      {/* Footer Actions */}
+      <div className={`${book.whyItMatters ? 'mt-0 pt-5' : 'pt-6 sm:pt-7'} border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between gap-4 px-6 sm:px-7 pb-6 sm:pb-7`}>
+           {book.yearRead && (
+              <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
+                  Read in {book.yearRead}
+              </span>
+           )}
+           
+           <div className="flex items-center gap-4">
+              {book.link && (
+                  <a
+                  href={book.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-semibold text-zinc-500 hover:text-brand-600 dark:text-zinc-400 dark:hover:text-brand-400 transition-colors"
+                  title="View on Amazon/Source"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {expandedWhy && (
-                  <p className="mt-2 text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
-                    {book.whyItMatters}
-                  </p>
-                )}
-              </div>
-            )}
-
-            {/* Expandable Key Insights */}
-            {book.keyInsights && book.keyInsights.length > 0 && (
-              <div className="mb-4">
-                <button
-                  onClick={() => setExpandedInsights(!expandedInsights)}
-                  className="w-full text-left flex items-center justify-between gap-2 text-sm font-semibold text-palette-primary dark:text-zinc-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  <span>Key Insights ({book.keyInsights.length})</span>
-                  <svg
-                    className={`w-4 h-4 transition-transform ${expandedInsights ? "rotate-180" : ""}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {expandedInsights && (
-                  <ul className="mt-2 space-y-2">
-                    {book.keyInsights.map((insight, idx) => (
-                      <li
-                        key={idx}
-                        className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed flex items-start gap-2"
-                      >
-                        <span className="text-brand-500 dark:text-brand-400 mt-1.5 flex-shrink-0">—</span>
-                        <span>{insight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            )}
-
-            {/* Before/After Thinking (for transformative books) */}
-            {book.beforeAfter && (
-              <div className="mb-4 p-4 rounded-lg bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700">
-                <p className="text-xs font-semibold text-palette-secondary dark:text-zinc-500 uppercase tracking-wide mb-2">
-                  Transformation
-                </p>
-                <div className="space-y-2 text-sm">
-                  <div>
-                    <span className="font-medium text-palette-primary dark:text-zinc-300">Before: </span>
-                    <span className="text-palette-secondary dark:text-zinc-400">{book.beforeAfter.before}</span>
-                  </div>
-                  <div>
-                    <span className="font-medium text-palette-primary dark:text-zinc-300">After: </span>
-                    <span className="text-palette-secondary dark:text-zinc-400">{book.beforeAfter.after}</span>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Applied Knowledge Section */}
-            {book.influencedProjects && book.influencedProjects.length > 0 && (
-              <div className="mb-4 pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                <p className="text-xs font-semibold text-palette-secondary dark:text-zinc-500 uppercase tracking-wide mb-2">
-                  Applied Knowledge
-                </p>
-                <p className="text-sm text-palette-secondary dark:text-zinc-400">
-                  Influenced: {book.influencedProjects.join(", ")}
-                </p>
-              </div>
-            )}
-
-            {/* Related Books */}
-            {book.relatedBooks && book.relatedBooks.length > 0 && (
-              <div className="mb-4 pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                <p className="text-xs font-semibold text-palette-secondary dark:text-zinc-500 uppercase tracking-wide mb-2">
-                  Related Books
-                </p>
-                <p className="text-sm text-palette-secondary dark:text-zinc-400">
-                  See also: {book.relatedBooks.join(", ")}
-                </p>
-              </div>
-            )}
-
-            {/* Related Blog Posts */}
-            {book.relatedPosts && book.relatedPosts.length > 0 && (
-              <div className="mb-4 pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                <p className="text-xs font-semibold text-palette-secondary dark:text-zinc-500 uppercase tracking-wide mb-2">
-                  Related Reading
-                </p>
-                <div className="space-y-2">
-                  {book.relatedPosts.map((postSlug) => {
-                    const postTitles = {
-                      'what-is-a-hero': 'What is a Hero? — On Universal Constructors and the Responsibility of Creation',
-                    };
-                    const postTitle = postTitles[postSlug] || postSlug;
-                    return (
-                      <Link
-                        key={postSlug}
-                        href={`/blog/${postSlug}/`}
-                        className="inline-flex items-center gap-1.5 text-sm text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors"
-                      >
-                        <span>{postTitle}</span>
-                        <svg
-                          className="w-3 h-3"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-          </>
-        )}
-
-        {/* Footer with Links */}
-        <div className="mt-auto pt-4 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-4">
-          {book.link && (
-            <a
-              href={book.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors"
-            >
-              Purchase/Read
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </a>
-          )}
-          {hasBlog && (
-            <Link
-              href={`/books/${book.slug}/`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-palette-primary dark:text-zinc-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-            >
-              Read Review
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
-          )}
-        </div>
+                  Source ↗
+                  </a>
+              )}
+              {hasBlog && (
+                   <Link
+                   href={`/books/${book.slug}/`}
+                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400 text-xs font-semibold hover:bg-brand-100 dark:hover:bg-brand-900/30 transition-colors"
+                   >
+                   Read Analysis
+                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                   </Link>
+              )}
+           </div>
       </div>
     </article>
   );
 }
-

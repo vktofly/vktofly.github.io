@@ -27,7 +27,7 @@ export default function NavDropdown({ label, items, icon = null }) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 text-sm hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+        className="flex items-center gap-1.5 px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-cosmic-900 dark:hover:text-white transition-colors rounded-full hover:bg-zinc-100 dark:hover:bg-white/5"
         aria-expanded={isOpen}
         aria-haspopup="true"
       >

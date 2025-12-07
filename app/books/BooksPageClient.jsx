@@ -54,7 +54,7 @@ export default function BooksPageClient({
               Books
             </h1>
             <blockquote className="text-xl sm:text-2xl text-palette-primary dark:text-zinc-200 font-light italic leading-relaxed">
-              "Knowledge compounds infinitely when we focus on creating better explanations rather than just accumulating facts."
+              &ldquo;Knowledge compounds infinitely when we focus on creating better explanations rather than just accumulating facts.&rdquo;
             </blockquote>
             <p className="text-lg sm:text-xl text-palette-secondary dark:text-zinc-400 leading-relaxed max-w-2xl mx-auto">
               A curated collection of books that have shaped my thinking, philosophy, and work. Each book represents a node in the knowledge compounding system—from epistemology and philosophy to AI, systems thinking, and entrepreneurship.
@@ -88,7 +88,7 @@ export default function BooksPageClient({
             className="relative overflow-hidden"
           >
             <Container className="relative z-10">
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-6">
                 {currentlyReading.map((book) => (
                   <BookCard key={book.slug} book={book} />
                 ))}
@@ -108,7 +108,7 @@ export default function BooksPageClient({
             className="relative overflow-hidden"
           >
             <Container className="relative z-10">
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-6">
                 {foundationalBooks.map((book) => (
                   <BookCard key={book.slug} book={book} />
                 ))}
@@ -135,76 +135,78 @@ export default function BooksPageClient({
             unoptimized
           />
         </div>
+      </Section>
 
-        <div className="relative z-10">
-          {/* Two-column layout with collapsible sticky sidebar */}
-          <div className={`grid gap-8 transition-all duration-300 ${isSidebarCollapsed ? "md:grid-cols-[0_1fr]" : "md:grid-cols-[240px_1fr]"}`}>
-            {/* Sticky Sidebar Navigation */}
-            <div
-              className={`hidden md:block md:sticky md:top-24 self-start print:hidden transition-all duration-300 ${
-                isSidebarCollapsed ? "md:w-0 md:overflow-hidden md:opacity-0 md:pointer-events-none" : "md:w-auto"
-              }`}
-            >
-              <div className="relative pr-2">
-                <BooksNavigation
-                  sections={navigationSections}
-                  currentlyReading={currentlyReading}
-                  foundationalBooks={foundationalBooks}
-                  highImpactBooks={highImpact}
-                  paradigmShifts={paradigmShifts}
-                />
-                {/* Collapse Button */}
-                <button
-                  onClick={() => setIsSidebarCollapsed(true)}
-                  className="absolute -right-3 top-0 w-6 h-6 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-md flex items-center justify-center transition-all duration-200 hover:bg-zinc-50 dark:hover:bg-zinc-800 z-10"
-                  aria-label="Collapse sidebar"
-                  title="Collapse sidebar"
+      {/* Main Content with Navigation - Outside Container for left alignment */}
+      <div className="relative z-10">
+        <div className={`grid gap-8 transition-all duration-300 ${isSidebarCollapsed ? "md:grid-cols-[0_1fr]" : "md:grid-cols-[240px_1fr]"} print:grid-cols-1`}>
+          {/* Sticky Sidebar Navigation */}
+          <div
+            className={`hidden md:block md:sticky md:top-24 self-start print:hidden transition-all duration-300 ${
+              isSidebarCollapsed ? "md:w-0 md:overflow-hidden md:opacity-0 md:pointer-events-none" : "md:w-auto"
+            }`}
+          >
+            <div className="pl-4 border-l border-zinc-200 dark:border-zinc-800 relative">
+              <BooksNavigation
+                sections={navigationSections}
+                currentlyReading={currentlyReading}
+                foundationalBooks={foundationalBooks}
+                highImpactBooks={highImpact}
+                paradigmShifts={paradigmShifts}
+              />
+              {/* Collapse Button */}
+              <button
+                onClick={() => setIsSidebarCollapsed(true)}
+                className="absolute -right-3 top-0 w-6 h-6 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-md flex items-center justify-center transition-all duration-200 hover:bg-zinc-50 dark:hover:bg-zinc-800 z-10"
+                aria-label="Collapse sidebar"
+                title="Collapse sidebar"
+              >
+                <svg
+                  className="w-4 h-4 text-palette-secondary dark:text-zinc-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    className="w-4 h-4 text-palette-secondary dark:text-zinc-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                </button>
-              </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
             </div>
+          </div>
 
-            {/* Collapsed sidebar button (when sidebar is hidden) */}
-            {isSidebarCollapsed && (
-              <div className="hidden md:block md:sticky md:top-24 self-start print:hidden">
-                <button
-                  onClick={() => setIsSidebarCollapsed(false)}
-                  className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-md flex items-center justify-center transition-all duration-200 hover:bg-zinc-50 dark:hover:bg-zinc-800"
-                  aria-label="Expand sidebar"
-                  title="Expand sidebar"
+          {/* Collapsed sidebar button (when sidebar is hidden) */}
+          {isSidebarCollapsed && (
+            <div className="hidden md:block md:sticky md:top-24 self-start print:hidden">
+              <button
+                onClick={() => setIsSidebarCollapsed(false)}
+                className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-md flex items-center justify-center transition-all duration-200 hover:bg-zinc-50 dark:hover:bg-zinc-800"
+                aria-label="Expand sidebar"
+                title="Expand sidebar"
+              >
+                <svg
+                  className="w-5 h-5 text-palette-secondary dark:text-zinc-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    className="w-5 h-5 text-palette-secondary dark:text-zinc-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-              </div>
-            )}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+          )}
 
-            {/* Main Content */}
-            <div className="min-w-0">
+          {/* Main Content */}
+          <div className="min-w-0">
+            <Container>
               <BooksFilter books={books} />
 
               {/* Category Sections */}
@@ -223,17 +225,17 @@ export default function BooksPageClient({
                       </p>
                     )}
                   </div>
-                  <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-6">
                     {category.books.map((book) => (
                       <BookCard key={book.slug} book={book} />
                     ))}
                   </div>
                 </div>
               ))}
-            </div>
+            </Container>
           </div>
         </div>
-      </Section>
+      </div>
     </>
   );
 }

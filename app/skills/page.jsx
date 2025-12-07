@@ -8,6 +8,7 @@ import SectionDivider from "../../components/SectionDivider";
 import SkillsSearch, { highlightText } from "./SkillsSearch";
 import SkillsNavigation from "./SkillsNavigation";
 import ProficiencyIndicator from "../../components/ProficiencyIndicator";
+import JsonLd from "../../components/JsonLd";
 import skills from "../../data/skills";
 import metaSkills from "../../data/metaSkills";
 import methodologies from "../../data/methodologies";
@@ -83,6 +84,23 @@ export default function SkillsPage() {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Core Competencies & Expertise",
+          "description": "A structured overview of professional skills and cognitive frameworks.",
+          "itemListElement": sections.map((section, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+              "@type": "DefinedTerm",
+              "name": section.label,
+              "description": `Collection of ${section.data.length} skills in ${section.label}`
+            }
+          }))
+        }}
+      />
       {/* Search Section */}
       <Section
         title="Skills"

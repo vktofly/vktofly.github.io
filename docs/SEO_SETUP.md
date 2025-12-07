@@ -110,16 +110,76 @@ Paste your page URL to see how it will appear when shared.
 - Add verification code to GitHub secrets
 - Verify in Google Search Console after deployment
 
+## Analytics Integration
+
+### Google Analytics 4 Setup
+
+1. **Create GA4 Property**: Go to [Google Analytics](https://analytics.google.com/) and create a new GA4 property
+2. **Get Measurement ID**: Copy the measurement ID (format: G-XXXXXXXXXX)
+
+#### Environment Variable Setup
+
+**For Local Development:**
+Create a `.env.local` file:
+```
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+**For GitHub Actions:**
+Add to repository secrets:
+- Name: `NEXT_PUBLIC_GA_MEASUREMENT_ID`
+- Value: Your GA4 measurement ID
+
+#### Features Included
+
+- ✅ Page view tracking
+- ✅ Scroll depth tracking (25%, 50%, 75%, 90%)
+- ✅ Time on page tracking (30s, 1m, 2m, 5m)
+- ✅ Outbound link tracking
+- ✅ Search query tracking
+- ✅ Core Web Vitals tracking
+- ✅ Custom event tracking for blog interactions
+
+### Advanced Analytics Features
+
+The analytics system includes:
+- **Content Engagement Tracking**: Tracks how users interact with blog posts, projects, and books
+- **SEO Performance Monitoring**: Monitors search performance and user behavior
+- **Conversion Tracking**: Tracks contact form submissions and newsletter signups
+- **Custom Events**: Specialized tracking for knowledge content and research interactions
+
 ## Additional SEO Features
 
 The site also includes:
 - ✅ Comprehensive metadata on all pages
-- ✅ Structured data (JSON-LD) for Person, Article, Website
+- ✅ Advanced structured data (Organization, WebSite, Book, SoftwareApplication schemas)
+- ✅ **AMP Pages** for blog posts (Accelerated Mobile Pages) - see [AMP_SETUP.md](AMP_SETUP.md)
+- ✅ **AI-Generated Meta Descriptions** - see [AI_META_DESCRIPTIONS.md](AI_META_DESCRIPTIONS.md)
 - ✅ Sitemap generation (`/sitemap.xml`)
 - ✅ Robots.txt configuration
 - ✅ Canonical URLs
 - ✅ Twitter Card support
 - ✅ Mobile-responsive design
+- ✅ Core Web Vitals optimization
+- ✅ Advanced internal linking system
+- ✅ LLM Optimization (llms.txt, semantic context) - see [LLM_OPTIMIZATION.md](LLM_OPTIMIZATION.md)
+
+### AMP Pages
+
+Blog posts automatically generate AMP (Accelerated Mobile Pages) versions for ultra-fast mobile loading:
+- **Location**: `/blog/[slug]/amp/`
+- **Benefits**: Faster mobile loading, better mobile search rankings
+- **Setup**: Automatic - no configuration needed
+- **See**: [AMP_SETUP.md](AMP_SETUP.md) for details
+
+### AI Meta Descriptions
+
+Dynamic meta descriptions are automatically generated using AI:
+- **AI-Powered**: Uses OpenAI API when available
+- **Template Fallback**: Intelligent template-based generation when AI unavailable
+- **Optimized**: 150-160 characters, keyword-rich, compelling
+- **Setup**: Add `OPENAI_API_KEY` environment variable (optional)
+- **See**: [AI_META_DESCRIPTIONS.md](AI_META_DESCRIPTIONS.md) for details
 
 ## Resources
 

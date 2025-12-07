@@ -5,11 +5,11 @@ export default function BlogPostCTA() {
     <div className="mt-16 pt-12 border-t border-zinc-200 dark:border-zinc-800">
       <div className="rounded-lg border-2 border-brand-200 dark:border-brand-800 bg-gradient-to-br from-brand-50/50 to-transparent dark:from-brand-950/30 dark:to-transparent p-8 sm:p-10 text-center">
         <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-4 text-palette-primary">
-          Let's Build the Future Together
+          Let&apos;s Build the Future Together
         </h3>
         <p className="text-base sm:text-lg text-palette-secondary mb-8 leading-relaxed max-w-2xl mx-auto">
-          Whether you're exploring collaboration, seeking insights on systems thinking, 
-          or interested in advancing civilization-scale technologies, I'd love to connect.
+          Whether you&apos;re exploring collaboration, seeking insights on systems thinking, 
+          or interested in advancing civilization-scale technologies, I&apos;d love to connect.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link

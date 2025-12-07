@@ -318,3 +318,4 @@ Phase-wise TODO list to implement the recommendations:
 - [ ] Gather video thumbnails
 - [ ] Gather people images (if applicable)
 
+    navigating away from any blog keeping the tts on , tts still plying in the bg. and only stops after closing the site. it should stop as user navigate to other page immediatley.

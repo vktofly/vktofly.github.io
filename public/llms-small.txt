@@ -1,0 +1,47 @@
+# Vikash's Portfolio Summary
+
+
+- [aboutme.md](https://vktofly.github.io/about): ## About Vikash — Architect of Understanding
+
+Most people live their lives inside stories written by others — but I've always felt a quiet rebellion against that. Since childhood, I've been asking not _what should I do_, but _what is truly real?_
+
+That question — simple, persistent, and inconven...
+- [myvision.md](https://vktofly.github.io/vision): Building the Architecture of Infinite Growth
+
+By Vikash
+Founder. Polymath. Physicist. Futurist.
+
+Introduction: The Infinite Thread
+
+Every great civilization is built on one principle — the ability to create knowledge faster than it destroys itself.
+
+For me, this is not a poetic idea. It’s a...
+- [Your Article Title Here](https://vktofly.github.io/blog/_TEMPLATE): A brief description for SEO and social sharing (150-160 characters recommended). Make it compelling and include keywords naturally.
+- [Books That Shaped My Philosophy of Infinite Growth](https://vktofly.github.io/blog/Books That Shaped My Philosophy of Infinite Growth): Discover the 10 books that shaped Vikash's philosophy of infinite growth — from David Deutsch's The Beginning of Infinity to Krishnamurti's Freedom from the Known. A guide for founders, thinkers, and futurists building beyond the known.
+- [Civilization as a System](https://vktofly.github.io/blog/civilization-as-system): Understanding progress as an emergent phenomenon from the quality of explanations.
+- [Freedom from the Known Algorithm](https://vktofly.github.io/blog/freedom-from-known-algorithm): Designing AI for human creative independence rather than automated conformity.
+- [The Infinite Growth Machine](https://vktofly.github.io/blog/infinite-growth-machine): On the compounding logic of knowledge creation and systems that evolve deliberately.
+- [The Infinite Growth Principle](https://vktofly.github.io/blog/infinite-growth-principle): A philosophy of creation, civilization, and the future of intelligence. Understanding how knowledge evolves and how humanity can evolve with it.
+- [blog\README.md](https://vktofly.github.io/blog/README): # Blog Posts Directory
+
+This directory contains all blog post markdown files.
+
+## Quick Publishing Checklist
+
+When creating a new blog post, ensure you have:
+
+- [ ] **Frontmatter** with all required fields (see template)
+- [ ] **Title** in proper title case (e.g., "The Future of AI")
+- [ ]...
+- [The Book That Redefined My Understanding of Progress](https://vktofly.github.io/blog/The Book That Redefined My Understanding of Progress): David Deutsch's The Beginning of Infinity isn't just a book about science — it's a book about how everything that progresses does so through knowledge creation. It reframed how I think about innovation, civilization, and leadership.
+- [The Inner Architecture of Freedom](https://vktofly.github.io/blog/the Inner Architecture of Freedom): Jiddu Krishnamurti's teachings aren't self-help — they are self-dissolution. In Freedom from the Known and The First and Last Freedom, he dismantles the illusions of authority, conditioning, and psychological time.
+- [What is a Hero? — On Universal Constructors and the Responsibility of Creation](https://vktofly.github.io/blog/what-is-a-hero): An exploration of heroism as universal construction—how heroes create knowledge systems, question the known, and embody the responsibility of creation. From David Deutsch's universal constructors to Krishnamurti's freedom from the known, this essay examines what it means to be a hero in the age of AI and infinite growth.
+- [books\README.md](https://vktofly.github.io/books/README): # Book Blogs Directory
+
+This directory contains book review blog posts. These are separate from regular blog posts and are linked to specific books.
+
+## Structure
+
+Each book blog post should:
+- Be linked to a book via `bookSlug` in frontmatter
+- Include book recommendations via `recommendedB...
