@@ -8,7 +8,15 @@
     "build": "node scripts/generate-llms-context.js && next build && next-sitemap",
     "start": "next start",
     "export": "next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "data:validate": "node scripts/data-management.mjs validate",
+    "data:backup": "node scripts/data-management.mjs backup",
+    "data:quality": "node scripts/data-management.mjs quality",
+    "data:migrate": "node scripts/data-management.mjs migrate",
+    "data:git": "node scripts/data-management.mjs git",
+    "data:maintenance": "node scripts/data-management.mjs maintenance",
+    "data:manager": "node scripts/data-manager.mjs",
+    "data:check": "npm run data:validate && npm run data:quality"
   },
   "dependencies": {
     "framer-motion": "^12.23.25",

@@ -30,14 +30,14 @@ export default function TimelinePreview({ items, maxItems = 4 }) {
               <div className="text-xs font-semibold text-brand-600 dark:text-brand-400 mb-1">
                 {formatPeriod(item.period)}
               </div>
-              <h3 className="font-semibold text-base text-palette-primary mb-1">
+              <h3 className="font-semibold text-base text-palette-primary dark:text-zinc-100 mb-1">
                 {item.role}
               </h3>
-              <p className="text-sm text-palette-secondary mb-2">
+              <p className="text-sm text-palette-secondary dark:text-zinc-400 mb-2">
                 {item.company}
               </p>
               {item.summary && (
-                <p className="text-sm text-palette-secondary leading-relaxed">
+                <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
                   {item.summary}
                 </p>
               )}

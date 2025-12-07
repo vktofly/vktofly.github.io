@@ -32,14 +32,23 @@ body, #__next {
   background: #475569; 
 }
 
+@layer base {
+  :root {
+    --star-color: #0f172a; /* slate-900 for light mode */
+  }
+  .dark {
+    --star-color: #ffffff;
+  }
+}
+
 .bg-stars {
   background-image: 
-    radial-gradient(1px 1px at 20px 30px, #ffffff 50%, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 40px 70px, #ffffff 50%, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 50px 160px, #ffffff 50%, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 90px 40px, #ffffff 50%, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 130px 80px, #ffffff 50%, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 160px 120px, #ffffff 50%, rgba(0,0,0,0));
+    radial-gradient(1px 1px at 20px 30px, var(--star-color) 50%, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, var(--star-color) 50%, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 50px 160px, var(--star-color) 50%, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, var(--star-color) 50%, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 130px 80px, var(--star-color) 50%, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 160px 120px, var(--star-color) 50%, rgba(0,0,0,0));
   background-size: 200px 200px;
   opacity: 0.15;
 }

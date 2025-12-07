@@ -54,10 +54,13 @@ export default async function HomePage() {
     <>
 
 
+      <div className="fixed inset-0 z-0 bg-stars pointer-events-none" />
+      <div className="fixed inset-0 z-0 bg-nebula opacity-30 pointer-events-none" />
+
       {/* Hero Section */}
       <Section className="pt-16 sm:pt-20 pb-12 sm:pb-16 relative overflow-hidden">
-        {/* Subtle background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-50/50 dark:from-zinc-950 dark:via-black dark:to-zinc-950/50 pointer-events-none" />
+        {/* Subtle background gradient - adjusted for cosmic visibility */}
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-50/50 dark:from-transparent dark:via-transparent dark:to-transparent pointer-events-none" />
         <Container className="relative z-10">
           <div className="grid items-center gap-12 md:grid-cols-[1fr_auto] lg:gap-16">
             <div className="space-y-8 animate-fade-in-up">
@@ -207,7 +210,7 @@ export default async function HomePage() {
       <SectionDivider variant="infinity" />
 
       {/* Featured Quote/Philosophy Section */}
-      <Section className="py-20 sm:py-24 bg-gradient-to-b from-zinc-50/80 via-white to-transparent dark:from-zinc-950/80 dark:via-black dark:to-transparent relative overflow-hidden">
+      <Section className="py-20 sm:py-24 bg-gradient-to-b from-zinc-50/80 via-white to-transparent dark:from-transparent dark:via-white/5 dark:to-transparent relative overflow-hidden">
         {/* Subtle pattern overlay */}
         <div
           className="absolute inset-0 opacity-[0.015] dark:opacity-[0.02] pointer-events-none"
@@ -251,9 +254,9 @@ export default async function HomePage() {
       </Section>
 
       {/* Stats Section */}
-      <Section className="py-16 sm:py-20 bg-gradient-to-b from-white via-zinc-50/50 to-white dark:from-black dark:via-zinc-950/50 dark:to-black relative overflow-hidden">
+      <Section className="py-16 sm:py-20 bg-gradient-to-b from-white via-zinc-50/50 to-white dark:from-transparent dark:via-white/5 dark:to-transparent relative overflow-hidden">
         {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-50/30 to-transparent dark:via-brand-950/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-50/30 to-transparent dark:via-brand-500/10 pointer-events-none" />
         <Container className="relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
             <AnimatedStat value="2" label="Companies Founded" suffix="+" />
@@ -377,7 +380,7 @@ export default async function HomePage() {
       <SectionDivider variant="pattern" />
 
       {/* Current Focus Section */}
-      <Section className="py-16 sm:py-20 bg-gradient-to-b from-white via-zinc-50/30 to-white dark:from-black dark:via-zinc-950/30 dark:to-black relative overflow-hidden">
+      <Section className="py-16 sm:py-20 bg-gradient-to-b from-white via-zinc-50/30 to-white dark:from-transparent dark:via-white/5 dark:to-transparent relative overflow-hidden">
         {/* Subtle pattern */}
         <div
           className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03] pointer-events-none"
