@@ -4,10 +4,13 @@ import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 export default function Analytics() {
+  // Use hooks unconditionally (React rules)
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    // Early return if we don't have the necessary context
+    if (typeof window === 'undefined') return;
     // Google Analytics 4
     const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 

@@ -32,9 +32,10 @@ const influentialPeople = [
       "website": "https://www.quora.com/profile/David-Deutsch-3"
     },
     "relatedPosts": [
-      "what-is-a-hero"
+      "what-is-a-hero",
+      "david-deutsch"
     ],
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/04/David_Deutsch.jpg"
   },
   {
     "slug": "jiddu-krishnamurti",
@@ -59,9 +60,10 @@ const influentialPeople = [
       "website": "https://www.jkrishnamurti.org/"
     },
     "relatedPosts": [
-      "what-is-a-hero"
+      "what-is-a-hero",
+      "jiddu-krishnamurti"
     ],
-    "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80&auto=format&fit=crop"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Jiddu_Krishnamurti_01.jpg"
   },
   {
     "slug": "friedrich-nietzsche",
@@ -86,9 +88,10 @@ const influentialPeople = [
       "website": "https://plato.stanford.edu/entries/nietzsche/"
     },
     "relatedPosts": [
-      "what-is-a-hero"
+      "what-is-a-hero",
+      "friedrich-nietzsche"
     ],
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg"
   },
   {
     "slug": "ray-kurzweil",
@@ -112,8 +115,10 @@ const influentialPeople = [
       "articles": [],
       "website": "https://www.kurzweilai.net/"
     },
-    "relatedPosts": [],
-    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&q=80&auto=format&fit=crop"
+    "relatedPosts": [
+      "ray-kurzweil"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Ray_Kurzweil_%40_SXSW_2017_%2832594766664%29.jpg"
   },
   {
     "slug": "peter-diamandis",
@@ -135,8 +140,10 @@ const influentialPeople = [
       "articles": [],
       "website": "https://www.diamandis.com/"
     },
-    "relatedPosts": [],
-    "image": "https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=400&q=80&auto=format&fit=crop"
+    "relatedPosts": [
+      "peter-diamandis"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/Peter-Diamandis-Headshot.jpg"
   },
   {
     "slug": "naval-ravikant",
@@ -160,8 +167,10 @@ const influentialPeople = [
       "articles": [],
       "website": "https://nav.al/"
     },
-    "relatedPosts": [],
-    "image": "https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=400&q=80&auto=format&fit=crop"
+    "relatedPosts": [
+      "naval-ravikant"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/55/Naval_Ravikant_%28cropped%29.jpg"
   },
   {
     "slug": "leonardo-da-vinci",
@@ -183,8 +192,10 @@ const influentialPeople = [
       "articles": [],
       "website": "https://www.museoscienza.org/en"
     },
-    "relatedPosts": [],
-    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80&auto=format&fit=crop"
+    "relatedPosts": [
+      "leonardo-da-vinci"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Francesco_Melzi_-_Portrait_of_Leonardo.png"
   }
 ];
 

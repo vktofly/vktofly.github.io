@@ -2,6 +2,7 @@
   "name": "vktofly-portfolio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbo",
     "build": "node scripts/generate-llms-context.js && next build && next-sitemap",

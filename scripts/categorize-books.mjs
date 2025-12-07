@@ -6,26 +6,13 @@
  * Automatically categorizes books in data/books.js using AI or keyword matching.
  * 
  * Usage:
- *   node scripts/categorize-books.js                    # Preview changes (dry run)
- *   node scripts/categorize-books.js --apply            # Apply changes to books.js
- *   node scripts/categorize-books.js --keywords-only    # Use keyword matching only
+ *   node scripts/categorize-books.mjs                    # Preview changes (dry run)
+ *   node scripts/categorize-books.mjs --apply            # Apply changes to books.js
+ *   node scripts/categorize-books.mjs --keywords-only    # Use keyword matching only
  */
 
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { createRequire } from 'module';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const require = createRequire(import.meta.url);
-
-// Import books data
-const booksModule = await import('../data/books.js');
-const books = booksModule.default;
-
-// Import categorizer
-const { categorizeBooks } = await import('../lib/book-categorizer.js');
+import { categorizeBooks } from '../lib/book-categorizer.mjs';
+import { readDataFile, saveDataFile } from '../lib/data-utils.mjs';
 
 // Parse command line arguments
 const args = process.argv.slice(2);
@@ -33,6 +20,9 @@ const applyChanges = args.includes('--apply');
 const keywordsOnly = args.includes('--keywords-only');
 
 console.log('📚 Book Categorization Tool\n');
+
+// Load books using data-utils
+const { data: books } = await readDataFile('books.js');
 console.log(`Found ${books.length} books to categorize\n`);
 
 if (keywordsOnly) {
@@ -96,45 +86,16 @@ if (applyChanges && changed.length > 0) {
     changesMap.set(result.slug, result.suggestedCategory);
   });
 
-  // Update the books array
-  books.forEach(book => {
+  // Update the books array in memory
+  const updatedBooks = books.map(book => {
     if (changesMap.has(book.slug)) {
-      book.category = changesMap.get(book.slug);
+      return { ...book, category: changesMap.get(book.slug) };
     }
+    return book;
   });
 
-  // Read the original file to preserve header comments
-  const booksPath = path.join(__dirname, '../data/books.js');
-  const booksContent = fs.readFileSync(booksPath, 'utf-8');
-  
-  // Extract the header (everything before "const books =")
-  const headerMatch = booksContent.match(/^([\s\S]*?)(const books =)/);
-  const header = headerMatch ? headerMatch[1] : '';
-  
-  // Update each book's category in the file using regex
-  let updatedContent = booksContent;
-  changed.forEach(result => {
-    // Pattern: find "category": "old" within the book object for this slug
-    // We need to match the book block that contains this slug
-    const slugPattern = `"slug"\\s*:\\s*"${result.slug}"`;
-    const categoryPattern = `"category"\\s*:\\s*"[^"]*"`;
-    
-    // Find the position of the slug, then find the next category after it
-    const slugIndex = updatedContent.indexOf(`"slug": "${result.slug}"`);
-    if (slugIndex !== -1) {
-      // Find the category field after this slug (within reasonable distance)
-      const bookSection = updatedContent.substring(slugIndex, slugIndex + 2000);
-      const categoryMatch = bookSection.match(/"category"\s*:\s*"([^"]*)"/);
-      if (categoryMatch) {
-        const fullMatch = categoryMatch[0];
-        const newCategory = `"category": "${result.suggestedCategory}"`;
-        updatedContent = updatedContent.replace(fullMatch, newCategory);
-      }
-    }
-  });
-
-  // Write back to file
-  fs.writeFileSync(booksPath, updatedContent, 'utf-8');
+  // Save back to file using data-utils
+  await saveDataFile('books.js', updatedBooks, 'books');
   
   console.log(`✓ Successfully updated ${changed.length} books in data/books.js\n`);
   console.log('⚠️  Please review the changes and test your site before committing.\n');

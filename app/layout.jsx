@@ -8,6 +8,7 @@ import Analytics from '../components/Analytics';
 import SEOMonitor from '../components/SEOMonitor';
 import JsonLd from '../components/JsonLd';
 import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Suspense } from 'react';
 import profile from '../data/profile';
 import socials from '../data/socials';
 
@@ -217,7 +218,9 @@ export default function RootLayout({ children }) {
       <body className="font-sans min-h-screen bg-[color:var(--tertiary,#F8F8F8)] text-[color:var(--primary,#222222)] dark:bg-black dark:text-zinc-100">
         <Providers>
           <ErrorBoundary>
-            <Analytics />
+            <Suspense fallback={null}>
+              <Analytics />
+            </Suspense>
             <PerformanceMonitor />
             <SEOMonitor />
             <Header />

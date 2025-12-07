@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 const OUTPUT_FULL = path.join(process.cwd(), 'public', 'llms-full.txt');
