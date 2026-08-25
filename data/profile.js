@@ -13,10 +13,10 @@
 
 const profile = {
   // Basic Information
-  name: 'Vikash',
-  role: 'Polymath, Futurist & Founder',
+  name: 'Vikash Kumar',
+  role: 'Full Stack AI Engineer | Founder & Polymath',
   headline: 'Building Systems of Infinite Growth',
-  location: 'Earth', // City, Country or "Remote"
+  location: 'East Delhi, India',
   email: 'vktofly@gmail.com',
   
   // Professional Summary (used in SEO, structured data)

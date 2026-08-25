@@ -106,6 +106,19 @@ const experience = [
     summary: 'Immersed in advanced mathematics and machine learning. Explored intelligence as an emergent property — bridging abstract math and the biology of cognition. Shifted mindset: from learning to creating new knowledge.',
   },
   {
+    company: 'IIT & MIT OpenCourseWare',
+    role: 'M.Tech in AI/ML (online, self paced)',
+    period: '2020 — 2023',
+    startDate: '2020-01-01',
+    endDate: '2023-12-31',
+    location: 'Remote',
+    summary: 'Pursued an online, self-paced Master of Technology in Artificial Intelligence and Machine Learning, mastering foundational and advanced concepts through world-class open courseware.',
+    achievements: [
+      'Mastered advanced machine learning, AI architectures, and optimization techniques'
+    ],
+    skills: ['AI/ML', 'Machine Learning', 'Deep Learning'],
+  },
+  {
     company: 'Engineering & Exploration',
     role: 'Computer Science Engineering',
     period: '2016 — 2020',

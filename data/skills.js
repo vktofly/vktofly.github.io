@@ -39,6 +39,14 @@ const skills = [
   {
     name: 'Philosophy & Cognitive Systems',
     items: ['Systems Thinking', 'Human-AI Interfaces', 'Infinite Growth Architectures', 'Knowledge Creation']
+  },
+  {
+    name: 'Certifications & Honors',
+    items: ['Master of Artificial Intelligence (UPenn)', 'Mathematics for Machine Learning (Coursera)', 'Transformer Models & BERT (Google Cloud)', 'SARS-CoV-2 Protein Modeling & Drug Docking (Coursera)', 'Docker for Absolute Beginners (Coursera)', 'GitHub Copilot for Beginners (Coursera)', 'Data Analysis Using PySpark (Coursera)', 'Google Data Analytics Capstone (Google)', 'Y Combinator Startup Course']
+  },
+  {
+    name: 'Languages',
+    items: ['English (Fluent)', 'Hindi (Native)', 'German (Elementary)']
   }
 ];
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function ProfilePhoto({ size = 160, className = "" }) {
-  const src = "/proflephoto/profile photo.png";
+  const src = "/proflephoto/profile_photo.png";
   // If className has width/height classes, use those; otherwise use inline style
   const hasSizeClasses =
     className.includes("w-[") ||

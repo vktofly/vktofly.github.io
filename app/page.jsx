@@ -41,9 +41,9 @@ export default async function HomePage() {
   const featuredPost =
     allPosts.length > 0
       ? allPosts.find((p) => p.featured) ||
-        allPosts.reduce((prev, current) =>
-          (current.words || 0) > (prev.words || 0) ? current : prev
-        )
+      allPosts.reduce((prev, current) =>
+        (current.words || 0) > (prev.words || 0) ? current : prev
+      )
       : null;
   // Latest posts excluding featured
   const latestPosts = allPosts
@@ -193,7 +193,7 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Profile Photo */}
+            {/* profile_photo */}
             <div className="flex justify-center md:justify-end">
               <div className="relative animate-fade-in">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-500/20 to-transparent rounded-full blur-2xl" />

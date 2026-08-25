@@ -77,7 +77,7 @@ export default function AdminPageClient({ books, people }) {
   return (
     <Section
       title="Admin Panel"
-      intro="Upload book covers and profile photos. Updated data files will be generated for you to copy."
+      intro="Upload book covers and profile_photos. Updated data files will be generated for you to copy."
     >
       <Container>
         <div className="space-y-8">
@@ -95,10 +95,10 @@ export default function AdminPageClient({ books, people }) {
           {/* Person Photo Uploader */}
           <div>
             <h2 className="text-2xl font-bold text-palette-primary dark:text-zinc-100 mb-2">
-              👤 Profile Photos
+              👤 profile_photos
             </h2>
             <p className="text-palette-secondary dark:text-zinc-400 mb-6">
-              Drag and drop profile photos or select people to update their images
+              Drag and drop profile_photos or select people to update their images
             </p>
             <PersonImageUploader people={people} />
           </div>

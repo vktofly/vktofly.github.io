@@ -168,11 +168,10 @@ export default influentialPeople;
 
           {/* Drag and Drop Area */}
           <div
-            className={`p-8 border-2 border-dashed rounded-lg transition-colors ${
-              dragActive
+            className={`p-8 border-2 border-dashed rounded-lg transition-colors ${dragActive
                 ? "border-brand-500 bg-brand-50 dark:bg-brand-900/20"
                 : "border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-900/50"
-            }`}
+              }`}
             onDragEnter={handleDrag}
             onDragLeave={handleDrag}
             onDragOver={handleDrag}
@@ -181,7 +180,7 @@ export default influentialPeople;
             <div className="text-center">
               <div className="text-4xl mb-4">👤</div>
               <p className="text-palette-primary dark:text-zinc-200 font-medium mb-2">
-                Drag and drop profile photo here
+                Drag and drop profile_photo here
               </p>
               <p className="text-sm text-palette-secondary dark:text-zinc-400 mb-4">
                 or
