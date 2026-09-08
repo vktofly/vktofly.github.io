@@ -65,7 +65,7 @@ export default function BlogPostCard({ post }) {
         <Link href={`/blog/${post.slug}/`} className="relative h-48 overflow-hidden bg-zinc-100 dark:bg-zinc-800">
           <Image
             src={imageUrl}
-            alt={post.title}
+            alt={post.title || "Blog post cover"}
             fill
             className="object-cover transition-all duration-300 group-hover:scale-105"
             unoptimized={isExternalImage}

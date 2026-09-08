@@ -4,7 +4,7 @@ import JsonLd from "../../components/JsonLd";
 import books from "../../data/books";
 
 export const metadata = {
-  title: "Books — Vikash",
+  title: "Books",
   description:
     "A curated collection of books that have shaped my thinking, philosophy, and work. Each book represents a node in the knowledge compounding system—from epistemology and philosophy to AI, systems thinking, and entrepreneurship.",
   keywords: [

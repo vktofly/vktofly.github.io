@@ -7,7 +7,7 @@ import { generateOgImageMetadata } from "../../lib/og-images";
 import influentialPeople from "../../data/influentialPeople";
 
 export const metadata = {
-  title: "Influential People — Vikash",
+  title: "Influential People",
   description:
     "People whose ideas, work, and philosophy have shaped my thinking and approach. From David Deutsch's epistemology to Krishnamurti's freedom from the known, these thinkers form the intellectual network that informs my work.",
   keywords: [

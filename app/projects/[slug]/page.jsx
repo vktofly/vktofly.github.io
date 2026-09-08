@@ -17,16 +17,16 @@ export function generateMetadata({ params }) {
   const project = (projects || []).find((p) => p.slug === params.slug);
   if (!project) return {};
 
-  const url = `https://vktofly.github.io/projects/${project.slug}`;
+  const url = `https://vktofly.github.io/projects/${project.slug}/`;
 
   return {
-    title: `${project.title} — Projects — Vikash`,
+    title: `${project.title} — Projects`,
     description: project.description,
     alternates: {
-      canonical: url,
+      canonical: `/projects/${project.slug}/`,
     },
     openGraph: {
-      title: `${project.title} — Projects — Vikash`,
+      title: `${project.title} — Projects`,
       description: project.description,
       url,
       type: 'article',
@@ -52,7 +52,7 @@ export default function ProjectDetailPage({ params }) {
     );
   }
 
-  const url = `https://vktofly.github.io/projects/${project.slug}`;
+  const url = `https://vktofly.github.io/projects/${project.slug}/`;
 
   return (
     <>
@@ -83,7 +83,7 @@ export default function ProjectDetailPage({ params }) {
             "@type": "ListItem",
             "position": 2,
             "name": "Projects",
-            "item": "https://vktofly.github.io/projects"
+            "item": "https://vktofly.github.io/projects/"
           },{
             "@type": "ListItem",
             "position": 3,

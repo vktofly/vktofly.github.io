@@ -10,7 +10,7 @@ import ProjectsFilter from './ProjectsFilter';
 import CaseStudyCard from '../../components/CaseStudyCard';
 
 export const metadata = {
-  title: 'Projects — Vikash',
+  title: 'Projects',
   description: 'Selected work and experiments across AI, quantum computing, robotics, space systems, and cognitive interfaces. Technology ventures that shape multi-billion-dollar industries.',
   keywords: [
     'projects',

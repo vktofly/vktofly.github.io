@@ -13,6 +13,7 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-jetbrains-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        serif: ['var(--font-eb-garamond)', 'Playfair Display', 'serif'],
       },
       colors: {
         brand: {
@@ -42,6 +43,7 @@ module.exports = {
           secondary: '#6b7280',
           tertiary: '#f9fafb',
           white: '#FFFFFF',
+          accent: '#00E5FF', // Computation Cyan
         },
       },
       animation: {

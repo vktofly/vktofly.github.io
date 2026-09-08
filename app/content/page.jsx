@@ -11,7 +11,7 @@ import speaking from "../../data/speaking";
 import publications from "../../data/publications";
 
 export const metadata = {
-  title: "Content & Recognition — Vikash",
+  title: "Content & Recognition",
   description:
     "Testimonials, speaking engagements, publications, and recognition from colleagues and partners.",
   keywords: [

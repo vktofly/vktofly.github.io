@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
   const ampUrl = `https://vktofly.github.io/blog/${post.slug}/amp/`;
 
   return {
-    title: `${post.title} — Vikash`,
+    title: post.title,
     description: post.description || post.summary,
     alternates: {
       canonical: `/blog/${post.slug}/`,

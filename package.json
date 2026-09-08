@@ -19,6 +19,7 @@
     "data:check": "npm run data:validate && npm run data:quality"
   },
   "dependencies": {
+    "@google/genai": "^2.21.0",
     "framer-motion": "^12.23.25",
     "gray-matter": "^4.0.3",
     "next": "^14.2.6",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "autoprefixer": "^10.4.20",
+    "baseline-browser-mapping": "^2.11.19",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.6",
     "next-sitemap": "^4.2.3",

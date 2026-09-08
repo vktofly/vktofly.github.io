@@ -62,7 +62,7 @@ export async function generateMetadata({ params }) {
   });
 
   return {
-    title: `${post.title} — Vikash`,
+    title: post.title,
     description: metaDescription,
     keywords: post.tags || [],
     authors: [{ name: "Vikash" }],
@@ -178,7 +178,7 @@ export default async function BlogPostPage({ params }) {
             "@type": "ListItem",
             "position": 2,
             "name": "Blog",
-            "item": "https://vktofly.github.io/blog"
+            "item": "https://vktofly.github.io/blog/"
           },{
             "@type": "ListItem",
             "position": 3,
@@ -206,7 +206,7 @@ export default async function BlogPostPage({ params }) {
             <div className="relative w-full aspect-[1200/630] overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
               <Image
                 src={ogImage.url}
-                alt={ogImage.alt}
+                alt={post.title || ogImage.alt || "Blog post cover"}
                 fill
                 className="object-cover"
                 priority

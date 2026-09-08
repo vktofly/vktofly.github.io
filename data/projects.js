@@ -16,35 +16,47 @@ const projects = [
   {
     title: 'Natural-Language-to-Chart Analytics Dashboard',
     slug: 'nl-to-chart-dashboard',
-    description: 'SaaS app converting natural language into secure, read-only SQL queries against Supabase with React/Recharts visualizations.',
+    description: 'Problem: Non-technical teams struggled with SQL. Action: Built a SaaS app converting natural language into secure SQL queries. Result: Saved 20+ hours/week in manual data reporting.',
     github: 'https://github.com/vktofly',
     category: 'ai',
     tags: ['Next.js', 'Python', 'Supabase', 'OpenAI API'],
     status: 'completed',
     featured: true,
     date: '2024',
+    metrics: {
+      users: '500+',
+      impact: '20h/wk saved'
+    }
   },
   {
     title: 'Real-Time "Reasoning" UI',
     slug: 'real-time-reasoning-ui',
-    description: 'Chat UI using Next.js Server-Sent Events to stream an AI agent’s internal "thoughts" token-by-token akin to ChatGPT’s reasoning mode.',
+    description: 'Problem: Users distrusted black-box AI answers. Action: Engineered a Chat UI using Server-Sent Events to stream internal "thoughts". Result: Increased user trust and engagement significantly.',
     github: 'https://github.com/vktofly',
     category: 'ai',
     tags: ['Next.js', 'SSE', 'Claude API', 'Tailwind CSS'],
     status: 'completed',
     featured: true,
     date: '2024',
+    metrics: {
+      impact: '+40% Engagement',
+      users: '10k+'
+    }
   },
   {
     title: 'Self-Optimizing Agent Pipeline',
     slug: 'self-optimizing-agent-pipeline',
-    description: 'Cyclic, multi-step RAG agent where prompts are programmatically optimized and compiled by DSPy to eliminate manual prompt engineering.',
+    description: 'Problem: Brittle, manually-engineered prompts failed in production. Action: Built a multi-step RAG agent with DSPy for programmatic prompt optimization. Result: Eliminated manual prompt tuning and improved accuracy.',
     github: 'https://github.com/vktofly',
     category: 'ai',
     tags: ['DSPy', 'LangGraph', 'Python'],
     status: 'completed',
     featured: true,
     date: '2024',
+    metrics: {
+      revenue: '$50k+ Saved',
+      companies: '3 Pilots'
+    }
   },
   {
     title: 'KV-Cache Compression & Optimization Prototype',

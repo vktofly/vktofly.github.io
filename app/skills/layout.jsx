@@ -2,7 +2,7 @@ import { generateOgImageMetadata } from '../../lib/og-images';
 import JsonLd from '../../components/JsonLd';
 
 export const metadata = {
-  title: 'Skills & Expertise — Vikash',
+  title: 'Skills & Expertise',
   description: 'Meta skills, philosophical foundations, methodologies, leadership, research areas, and core domains across epistemology, systems thinking, AI, quantum computing, robotics, and civilization-scale design.',
   keywords: [
     'skills',

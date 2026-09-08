@@ -7,13 +7,14 @@ import PerformanceMonitor from '../components/PerformanceMonitor';
 import Analytics from '../components/Analytics';
 import SEOMonitor from '../components/SEOMonitor';
 import JsonLd from '../components/JsonLd';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, EB_Garamond } from 'next/font/google';
 import { Suspense } from 'react';
 import profile from '../data/profile';
 import socials from '../data/socials';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono' });
+const garamond = EB_Garamond({ subsets: ['latin'], variable: '--font-eb-garamond' });
 
 export const metadata = {
   title: {
@@ -209,7 +210,7 @@ const structuredData = [
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${mono.variable} ${garamond.variable}`}>
       <head>
         {structuredData.map((data, index) => (
           <JsonLd key={index} data={data} />

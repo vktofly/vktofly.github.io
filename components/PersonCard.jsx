@@ -38,7 +38,7 @@ export default function PersonCard({ person }) {
         {person.image && (
           <Image
             src={person.image}
-            alt={person.name}
+            alt={person.name || "Portrait of thinker"}
             fill
             className="object-cover transition-all duration-300 group-hover:scale-105"
             unoptimized={person.image.startsWith("http")}

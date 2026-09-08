@@ -43,7 +43,7 @@ export default function InteractiveTimelineItem({ item, index, allSkills }) {
                   {item.logo.startsWith('http') || item.logo.startsWith('/') ? (
                     <Image
                       src={item.logo}
-                      alt={item.company}
+                      alt={item.company || "Company logo"}
                       width={48}
                       height={48}
                       className="object-contain"

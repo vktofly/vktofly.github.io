@@ -11,7 +11,7 @@ import videos from "../../data/videos";
 import influentialPeople from "../../data/influentialPeople";
 
 export const metadata = {
-  title: "Resources — Vikash",
+  title: "Resources",
   description:
     "A curated collection of books, podcasts, videos, and influential people that have shaped my thinking, philosophy, and work. Knowledge compounds infinitely through better explanations.",
   keywords: [

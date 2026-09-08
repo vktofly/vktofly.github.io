@@ -15,9 +15,16 @@ import profile from "../data/profile";
 import socials from "../data/socials";
 import skills from "../data/skills";
 import experience from "../data/experience";
+import RecruiterWidget from "../components/RecruiterWidget";
+import InteractiveTerminal from "../components/InteractiveTerminal";
+import DynamicHero from "../components/DynamicHero";
+import DynamicStats from "../components/DynamicStats";
+import { Suspense } from 'react';
 
 export const metadata = {
-  title: "Vikash — Polymath, Futurist & Founder",
+  title: {
+    absolute: "Vikash — Polymath, Futurist & Founder",
+  },
   description:
     "Polymath entrepreneur, physicist, and AI researcher. Building systems of infinite growth through knowledge creation, AI, quantum computing, and civilization-scale thinking.",
   openGraph: {
@@ -64,27 +71,11 @@ export default async function HomePage() {
         <Container className="relative z-10">
           <div className="grid items-center gap-12 md:grid-cols-[1fr_auto] lg:gap-16">
             <div className="space-y-8 animate-fade-in-up">
-              <div className="space-y-5">
-                <div className="space-y-3">
-                  <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1]">
-                    <span className="text-palette-primary dark:text-white">
-                      {profile.name}
-                    </span>
-                  </h1>
-                  <p className="text-xl sm:text-2xl md:text-3xl font-medium text-palette-secondary dark:text-zinc-400 leading-relaxed">
-                    {profile.role}
-                  </p>
-                </div>
-                <p className="text-lg sm:text-xl md:text-2xl text-palette-primary dark:text-zinc-200 font-light leading-relaxed max-w-2xl">
-                  {profile.headline}
-                </p>
-              </div>
+              <Suspense fallback={<div className="space-y-5">Loading...</div>}>
+                <DynamicHero profile={profile} />
+              </Suspense>
 
-              <p className="text-base sm:text-lg text-palette-secondary dark:text-zinc-400 leading-relaxed max-w-2xl">
-                {profile.summary}
-              </p>
-
-              {/* CTA Buttons */}
+            {/* CTA Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <a
                   href="/projects/"
@@ -259,10 +250,9 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-50/30 to-transparent dark:via-brand-500/10 pointer-events-none" />
         <Container className="relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
-            <AnimatedStat value="2" label="Companies Founded" suffix="+" />
-            <AnimatedStat value="5+" label="Years Experience" suffix="+" />
-            <AnimatedStat value="6+" label="Domains" suffix="+" />
-            <AnimatedStat value="∞" label="Infinite Growth" />
+            <Suspense fallback={null}>
+              <DynamicStats />
+            </Suspense>
           </div>
         </Container>
       </Section>
@@ -584,6 +574,21 @@ export default async function HomePage() {
         </Section>
       )}
 
+      {/* Interactive Terminal Section */}
+      <Section className="py-16 sm:py-20 bg-zinc-50 dark:bg-zinc-900/20">
+        <Container>
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-palette-primary dark:text-zinc-100">
+              Terminal Access
+            </h2>
+            <p className="text-palette-secondary dark:text-zinc-400 text-lg">
+              Interact directly with my simulated environment. Try typing <code>help</code>.
+            </p>
+          </div>
+          <InteractiveTerminal />
+        </Container>
+      </Section>
+
       <SectionDivider variant="geometric" />
 
       {/* Call-to-Action Section */}
@@ -630,6 +635,9 @@ export default async function HomePage() {
           </div>
         </Container>
       </Section>
+      <Suspense fallback={null}>
+        <RecruiterWidget />
+      </Suspense>
     </>
   );
 }

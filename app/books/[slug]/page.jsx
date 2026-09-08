@@ -101,7 +101,7 @@ export default async function BookBlogPage({ params }) {
                   <div className="flex-shrink-0 w-32 h-48 sm:w-40 sm:h-60 rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
                     <Image
                       src={book.coverImage}
-                      alt={`${book.title} by ${book.author}`}
+                      alt={book ? `${book.title} by ${book.author}` : "Book cover"}
                       width={160}
                       height={240}
                       className="w-full h-full object-cover"

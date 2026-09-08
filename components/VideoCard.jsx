@@ -61,7 +61,7 @@ export default function VideoCard({ video }) {
         <div className="relative h-48 overflow-hidden bg-zinc-100 dark:bg-zinc-800 border-b border-zinc-200 dark:border-zinc-800">
           <Image
             src={video.thumbnail}
-            alt={video.title}
+            alt={video.title || "Video thumbnail"}
             fill
             className="object-cover transition-all duration-300 group-hover:scale-105"
             unoptimized={video.thumbnail.startsWith("http")}

@@ -102,7 +102,7 @@ export default function BookCard({ book }) {
               {book.coverImage ? (
                 <Image
                   src={book.coverImage}
-                  alt={`${book.title} by ${book.author}`}
+                  alt={book.title ? (book.author ? `${book.title} by ${book.author}` : book.title) : "Book cover"}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-xl"
                   unoptimized={book.coverImage.startsWith("http")}

@@ -54,7 +54,7 @@ export default function ProjectCard({ project }) {
         {imageUrl && (
           <Image
             src={imageUrl}
-            alt={project.title || "Project"}
+            alt={project.title || "Project thumbnail"}
             fill
             className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-105"
             unoptimized

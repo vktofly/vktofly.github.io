@@ -7,7 +7,7 @@ import { generateOgImageMetadata } from '../../lib/og-images';
 import { loadMarkdownAsHtml } from '../../lib/markdown';
 
 export const metadata = {
-  title: 'Vision — Vikash',
+  title: 'Vision — The Infinite Growth Principle',
   description: 'The Infinite Growth Principle: A philosophy of creation, civilization, and the future of intelligence. Understanding how knowledge evolves and how humanity can evolve with it.',
   keywords: [
     'vision',

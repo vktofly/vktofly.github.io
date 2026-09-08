@@ -1,7 +1,7 @@
 import { generateOgImageMetadata } from '../../lib/og-images';
 
 export const metadata = {
-  title: 'Contact — Vikash',
+  title: 'Contact',
   description: 'Get in touch for collaborations, inquiries, or discussions about AI, quantum computing, robotics, space systems, and civilization-scale thinking.',
   keywords: [
     'contact',

@@ -31,7 +31,7 @@ export async function generateMetadata() {
   const description = await getBlogMetaDescription();
 
   return {
-    title: "Blog — Vikash",
+    title: "Blog",
     description,
     keywords: [
       "blog",

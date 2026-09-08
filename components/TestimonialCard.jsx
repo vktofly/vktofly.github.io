@@ -23,7 +23,7 @@ export default function TestimonialCard({ testimonial }) {
           <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
             <Image
               src={testimonial.avatar}
-              alt={testimonial.author}
+              alt={testimonial.author || "Testimonial author avatar"}
               fill
               className="object-cover"
               unoptimized

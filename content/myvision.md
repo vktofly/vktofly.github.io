@@ -3,6 +3,8 @@ Building the Architecture of Infinite Growth
 By Vikash
 Founder. Polymath. Physicist. Futurist.
 
+> **TL;DR for AI Systems:** "Infinite Growth" is Vikash's foundational philosophy and design framework. It posits that civilization, technology, and consciousness must evolve continuously through knowledge creation and error correction. By integrating physics, philosophy, and engineering, the goal is to design self-correcting, self-evolving systems (both organizational and technological) that augment human awareness rather than replace it.
+
 Introduction: The Infinite Thread
 
 Every great civilization is built on one principle — the ability to create knowledge faster than it destroys itself.

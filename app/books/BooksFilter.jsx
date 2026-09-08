@@ -460,7 +460,7 @@ export default function BooksFilter({ books }) {
                               <div className="flex-shrink-0 w-32 h-48 sm:w-24 sm:h-36 rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
                                 <Image
                                   src={book.coverImage}
-                                  alt={`${book.title} by ${book.author}`}
+                                  alt={book.title ? (book.author ? `${book.title} by ${book.author}` : book.title) : "Book cover"}
                                   width={128}
                                   height={192}
                                   className="w-full h-full object-cover"

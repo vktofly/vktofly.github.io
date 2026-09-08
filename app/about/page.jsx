@@ -1,20 +1,18 @@
 import Section from "../../components/Section";
 import Container from "../../components/Container";
 import Prose from "../../components/Prose";
-import ProfilePhoto from "../../components/ProfilePhoto";
 import JsonLd from "../../components/JsonLd";
 import FAQSchema from "../../components/FAQSchema";
 import ReadingProgress from "../../components/ReadingProgress";
 import Toc from "../../components/Toc";
 import BackToTop from "../../components/BackToTop";
-import Image from "next/image";
 import { generateOgImageMetadata } from "../../lib/og-images";
 import profile from "../../data/profile";
 import { generalFAQs } from "../../data/faqs";
 import { loadMarkdownAsHtml } from "../../lib/markdown";
 
 export const metadata = {
-  title: "About — Vikash",
+  title: "About",
   description:
     "Polymath entrepreneur, physicist, and AI researcher. Across two decades, I've founded 23+ technology ventures across AI, quantum computing, robotics, and space systems. Exploring how knowledge evolves and how humanity can evolve with it.",
   keywords: [
@@ -61,68 +59,17 @@ export const metadata = {
 export default async function AboutPage() {
   const html = await loadMarkdownAsHtml("aboutme");
   return (
-    <>
-      <div className="fixed inset-0 z-0 bg-stars pointer-events-none" />
-      <div className="fixed inset-0 z-0 bg-nebula opacity-30 pointer-events-none" />
+    <div className="bg-zinc-50 dark:bg-[#050505] min-h-screen text-zinc-900 dark:text-zinc-300 font-sans selection:bg-palette-accent selection:text-black transition-colors duration-300">
+      {/* Background Grid Pattern */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-10 dark:opacity-20" 
+           style={{ backgroundImage: 'radial-gradient(currentColor 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      
       <FAQSchema faqs={generalFAQs} />
       <ReadingProgress targetId="about-content" />
       <BackToTop />
 
-      {/* Hero Section */}
-      <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
-        {/* Subtle background image */}
-        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.015] pointer-events-none">
-          <Image
-            src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1920&q=80&auto=format&fit=crop&ixlib=rb-4.0.3"
-            alt=""
-            fill
-            className="object-cover grayscale"
-            unoptimized
-          />
-        </div>
-
-        <Container className="relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="flex justify-center mb-6">
-              <ProfilePhoto
-                size={120}
-                className="w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] md:w-[160px] md:h-[160px]"
-              />
-            </div>
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-palette-primary dark:text-zinc-100 leading-tight">
-                {profile.name}
-              </h1>
-              <p className="text-xl sm:text-2xl md:text-3xl font-medium text-palette-secondary dark:text-zinc-400 leading-relaxed">
-                {profile.role}
-              </p>
-              <p className="text-lg sm:text-xl text-palette-primary dark:text-zinc-200 font-light leading-relaxed max-w-2xl mx-auto">
-                {profile.headline}
-              </p>
-              <p className="text-base sm:text-lg text-palette-secondary dark:text-zinc-400 leading-relaxed max-w-2xl mx-auto">
-                {profile.summary}
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section
-        title="About"
-        intro="Polymath, Founder"
-        className="relative overflow-hidden"
-      >
-        {/* Subtle background image */}
-        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.015] pointer-events-none print:hidden">
-          <Image
-            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&q=80&auto=format&fit=crop&ixlib=rb-4.0.3"
-            alt=""
-            fill
-            className="object-cover grayscale"
-            unoptimized
-          />
-        </div>
-
+      {/* Hero Section: The Architect's Ledger */}
+      <Section className="pt-24 sm:pt-32 pb-16 sm:pb-20 relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800/50">
         <Container className="relative z-10">
           <JsonLd
             data={{
@@ -133,8 +80,7 @@ export default async function AboutPage() {
               description: profile.summary,
               url: "https://vktofly.github.io/about/",
               email: profile.email,
-              image:
-                "https://vktofly.github.io/proflephoto/profile%20photo.jpg",
+              image: "https://vktofly.github.io/proflephoto/profile%20photo.jpg",
               sameAs: [
                 "https://github.com/vktofly",
                 "https://x.com/vktofly1",
@@ -156,202 +102,158 @@ export default async function AboutPage() {
             }}
           />
 
-          {/* Quick Summary Cards */}
-          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 mb-10 sm:mb-12">
-            <div className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500/10 to-brand-600/10 dark:from-brand-600/20 dark:to-brand-700/20 flex items-center justify-center border border-brand-500/20 dark:border-brand-600/30">
-                  <span className="text-xl">⚡</span>
-                </div>
-                <h3 className="font-bold text-xl text-palette-primary dark:text-zinc-100">
-                  TL;DR
-                </h3>
-              </div>
-              <p className="text-base text-palette-secondary dark:text-zinc-400 leading-relaxed">
-                I believe civilization is a self-evolving system of explanations
-                — and progress is the acceleration of that evolution. Knowledge,
-                not capital, is the only resource that compounds infinitely, and
-                every company, algorithm, or philosophy that deepens
-                understanding becomes part of civilization&apos;s codebase. My work
-                explores how technology — especially AI, quantum computation,
-                and cognitive systems — can be designed to make knowledge create
-                more knowledge, enabling human and machine intelligence to
-                co-evolve toward open-ended growth. The ultimate goal: to make
-                civilization self-improving, self-correcting, and self-aware.
-              </p>
+          <div className="max-w-5xl">
+            {/* Telemetry Block */}
+            <div className="font-mono text-xs tracking-widest text-blue-600 dark:text-palette-accent mb-8 uppercase flex flex-wrap gap-6 items-center">
+              <span className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-blue-600 dark:bg-palette-accent rounded-full animate-pulse-slow"></span>
+                SYS: ACTIVE
+              </span>
+              <span>LOC: EAST DELHI, IN</span>
+              <span>T: {new Date().getFullYear()}</span>
             </div>
-            <div className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500/10 to-brand-600/10 dark:from-brand-600/20 dark:to-brand-700/20 flex items-center justify-center border border-brand-500/20 dark:border-brand-600/30">
-                  <span className="text-xl">🎯</span>
-                </div>
-                <h3 className="font-bold text-xl text-palette-primary dark:text-zinc-100">
-                  Now
-                </h3>
-              </div>
-              <ul className="space-y-3 text-base text-palette-secondary dark:text-zinc-400 leading-relaxed">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-500 dark:text-brand-400 mt-1.5 flex-shrink-0 text-lg">
-                    —
-                  </span>
-                  <span>
-                    <strong className="text-palette-primary dark:text-zinc-200">
-                      AI as Civilizational Infrastructure:
-                    </strong>{" "}
-                    Designing autonomous cognitive systems that learn, reason,
-                    and explain — not just predict.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-500 dark:text-brand-400 mt-1.5 flex-shrink-0 text-lg">
-                    —
-                  </span>
-                  <span>
-                    <strong className="text-palette-primary dark:text-zinc-200">
-                      Quantum Epistemology:
-                    </strong>{" "}
-                    Exploring how computation, probability, and explanation
-                    intersect at the quantum scale.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-500 dark:text-brand-400 mt-1.5 flex-shrink-0 text-lg">
-                    —
-                  </span>
-                  <span>
-                    <strong className="text-palette-primary dark:text-zinc-200">
-                      Cognitive Architecture & Flow Systems:
-                    </strong>{" "}
-                    Developing MyPrinciple, a recursive framework for aligning
-                    human creativity with systems thinking and knowledge
-                    creation.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-500 dark:text-brand-400 mt-1.5 flex-shrink-0 text-lg">
-                    —
-                  </span>
-                  <span>
-                    <strong className="text-palette-primary dark:text-zinc-200">
-                      Autonomous Space Systems:
-                    </strong>{" "}
-                    Engineering self-replicating robotic and AI ecosystems for
-                    off-world industry and exploration.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-500 dark:text-brand-400 mt-1.5 flex-shrink-0 text-lg">
-                    —
-                  </span>
-                  <span>
-                    <strong className="text-palette-primary dark:text-zinc-200">
-                      Integrative Civilization Design:
-                    </strong>{" "}
-                    Synthesizing philosophy, systems theory, and engineering
-                    into a unified science of progress.
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
 
-          {/* Connect Section - Extracted and Prominent */}
-          <div className="mb-10 sm:mb-12 rounded-xl border-2 border-brand-200 dark:border-brand-800 bg-gradient-to-br from-brand-50/50 to-transparent dark:from-brand-950/30 dark:to-transparent p-6 sm:p-8 shadow-soft">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500/10 to-brand-600/10 dark:from-brand-600/20 dark:to-brand-700/20 flex items-center justify-center border border-brand-500/20 dark:border-brand-600/30">
-                <span className="text-xl">📧</span>
-              </div>
-              <h3 className="font-bold text-xl text-palette-primary dark:text-zinc-100">
-                Connect
-              </h3>
-            </div>
-            <div className="flex flex-wrap gap-4 sm:gap-6">
-              <a
-                href={`mailto:${profile.email}`}
-                className="flex items-center gap-2 text-sm sm:text-base text-palette-secondary hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium"
-                aria-label="Email"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                Email
-              </a>
-              <a
-                href="https://github.com/vktofly"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm sm:text-base text-palette-secondary hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium"
-                aria-label="GitHub"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                GitHub
-              </a>
-              <a
-                href="https://x.com/vktofly1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm sm:text-base text-palette-secondary hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium"
-                aria-label="X (Twitter)"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-                X (Twitter)
-              </a>
-              <a
-                href="https://linkedin.com/in/vktofly"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm sm:text-base text-palette-secondary hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium"
-                aria-label="LinkedIn"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-                LinkedIn
-              </a>
-            </div>
-          </div>
+            {/* Thesis Headline */}
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-black dark:text-white leading-[1.1] tracking-tight mb-8">
+              Building systems of <br className="hidden sm:block" />
+              <span className="italic text-zinc-500 dark:text-zinc-400">infinite growth.</span>
+            </h1>
 
-          {/* Main Content with TOC */}
-          <div className="grid gap-8 md:grid-cols-[240px_1fr]">
-            <div className="hidden md:block md:sticky md:top-24 self-start print:hidden">
-              <Toc rootId="about-content" />
-            </div>
-            <div id="about-content" className="max-w-3xl">
-              <Prose html={html} />
+            {/* Sub-headline */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mt-16">
+              <div>
+                <p className="text-xl sm:text-2xl font-light text-zinc-700 dark:text-zinc-400 leading-relaxed">
+                  I believe civilization is a self-evolving system of explanations — and progress is the acceleration of that evolution.
+                </p>
+              </div>
+              <div className="font-mono text-sm text-zinc-500 leading-loose">
+                <div>[ROLE] Polymath / Founder / AI Researcher</div>
+                <div>[FOCUS] Epistemology & Cognitive Systems</div>
+                <div>[STATUS] Orchestrating MyPrinciple</div>
+              </div>
             </div>
           </div>
         </Container>
       </Section>
-    </>
+
+      {/* Structured Ledger Section */}
+      <Section className="py-16 sm:py-24 relative z-10 border-b border-zinc-200 dark:border-zinc-800/50">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+            
+            {/* Core Directives */}
+            <div className="lg:col-span-5">
+              <div className="font-mono text-xs tracking-widest text-zinc-500 mb-6 uppercase border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                [01] Core Directives
+              </div>
+              <div className="prose prose-zinc dark:prose-invert max-w-none text-zinc-700 dark:text-zinc-300 text-lg font-light leading-relaxed">
+                <p>
+                  Knowledge, not capital, is the only resource that compounds infinitely. Every company, algorithm, or philosophy that deepens understanding becomes part of civilization&apos;s codebase.
+                </p>
+                <p>
+                  My work explores how technology — especially AI, quantum computation, and cognitive systems — can be designed to make knowledge create more knowledge, enabling human and machine intelligence to co-evolve toward open-ended growth.
+                </p>
+                <p className="text-black dark:text-white font-serif text-2xl italic mt-8 border-l-2 border-blue-600 dark:border-palette-accent pl-6">
+                  &quot;The ultimate goal: to make civilization self-improving, self-correcting, and self-aware.&quot;
+                </p>
+              </div>
+            </div>
+
+            {/* Active Vectors */}
+            <div className="lg:col-span-6 lg:col-start-7">
+              <div className="font-mono text-xs tracking-widest text-zinc-500 mb-6 uppercase border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                [02] Active Vectors
+              </div>
+              
+              <div className="space-y-8">
+                {[
+                  {
+                    id: "V_01",
+                    title: "AI as Civilizational Infrastructure",
+                    desc: "Designing autonomous cognitive systems that learn, reason, and explain — not just predict."
+                  },
+                  {
+                    id: "V_02",
+                    title: "Quantum Epistemology",
+                    desc: "Exploring how computation, probability, and explanation intersect at the quantum scale."
+                  },
+                  {
+                    id: "V_03",
+                    title: "Cognitive Architecture",
+                    desc: "Developing MyPrinciple, a recursive framework for aligning human creativity with systems thinking."
+                  },
+                  {
+                    id: "V_04",
+                    title: "Autonomous Space Systems",
+                    desc: "Engineering self-replicating robotic and AI ecosystems for off-world industry."
+                  },
+                  {
+                    id: "V_05",
+                    title: "Integrative Civilization Design",
+                    desc: "Synthesizing philosophy, systems theory, and engineering into a unified science of progress."
+                  }
+                ].map((vector) => (
+                  <div key={vector.id} className="group relative pl-8">
+                    <div className="absolute left-0 top-1.5 w-1.5 h-1.5 bg-zinc-300 dark:bg-zinc-700 group-hover:bg-blue-600 dark:group-hover:bg-palette-accent transition-colors duration-300 rounded-sm"></div>
+                    <div className="absolute left-[3px] top-3 bottom-[-24px] w-px bg-zinc-200 dark:bg-zinc-800 group-last:hidden"></div>
+                    <div className="font-mono text-xs text-blue-600 dark:text-palette-accent mb-1">{vector.id}</div>
+                    <h3 className="text-black dark:text-white font-medium text-lg mb-2">{vector.title}</h3>
+                    <p className="text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">{vector.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </Container>
+      </Section>
+
+      {/* Main Content & Connections */}
+      <Section className="py-16 sm:py-24 relative z-10">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+            
+            {/* Sticky TOC */}
+            <div className="hidden lg:block lg:col-span-3 lg:sticky lg:top-32 self-start">
+              <div className="font-mono text-xs tracking-widest text-zinc-500 mb-6 uppercase border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                [03] Index
+              </div>
+              <Toc rootId="about-content" />
+              
+              <div className="mt-16 font-mono text-xs tracking-widest text-zinc-500 mb-6 uppercase border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                [04] Interface
+              </div>
+              <div className="flex flex-col gap-4 font-mono text-sm">
+                <a href={`mailto:${profile.email}`} className="text-zinc-500 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-palette-accent transition-colors flex justify-between">
+                  <span>EMAIL</span> <span>↗</span>
+                </a>
+                <a href="https://github.com/vktofly" target="_blank" rel="noopener noreferrer" className="text-zinc-500 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-palette-accent transition-colors flex justify-between">
+                  <span>GITHUB</span> <span>↗</span>
+                </a>
+                <a href="https://x.com/vktofly1" target="_blank" rel="noopener noreferrer" className="text-zinc-500 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-palette-accent transition-colors flex justify-between">
+                  <span>X (TWITTER)</span> <span>↗</span>
+                </a>
+                <a href="https://linkedin.com/in/vktofly" target="_blank" rel="noopener noreferrer" className="text-zinc-500 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-palette-accent transition-colors flex justify-between">
+                  <span>LINKEDIN</span> <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Markdown Content */}
+            <div id="about-content" className="lg:col-span-8 lg:col-start-5">
+              <div className="prose prose-zinc dark:prose-invert max-w-none 
+                              prose-headings:font-serif prose-headings:font-normal prose-headings:text-black dark:prose-headings:text-white
+                              prose-p:text-zinc-700 dark:prose-p:text-zinc-300 prose-p:font-light prose-p:leading-relaxed prose-p:text-lg
+                              prose-a:text-blue-600 dark:prose-a:text-palette-accent prose-a:no-underline hover:prose-a:underline
+                              prose-strong:text-black dark:prose-strong:text-white prose-strong:font-medium
+                              prose-blockquote:border-blue-600 dark:prose-blockquote:border-palette-accent prose-blockquote:bg-zinc-100 dark:prose-blockquote:bg-zinc-900/50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-zinc-700 dark:prose-blockquote:text-zinc-200">
+                <Prose html={html} />
+              </div>
+            </div>
+
+          </div>
+        </Container>
+      </Section>
+    </div>
   );
 }

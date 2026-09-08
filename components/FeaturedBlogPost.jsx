@@ -55,7 +55,7 @@ export default async function FeaturedBlogPost({ post }) {
           <Link href={`/blog/${post.slug}/`} className="block relative w-full aspect-[1200/630] overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
             <Image
               src={ogImage.url}
-              alt={ogImage.alt}
+              alt={post.title || ogImage.alt || "Featured blog post"}
               fill
               className="object-cover transition-transform hover:scale-[1.02]"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
