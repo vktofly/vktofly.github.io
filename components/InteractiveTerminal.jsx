@@ -25,7 +25,7 @@ export default function InteractiveTerminal() {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState([
     { type: 'output', text: 'Welcome to Vikash_OS v2.0.0 (AI Edition)' },
-    { type: 'output', text: 'I am Vikash\\'s AI clone. Ask me anything about my experience, projects, or skills.' }
+    { type: 'output', text: "I am Vikash's AI clone. Ask me anything about my experience, projects, or skills." }
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const bottomRef = useRef(null);
@@ -89,7 +89,7 @@ export default function InteractiveTerminal() {
       // Construct conversation history for Gemini API
       // Filter out system welcome messages, map to correct format
       const apiContents = newHistory
-        .filter(h => h.text !== 'Welcome to Vikash_OS v2.0.0 (AI Edition)' && h.text !== 'I am Vikash\\'s AI clone. Ask me anything about my experience, projects, or skills.')
+        .filter(h => h.text !== 'Welcome to Vikash_OS v2.0.0 (AI Edition)' && h.text !== "I am Vikash's AI clone. Ask me anything about my experience, projects, or skills.")
         .map(h => ({
           role: h.type === 'input' ? 'user' : 'model',
           parts: [{ text: h.text }]

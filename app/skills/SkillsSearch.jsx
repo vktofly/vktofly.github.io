@@ -120,22 +120,27 @@ export default function SkillsSearch({
 
 // Helper function to highlight matching text
 export function highlightText(text, query) {
-  if (!query || !text) return text;
+  if (!query || !text || typeof text !== "string") return text;
 
-  const regex = new RegExp(`(${query})`, "gi");
-  const parts = text.split(regex);
+  try {
+    const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const regex = new RegExp(`(${escapedQuery})`, "gi");
+    const parts = text.split(regex);
 
-  return parts.map((part, index) =>
-    regex.test(part) ? (
-      <mark
-        key={index}
-        className="bg-brand-200 dark:bg-brand-900/50 text-brand-900 dark:text-brand-100 px-1 rounded"
-      >
-        {part}
-      </mark>
-    ) : (
-      part
-    )
-  );
+    return parts.map((part, index) =>
+      regex.test(part) ? (
+        <mark
+          key={index}
+          className="bg-brand-200 dark:bg-brand-900/50 text-brand-900 dark:text-brand-100 px-1 rounded"
+        >
+          {part}
+        </mark>
+      ) : (
+        part
+      )
+    );
+  } catch {
+    return text;
+  }
 }
 
