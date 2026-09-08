@@ -100,6 +100,13 @@ export const metadata = {
       follow: true,
     },
   },
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' }
+    ],
+    apple: '/icon.png',
+  },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },

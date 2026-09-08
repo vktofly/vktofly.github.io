@@ -45,7 +45,7 @@ function matchesSearch(item, query) {
   return (
     item.name?.toLowerCase().includes(q) ||
     item.description?.toLowerCase().includes(q) ||
-    item.items?.some((i) => i.toLowerCase().includes(q))
+    item.items?.some((i) => typeof i === 'string' && i.toLowerCase().includes(q))
   );
 }
 

@@ -61,13 +61,9 @@ export default async function HomePage() {
     <>
 
 
-      <div className="fixed inset-0 z-0 bg-stars pointer-events-none" />
-      <div className="fixed inset-0 z-0 bg-nebula opacity-30 pointer-events-none" />
 
       {/* Hero Section */}
-      <Section className="pt-16 sm:pt-20 pb-12 sm:pb-16 relative overflow-hidden">
-        {/* Subtle background gradient - adjusted for cosmic visibility */}
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-50/50 dark:from-transparent dark:via-transparent dark:to-transparent pointer-events-none" />
+      <Section className="pt-20 sm:pt-28 pb-16 sm:pb-24 relative overflow-hidden">
         <Container className="relative z-10">
           <div className="grid items-center gap-12 md:grid-cols-[1fr_auto] lg:gap-16">
             <div className="space-y-8 animate-fade-in-up">
@@ -76,37 +72,21 @@ export default async function HomePage() {
               </Suspense>
 
             {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-4 pt-6">
                 <a
                   href="/projects/"
-                  className="group inline-flex items-center justify-center rounded-lg bg-brand-500 hover:bg-brand-600 dark:bg-brand-600 dark:hover:bg-brand-700 text-white px-7 py-3.5 font-medium transition-all duration-200 shadow-soft hover:shadow-soft-lg hover:-translate-y-0.5"
+                  className="group inline-flex items-center justify-center border-2 border-palette-primary dark:border-white bg-palette-primary dark:bg-white text-white dark:text-palette-primary px-8 py-3.5 text-sm font-semibold tracking-wide uppercase transition-colors hover:bg-palette-accent hover:border-palette-accent hover:text-white dark:hover:bg-palette-accent dark:hover:border-palette-accent dark:hover:text-white"
                 >
                   View Projects
-                  <svg
-                    className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 5l7 7-7 7"
-                    />
+                  <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
                 </a>
                 <a
                   href="/about/"
-                  className="inline-flex items-center justify-center rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-palette-primary dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800 px-7 py-3.5 font-medium transition-all duration-200 shadow-sm hover:shadow-md"
+                  className="inline-flex items-center justify-center border-2 border-palette-primary dark:border-white text-palette-primary dark:text-white px-8 py-3.5 text-sm font-semibold tracking-wide uppercase transition-colors hover:bg-palette-primary hover:text-white dark:hover:bg-white dark:hover:text-palette-primary"
                 >
                   Learn More
-                </a>
-                <a
-                  href="/contact/"
-                  className="inline-flex items-center justify-center rounded-lg border-2 border-brand-500 dark:border-brand-600 text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950/30 px-7 py-3.5 font-medium transition-all duration-200"
-                >
-                  Contact
                 </a>
               </div>
 
@@ -184,13 +164,13 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* profile_photo */}
+            {/* profile_photo / minimal logo representation */}
             <div className="flex justify-center md:justify-end">
               <div className="relative animate-fade-in">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-500/20 to-transparent rounded-full blur-2xl" />
-                <ProfilePhoto
-                  size={200}
-                  className="relative w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] border-2 border-zinc-200 dark:border-zinc-800 shadow-soft-lg"
+                <img
+                  src="/logo_minimalist.jpg"
+                  alt="Infinite Growth Motif"
+                  className="relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[280px] md:h-[280px] object-cover shadow-crisp border border-brand-200 dark:border-brand-800"
                 />
               </div>
             </div>
@@ -201,15 +181,7 @@ export default async function HomePage() {
       <SectionDivider variant="infinity" />
 
       {/* Featured Quote/Philosophy Section */}
-      <Section className="py-20 sm:py-24 bg-gradient-to-b from-zinc-50/80 via-white to-transparent dark:from-transparent dark:via-white/5 dark:to-transparent relative overflow-hidden">
-        {/* Subtle pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.015] dark:opacity-[0.02] pointer-events-none"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
+      <Section className="py-24 sm:py-32 border-y border-brand-200 dark:border-brand-800 bg-brand-50 dark:bg-brand-900 relative overflow-hidden">
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <blockquote className="text-3xl sm:text-4xl md:text-5xl font-light italic text-palette-primary dark:text-zinc-100 leading-relaxed mb-8 px-4">
@@ -245,9 +217,7 @@ export default async function HomePage() {
       </Section>
 
       {/* Stats Section */}
-      <Section className="py-16 sm:py-20 bg-gradient-to-b from-white via-zinc-50/50 to-white dark:from-transparent dark:via-white/5 dark:to-transparent relative overflow-hidden">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-50/30 to-transparent dark:via-brand-500/10 pointer-events-none" />
+      <Section className="py-20 sm:py-24 relative overflow-hidden">
         <Container className="relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
             <Suspense fallback={null}>
@@ -260,12 +230,12 @@ export default async function HomePage() {
       <SectionDivider variant="geometric" />
 
       {/* Featured Principle Section */}
-      <Section className="py-16 sm:py-20">
+      <Section className="py-20 sm:py-24">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-white to-zinc-50/50 dark:from-zinc-950 dark:to-zinc-900/50 p-10 sm:p-12 shadow-soft hover:shadow-soft-lg transition-shadow duration-300">
-              <div className="text-center mb-6">
-                <span className="inline-block text-xs font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wider px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/50">
+            <div className="border border-brand-200 dark:border-brand-800 bg-white dark:bg-brand-950 p-10 sm:p-16 transition-all duration-300 hover:border-palette-accent dark:hover:border-palette-accent">
+              <div className="text-center mb-8">
+                <span className="inline-block text-xs font-bold text-palette-accent uppercase tracking-[0.2em]">
                   Core Principle
                 </span>
               </div>
@@ -314,9 +284,9 @@ export default async function HomePage() {
               {skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-6 py-4 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft hover:-translate-y-1"
+                  className="group border border-brand-200 dark:border-brand-800 bg-white dark:bg-brand-950 px-6 py-5 hover:border-palette-accent dark:hover:border-palette-accent transition-all duration-200"
                 >
-                  <h3 className="font-semibold text-base text-palette-primary dark:text-zinc-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                  <h3 className="font-semibold text-base text-palette-primary dark:text-white group-hover:text-palette-accent transition-colors">
                     {skill.name}
                   </h3>
                   {skill.items && skill.items.length > 0 && (
@@ -370,16 +340,7 @@ export default async function HomePage() {
       <SectionDivider variant="pattern" />
 
       {/* Current Focus Section */}
-      <Section className="py-16 sm:py-20 bg-gradient-to-b from-white via-zinc-50/30 to-white dark:from-transparent dark:via-white/5 dark:to-transparent relative overflow-hidden">
-        {/* Subtle pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage: `linear-gradient(45deg, currentColor 1px, transparent 1px),
-                                linear-gradient(-45deg, currentColor 1px, transparent 1px)`,
-            backgroundSize: "30px 30px",
-          }}
-        />
+      <Section className="py-20 sm:py-24 bg-brand-50 dark:bg-brand-900 relative overflow-hidden">
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -438,9 +399,9 @@ export default async function HomePage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
             <a
               href="/about/"
-              className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg hover:-translate-y-1"
+              className="group border border-brand-200 dark:border-brand-800 bg-white dark:bg-brand-950 p-6 hover:border-palette-accent dark:hover:border-palette-accent transition-all duration-200"
             >
-              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-white group-hover:text-palette-accent transition-colors">
                 About
               </h3>
               <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
@@ -449,9 +410,9 @@ export default async function HomePage() {
             </a>
             <a
               href="/projects/"
-              className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg hover:-translate-y-1"
+              className="group border border-brand-200 dark:border-brand-800 bg-white dark:bg-brand-950 p-6 hover:border-palette-accent dark:hover:border-palette-accent transition-all duration-200"
             >
-              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-white group-hover:text-palette-accent transition-colors">
                 Projects
               </h3>
               <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
@@ -460,9 +421,9 @@ export default async function HomePage() {
             </a>
             <a
               href="/blog/"
-              className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg hover:-translate-y-1"
+              className="group border border-brand-200 dark:border-brand-800 bg-white dark:bg-brand-950 p-6 hover:border-palette-accent dark:hover:border-palette-accent transition-all duration-200"
             >
-              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-white group-hover:text-palette-accent transition-colors">
                 Blog
               </h3>
               <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
@@ -471,9 +432,9 @@ export default async function HomePage() {
             </a>
             <a
               href="/vision/"
-              className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-brand-500 dark:hover:border-brand-600 transition-all duration-200 hover:shadow-soft-lg hover:-translate-y-1"
+              className="group border border-brand-200 dark:border-brand-800 bg-white dark:bg-brand-950 p-6 hover:border-palette-accent dark:hover:border-palette-accent transition-all duration-200"
             >
-              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-zinc-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+              <h3 className="font-semibold text-lg mb-2.5 text-palette-primary dark:text-white group-hover:text-palette-accent transition-colors">
                 Vision
               </h3>
               <p className="text-sm text-palette-secondary dark:text-zinc-400 leading-relaxed">
@@ -592,12 +553,10 @@ export default async function HomePage() {
       <SectionDivider variant="geometric" />
 
       {/* Call-to-Action Section */}
-      <Section className="py-20 sm:py-24 bg-gradient-to-b from-transparent via-zinc-50/80 to-zinc-50 dark:via-zinc-950/50 dark:to-zinc-950/80 relative overflow-hidden">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-50/20 via-transparent to-transparent dark:from-brand-950/10 pointer-events-none" />
+      <Section className="py-24 sm:py-32 bg-brand-50 dark:bg-brand-900 border-y border-brand-200 dark:border-brand-800 relative overflow-hidden">
         <Container className="relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6 text-palette-primary dark:text-zinc-100">
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6 text-palette-primary dark:text-white">
               Let&apos;s Build the Future Together
             </h2>
             <p className="text-lg sm:text-xl text-palette-secondary dark:text-zinc-400 mb-10 leading-relaxed px-4">
@@ -608,26 +567,16 @@ export default async function HomePage() {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/contact/"
-                className="group inline-flex items-center justify-center rounded-lg bg-brand-500 hover:bg-brand-600 dark:bg-brand-600 dark:hover:bg-brand-700 text-white px-8 py-3.5 font-medium transition-all duration-200 shadow-soft hover:shadow-soft-lg hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center border-2 border-palette-primary dark:border-white bg-palette-primary dark:bg-white text-white dark:text-palette-primary px-8 py-3.5 text-sm font-semibold tracking-wide uppercase transition-colors hover:bg-palette-accent hover:border-palette-accent hover:text-white dark:hover:bg-palette-accent dark:hover:border-palette-accent dark:hover:text-white"
               >
                 Get in Touch
-                <svg
-                  className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
+                <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </a>
               <a
                 href="/about/"
-                className="inline-flex items-center justify-center rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-palette-primary dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800 px-8 py-3.5 font-medium transition-all duration-200 shadow-sm hover:shadow-md"
+                className="inline-flex items-center justify-center border-2 border-palette-primary dark:border-white text-palette-primary dark:text-white px-8 py-3.5 text-sm font-semibold tracking-wide uppercase transition-colors hover:bg-palette-primary hover:text-white dark:hover:bg-white dark:hover:text-palette-primary"
               >
                 Learn More
               </a>

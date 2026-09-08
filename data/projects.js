@@ -16,6 +16,7 @@ const projects = [
   {
     title: 'Natural-Language-to-Chart Analytics Dashboard',
     slug: 'nl-to-chart-dashboard',
+    image: '/projects/nl-to-chart.jpg',
     description: 'Problem: Non-technical teams struggled with SQL. Action: Built a SaaS app converting natural language into secure SQL queries. Result: Saved 20+ hours/week in manual data reporting.',
     github: 'https://github.com/vktofly',
     category: 'ai',
@@ -31,6 +32,7 @@ const projects = [
   {
     title: 'Real-Time "Reasoning" UI',
     slug: 'real-time-reasoning-ui',
+    image: '/projects/reasoning-ui.jpg',
     description: 'Problem: Users distrusted black-box AI answers. Action: Engineered a Chat UI using Server-Sent Events to stream internal "thoughts". Result: Increased user trust and engagement significantly.',
     github: 'https://github.com/vktofly',
     category: 'ai',
@@ -46,6 +48,7 @@ const projects = [
   {
     title: 'Self-Optimizing Agent Pipeline',
     slug: 'self-optimizing-agent-pipeline',
+    image: '/projects/agent-pipeline.jpg',
     description: 'Problem: Brittle, manually-engineered prompts failed in production. Action: Built a multi-step RAG agent with DSPy for programmatic prompt optimization. Result: Eliminated manual prompt tuning and improved accuracy.',
     github: 'https://github.com/vktofly',
     category: 'ai',

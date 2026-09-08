@@ -5,13 +5,21 @@ import AnimatedStat from './AnimatedStat';
 
 export default function DynamicStats() {
   const searchParams = useSearchParams();
-  const [mounted, setMounted] = useState(false);
+  const [role, setRole] = useState('');
 
   useEffect(() => {
-    setMounted(true);
+    setRole(searchParams?.get('role')?.toLowerCase() || '');
+  }, [searchParams]);
+
+  useEffect(() => {
+    const handleRoleChange = (e) => {
+      setRole(e.detail?.toLowerCase() || '');
+    };
+    window.addEventListener('role-change', handleRoleChange);
+    return () => window.removeEventListener('role-change', handleRoleChange);
   }, []);
 
-  const roleParam = mounted ? (searchParams?.get('role')?.toLowerCase() || '') : '';
+  const roleParam = role;
 
   if (roleParam === 'data') {
     return (
