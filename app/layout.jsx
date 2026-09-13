@@ -234,6 +234,7 @@ export default function RootLayout({ children }) {
             <Header />
             <main className="py-24">{children}</main>
             <Footer />
+
           </ErrorBoundary>
         </Providers>
       </body>

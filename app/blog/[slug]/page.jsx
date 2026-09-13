@@ -242,6 +242,7 @@ export default async function BlogPostPage({ params }) {
           >
             <BlogProse
               html={post.html}
+              rawContent={post.rawContent}
               enableContextualLinks={true}
               currentSlug={post.slug}
             />

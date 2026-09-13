@@ -1,0 +1,1536 @@
+{
+  "nodes": [
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "python-async-fastapi-",
+      "name": "Python (Async/FastAPI)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "node-js",
+      "name": "Node.js",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "next-js",
+      "name": "Next.js",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "react-native",
+      "name": "React Native",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "c-",
+      "name": "C++",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "cuda",
+      "name": "CUDA",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "rag-pipelines",
+      "name": "RAG Pipelines",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "agentic-workflows-langgraph-crewai-",
+      "name": "Agentic Workflows (LangGraph, CrewAI)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "mcp",
+      "name": "MCP",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "prompt-engineering",
+      "name": "Prompt Engineering",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "openai-claude-apis",
+      "name": "OpenAI/Claude APIs",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "transformer-architectures",
+      "name": "Transformer Architectures",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "llm-alignment-rlhf-dpo-lora-",
+      "name": "LLM Alignment (RLHF, DPO, LoRA)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "custom-loss-functions",
+      "name": "Custom Loss Functions",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "vllm",
+      "name": "vLLM",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "mlflow",
+      "name": "MLflow",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "langsmith",
+      "name": "LangSmith",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "deepeval",
+      "name": "DeepEval",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "gcp-google-cloud-",
+      "name": "GCP (Google Cloud)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "ci-cd",
+      "name": "CI/CD",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "supabase",
+      "name": "Supabase",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "vector-dbs-pgvector-qdrant-pinecone-",
+      "name": "Vector DBs (Pgvector, Qdrant, Pinecone)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "airflow",
+      "name": "Airflow",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "numerical-linear-algebra",
+      "name": "Numerical Linear Algebra",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "multivariate-calculus",
+      "name": "Multivariate Calculus",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "probability-theory",
+      "name": "Probability Theory",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "stochastic-processes",
+      "name": "Stochastic Processes",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "convex-non-convex-optimization",
+      "name": "Convex & Non-Convex Optimization",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "statistical-inference",
+      "name": "Statistical Inference",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "microservices",
+      "name": "Microservices",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "systems-design",
+      "name": "Systems Design",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "api-design",
+      "name": "API Design",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "agile-kanban",
+      "name": "Agile/Kanban",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "cost-token-optimization",
+      "name": "Cost & Token Optimization",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "production-deployment",
+      "name": "Production Deployment",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "troubleshooting",
+      "name": "Troubleshooting",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "systems-thinking",
+      "name": "Systems Thinking",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "human-ai-interfaces",
+      "name": "Human-AI Interfaces",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "infinite-growth-architectures",
+      "name": "Infinite Growth Architectures",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "knowledge-creation",
+      "name": "Knowledge Creation",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "master-of-artificial-intelligence-upenn-",
+      "name": "Master of Artificial Intelligence (UPenn)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "mathematics-for-machine-learning-coursera-",
+      "name": "Mathematics for Machine Learning (Coursera)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "transformer-models-bert-google-cloud-",
+      "name": "Transformer Models & BERT (Google Cloud)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "sars-cov-2-protein-modeling-drug-docking-coursera-",
+      "name": "SARS-CoV-2 Protein Modeling & Drug Docking (Coursera)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "docker-for-absolute-beginners-coursera-",
+      "name": "Docker for Absolute Beginners (Coursera)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "github-copilot-for-beginners-coursera-",
+      "name": "GitHub Copilot for Beginners (Coursera)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "data-analysis-using-pyspark-coursera-",
+      "name": "Data Analysis Using PySpark (Coursera)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "google-data-analytics-capstone-google-",
+      "name": "Google Data Analytics Capstone (Google)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "y-combinator-startup-course",
+      "name": "Y Combinator Startup Course",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "english-fluent-",
+      "name": "English (Fluent)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "hindi-native-",
+      "name": "Hindi (Native)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "german-elementary-",
+      "name": "German (Elementary)",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "proj-nl-to-chart-dashboard",
+      "name": "Natural-Language-to-Chart Analytics Dashboard",
+      "group": "project",
+      "val": 4
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "openai-api",
+      "name": "OpenAI API",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "proj-real-time-reasoning-ui",
+      "name": "Real-Time \"Reasoning\" UI",
+      "group": "project",
+      "val": 4
+    },
+    {
+      "id": "sse",
+      "name": "SSE",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "claude-api",
+      "name": "Claude API",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "tailwind-css",
+      "name": "Tailwind CSS",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "proj-self-optimizing-agent-pipeline",
+      "name": "Self-Optimizing Agent Pipeline",
+      "group": "project",
+      "val": 4
+    },
+    {
+      "id": "dspy",
+      "name": "DSPy",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "langgraph",
+      "name": "LangGraph",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "proj-kv-cache-compression",
+      "name": "KV-Cache Compression & Optimization Prototype",
+      "group": "project",
+      "val": 4
+    },
+    {
+      "id": "pagedattention",
+      "name": "PagedAttention",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "llm-inference",
+      "name": "LLM Inference",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "proj-dpo-from-scratch",
+      "name": "Direct Preference Optimization (DPO) from Scratch",
+      "group": "project",
+      "val": 4
+    },
+    {
+      "id": "pytorch",
+      "name": "PyTorch",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "llm-alignment",
+      "name": "LLM Alignment",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "dpo",
+      "name": "DPO",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "mathematics",
+      "name": "Mathematics",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "proj-custom-gpu-kernel-triton",
+      "name": "Custom GPU Kernel via OpenAI Triton",
+      "group": "project",
+      "val": 4
+    },
+    {
+      "id": "triton",
+      "name": "Triton",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "gpu-kernel",
+      "name": "GPU Kernel",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "attention",
+      "name": "Attention",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "proj-embedding-data-drift-monitor",
+      "name": "Embedding Data Drift Monitor",
+      "group": "project",
+      "val": 4
+    },
+    {
+      "id": "qdrant",
+      "name": "Qdrant",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "prefect",
+      "name": "Prefect",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "mlops",
+      "name": "MLOps",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "proj-high-throughput-local-inference-engine",
+      "name": "High-Throughput Local Inference Engine",
+      "group": "project",
+      "val": 4
+    },
+    {
+      "id": "fastapi",
+      "name": "FastAPI",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "llms",
+      "name": "LLMs",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "proj-infinite-growth-machine",
+      "name": "The Infinite Growth Machine",
+      "group": "project",
+      "val": 4
+    },
+    {
+      "id": "philosophy",
+      "name": "Philosophy",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "systems",
+      "name": "Systems",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "writing",
+      "name": "Writing",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-aboutme",
+      "name": "aboutme",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "blog-books-that-shaped-my-philosophy-of-infinite-growth",
+      "name": "Books That Shaped My Philosophy of Infinite Growth",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "entrepreneurship",
+      "name": "Entrepreneurship",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "knowledge",
+      "name": "Knowledge",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "books",
+      "name": "Books",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "reading",
+      "name": "Reading",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-civilization-as-system",
+      "name": "Civilization as a System",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "civilization",
+      "name": "Civilization",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-david-deutsch",
+      "name": "David Deutsch: The Epistemology of Better Explanations",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "epistemology",
+      "name": "Epistemology",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "physics",
+      "name": "Physics",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-freedom-from-known-algorithm",
+      "name": "Freedom from the Known Algorithm",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "ai",
+      "name": "AI",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "creativity",
+      "name": "Creativity",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-friedrich-nietzsche",
+      "name": "Friedrich Nietzsche: Self-Overcoming and the Will to Create",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "self-overcoming",
+      "name": "Self-Overcoming",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "creation",
+      "name": "Creation",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "growth",
+      "name": "Growth",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-infinite-growth-machine",
+      "name": "The Infinite Growth Machine",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "blog-infinite-growth-principle",
+      "name": "The Infinite Growth Principle",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "blog-interactive-playground-test",
+      "name": "Interactive Code Playgrounds in MDX",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "mdx",
+      "name": "mdx",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "sandpack",
+      "name": "sandpack",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-jiddu-krishnamurti",
+      "name": "Jiddu Krishnamurti: Freedom from the Known and the Art of Innovation",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "consciousness",
+      "name": "Consciousness",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "freedom",
+      "name": "Freedom",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "innovation",
+      "name": "Innovation",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-leonardo-da-vinci",
+      "name": "Leonardo da Vinci: The Unity of Art and Science",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "polymath",
+      "name": "Polymath",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "cross-disciplinary",
+      "name": "Cross-Disciplinary",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "art",
+      "name": "Art",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "science",
+      "name": "Science",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-naval-ravikant",
+      "name": "Naval Ravikant: Leverage, Wealth, and Building Systems That Work",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "leverage",
+      "name": "Leverage",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "wealth-creation",
+      "name": "Wealth Creation",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-peter-diamandis",
+      "name": "Peter Diamandis: Exponential Systems and Moonshot Thinking",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "exponential-systems",
+      "name": "Exponential Systems",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-ray-kurzweil",
+      "name": "Ray Kurzweil: Exponential Growth and the Future of Intelligence",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "singularity",
+      "name": "Singularity",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "future",
+      "name": "Future",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-readme",
+      "name": "README",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "blog-the-book-that-redefined-my-understanding-of-progress",
+      "name": "The Book That Redefined My Understanding of Progress",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "blog-the-inner-architecture-of-freedom",
+      "name": "The Inner Architecture of Freedom",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "blog-what-is-a-hero",
+      "name": "What is a Hero? — On Universal Constructors and the Responsibility of Creation",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "heroism",
+      "name": "Heroism",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "universal-constructor",
+      "name": "Universal Constructor",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "responsibility",
+      "name": "Responsibility",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "infinite-growth",
+      "name": "Infinite Growth",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-your-article-slug",
+      "name": "Your Article Title Here",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "tag1",
+      "name": "Tag1",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "tag2",
+      "name": "Tag2",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "tag3",
+      "name": "Tag3",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-freedom-from-the-known",
+      "name": "Freedom from the Known: Breaking Free from Inherited Limitations",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "book-review",
+      "name": "Book Review",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-the-almanack-of-naval-ravikant",
+      "name": "The Almanack of Naval Ravikant: Leverage, Wealth, and Building Systems That Work",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "blog-the-beginning-of-infinity",
+      "name": "The Beginning of Infinity: How Better Explanations Drive Infinite Progress",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "philosophy-of-science",
+      "name": "Philosophy of Science",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-the-fabric-of-reality",
+      "name": "The Fabric of Reality: Understanding the Unified Framework of Knowledge",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "quantum-theory",
+      "name": "Quantum Theory",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-the-rational-optimist",
+      "name": "The Rational Optimist: How Exchange and Specialization Create Progress",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "optimism",
+      "name": "Optimism",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "progress",
+      "name": "Progress",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-the-singularity-is-near",
+      "name": "The Singularity Is Near: Understanding Exponential Growth and the Future of Intelligence",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "blog-thinking-in-systems",
+      "name": "Thinking in Systems: Finding Leverage Points for Change",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "complexity",
+      "name": "Complexity",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "problem-solving",
+      "name": "Problem Solving",
+      "group": "concept",
+      "val": 2
+    },
+    {
+      "id": "blog-thus-spoke-zarathustra",
+      "name": "Thus Spoke Zarathustra: Self-Overcoming and the Will to Create",
+      "group": "blog",
+      "val": 3
+    },
+    {
+      "id": "blog-myvision",
+      "name": "myvision",
+      "group": "blog",
+      "val": 3
+    }
+  ],
+  "links": [
+    {
+      "source": "proj-nl-to-chart-dashboard",
+      "target": "next-js"
+    },
+    {
+      "source": "proj-nl-to-chart-dashboard",
+      "target": "python"
+    },
+    {
+      "source": "proj-nl-to-chart-dashboard",
+      "target": "supabase"
+    },
+    {
+      "source": "proj-nl-to-chart-dashboard",
+      "target": "openai-api"
+    },
+    {
+      "source": "proj-real-time-reasoning-ui",
+      "target": "next-js"
+    },
+    {
+      "source": "proj-real-time-reasoning-ui",
+      "target": "sse"
+    },
+    {
+      "source": "proj-real-time-reasoning-ui",
+      "target": "claude-api"
+    },
+    {
+      "source": "proj-real-time-reasoning-ui",
+      "target": "tailwind-css"
+    },
+    {
+      "source": "proj-self-optimizing-agent-pipeline",
+      "target": "dspy"
+    },
+    {
+      "source": "proj-self-optimizing-agent-pipeline",
+      "target": "langgraph"
+    },
+    {
+      "source": "proj-self-optimizing-agent-pipeline",
+      "target": "python"
+    },
+    {
+      "source": "proj-kv-cache-compression",
+      "target": "python"
+    },
+    {
+      "source": "proj-kv-cache-compression",
+      "target": "pagedattention"
+    },
+    {
+      "source": "proj-kv-cache-compression",
+      "target": "llm-inference"
+    },
+    {
+      "source": "proj-dpo-from-scratch",
+      "target": "pytorch"
+    },
+    {
+      "source": "proj-dpo-from-scratch",
+      "target": "llm-alignment"
+    },
+    {
+      "source": "proj-dpo-from-scratch",
+      "target": "dpo"
+    },
+    {
+      "source": "proj-dpo-from-scratch",
+      "target": "mathematics"
+    },
+    {
+      "source": "proj-custom-gpu-kernel-triton",
+      "target": "triton"
+    },
+    {
+      "source": "proj-custom-gpu-kernel-triton",
+      "target": "gpu-kernel"
+    },
+    {
+      "source": "proj-custom-gpu-kernel-triton",
+      "target": "cuda"
+    },
+    {
+      "source": "proj-custom-gpu-kernel-triton",
+      "target": "attention"
+    },
+    {
+      "source": "proj-embedding-data-drift-monitor",
+      "target": "qdrant"
+    },
+    {
+      "source": "proj-embedding-data-drift-monitor",
+      "target": "prefect"
+    },
+    {
+      "source": "proj-embedding-data-drift-monitor",
+      "target": "python"
+    },
+    {
+      "source": "proj-embedding-data-drift-monitor",
+      "target": "mlops"
+    },
+    {
+      "source": "proj-high-throughput-local-inference-engine",
+      "target": "fastapi"
+    },
+    {
+      "source": "proj-high-throughput-local-inference-engine",
+      "target": "prometheus"
+    },
+    {
+      "source": "proj-high-throughput-local-inference-engine",
+      "target": "llms"
+    },
+    {
+      "source": "proj-infinite-growth-machine",
+      "target": "philosophy"
+    },
+    {
+      "source": "proj-infinite-growth-machine",
+      "target": "systems"
+    },
+    {
+      "source": "proj-infinite-growth-machine",
+      "target": "writing"
+    },
+    {
+      "source": "blog-books-that-shaped-my-philosophy-of-infinite-growth",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-books-that-shaped-my-philosophy-of-infinite-growth",
+      "target": "entrepreneurship"
+    },
+    {
+      "source": "blog-books-that-shaped-my-philosophy-of-infinite-growth",
+      "target": "knowledge"
+    },
+    {
+      "source": "blog-books-that-shaped-my-philosophy-of-infinite-growth",
+      "target": "books"
+    },
+    {
+      "source": "blog-books-that-shaped-my-philosophy-of-infinite-growth",
+      "target": "reading"
+    },
+    {
+      "source": "blog-civilization-as-system",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-civilization-as-system",
+      "target": "systems"
+    },
+    {
+      "source": "blog-civilization-as-system",
+      "target": "civilization"
+    },
+    {
+      "source": "blog-david-deutsch",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-david-deutsch",
+      "target": "epistemology"
+    },
+    {
+      "source": "blog-david-deutsch",
+      "target": "knowledge-creation"
+    },
+    {
+      "source": "blog-david-deutsch",
+      "target": "physics"
+    },
+    {
+      "source": "blog-freedom-from-known-algorithm",
+      "target": "ai"
+    },
+    {
+      "source": "blog-freedom-from-known-algorithm",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-freedom-from-known-algorithm",
+      "target": "creativity"
+    },
+    {
+      "source": "blog-freedom-from-known-algorithm",
+      "target": "technology"
+    },
+    {
+      "source": "blog-friedrich-nietzsche",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-friedrich-nietzsche",
+      "target": "self-overcoming"
+    },
+    {
+      "source": "blog-friedrich-nietzsche",
+      "target": "creation"
+    },
+    {
+      "source": "blog-friedrich-nietzsche",
+      "target": "growth"
+    },
+    {
+      "source": "blog-infinite-growth-machine",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-infinite-growth-machine",
+      "target": "systems"
+    },
+    {
+      "source": "blog-infinite-growth-machine",
+      "target": "knowledge"
+    },
+    {
+      "source": "blog-infinite-growth-principle",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-infinite-growth-principle",
+      "target": "systems"
+    },
+    {
+      "source": "blog-infinite-growth-principle",
+      "target": "epistemology"
+    },
+    {
+      "source": "blog-infinite-growth-principle",
+      "target": "civilization"
+    },
+    {
+      "source": "blog-infinite-growth-principle",
+      "target": "ai"
+    },
+    {
+      "source": "blog-infinite-growth-principle",
+      "target": "knowledge"
+    },
+    {
+      "source": "blog-interactive-playground-test",
+      "target": "react"
+    },
+    {
+      "source": "blog-interactive-playground-test",
+      "target": "mdx"
+    },
+    {
+      "source": "blog-interactive-playground-test",
+      "target": "sandpack"
+    },
+    {
+      "source": "blog-jiddu-krishnamurti",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-jiddu-krishnamurti",
+      "target": "consciousness"
+    },
+    {
+      "source": "blog-jiddu-krishnamurti",
+      "target": "freedom"
+    },
+    {
+      "source": "blog-jiddu-krishnamurti",
+      "target": "innovation"
+    },
+    {
+      "source": "blog-leonardo-da-vinci",
+      "target": "polymath"
+    },
+    {
+      "source": "blog-leonardo-da-vinci",
+      "target": "cross-disciplinary"
+    },
+    {
+      "source": "blog-leonardo-da-vinci",
+      "target": "art"
+    },
+    {
+      "source": "blog-leonardo-da-vinci",
+      "target": "science"
+    },
+    {
+      "source": "blog-naval-ravikant",
+      "target": "entrepreneurship"
+    },
+    {
+      "source": "blog-naval-ravikant",
+      "target": "leverage"
+    },
+    {
+      "source": "blog-naval-ravikant",
+      "target": "wealth-creation"
+    },
+    {
+      "source": "blog-naval-ravikant",
+      "target": "systems"
+    },
+    {
+      "source": "blog-peter-diamandis",
+      "target": "technology"
+    },
+    {
+      "source": "blog-peter-diamandis",
+      "target": "entrepreneurship"
+    },
+    {
+      "source": "blog-peter-diamandis",
+      "target": "exponential-systems"
+    },
+    {
+      "source": "blog-peter-diamandis",
+      "target": "innovation"
+    },
+    {
+      "source": "blog-ray-kurzweil",
+      "target": "technology"
+    },
+    {
+      "source": "blog-ray-kurzweil",
+      "target": "ai"
+    },
+    {
+      "source": "blog-ray-kurzweil",
+      "target": "singularity"
+    },
+    {
+      "source": "blog-ray-kurzweil",
+      "target": "future"
+    },
+    {
+      "source": "blog-the-book-that-redefined-my-understanding-of-progress",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-the-book-that-redefined-my-understanding-of-progress",
+      "target": "knowledge"
+    },
+    {
+      "source": "blog-the-book-that-redefined-my-understanding-of-progress",
+      "target": "civilization"
+    },
+    {
+      "source": "blog-the-book-that-redefined-my-understanding-of-progress",
+      "target": "books"
+    },
+    {
+      "source": "blog-the-inner-architecture-of-freedom",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-the-inner-architecture-of-freedom",
+      "target": "consciousness"
+    },
+    {
+      "source": "blog-the-inner-architecture-of-freedom",
+      "target": "creativity"
+    },
+    {
+      "source": "blog-the-inner-architecture-of-freedom",
+      "target": "books"
+    },
+    {
+      "source": "blog-what-is-a-hero",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-what-is-a-hero",
+      "target": "heroism"
+    },
+    {
+      "source": "blog-what-is-a-hero",
+      "target": "universal-constructor"
+    },
+    {
+      "source": "blog-what-is-a-hero",
+      "target": "knowledge-creation"
+    },
+    {
+      "source": "blog-what-is-a-hero",
+      "target": "responsibility"
+    },
+    {
+      "source": "blog-what-is-a-hero",
+      "target": "infinite-growth"
+    },
+    {
+      "source": "blog-what-is-a-hero",
+      "target": "epistemology"
+    },
+    {
+      "source": "blog-what-is-a-hero",
+      "target": "ai"
+    },
+    {
+      "source": "blog-your-article-slug",
+      "target": "tag1"
+    },
+    {
+      "source": "blog-your-article-slug",
+      "target": "tag2"
+    },
+    {
+      "source": "blog-your-article-slug",
+      "target": "tag3"
+    },
+    {
+      "source": "blog-freedom-from-the-known",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-freedom-from-the-known",
+      "target": "consciousness"
+    },
+    {
+      "source": "blog-freedom-from-the-known",
+      "target": "freedom"
+    },
+    {
+      "source": "blog-freedom-from-the-known",
+      "target": "book-review"
+    },
+    {
+      "source": "blog-the-almanack-of-naval-ravikant",
+      "target": "entrepreneurship"
+    },
+    {
+      "source": "blog-the-almanack-of-naval-ravikant",
+      "target": "leverage"
+    },
+    {
+      "source": "blog-the-almanack-of-naval-ravikant",
+      "target": "wealth-creation"
+    },
+    {
+      "source": "blog-the-almanack-of-naval-ravikant",
+      "target": "book-review"
+    },
+    {
+      "source": "blog-the-beginning-of-infinity",
+      "target": "epistemology"
+    },
+    {
+      "source": "blog-the-beginning-of-infinity",
+      "target": "book-review"
+    },
+    {
+      "source": "blog-the-beginning-of-infinity",
+      "target": "knowledge-creation"
+    },
+    {
+      "source": "blog-the-beginning-of-infinity",
+      "target": "philosophy-of-science"
+    },
+    {
+      "source": "blog-the-fabric-of-reality",
+      "target": "epistemology"
+    },
+    {
+      "source": "blog-the-fabric-of-reality",
+      "target": "physics"
+    },
+    {
+      "source": "blog-the-fabric-of-reality",
+      "target": "quantum-theory"
+    },
+    {
+      "source": "blog-the-fabric-of-reality",
+      "target": "book-review"
+    },
+    {
+      "source": "blog-the-rational-optimist",
+      "target": "systems-thinking"
+    },
+    {
+      "source": "blog-the-rational-optimist",
+      "target": "optimism"
+    },
+    {
+      "source": "blog-the-rational-optimist",
+      "target": "progress"
+    },
+    {
+      "source": "blog-the-rational-optimist",
+      "target": "book-review"
+    },
+    {
+      "source": "blog-the-singularity-is-near",
+      "target": "ai"
+    },
+    {
+      "source": "blog-the-singularity-is-near",
+      "target": "singularity"
+    },
+    {
+      "source": "blog-the-singularity-is-near",
+      "target": "technology"
+    },
+    {
+      "source": "blog-the-singularity-is-near",
+      "target": "book-review"
+    },
+    {
+      "source": "blog-thinking-in-systems",
+      "target": "systems-thinking"
+    },
+    {
+      "source": "blog-thinking-in-systems",
+      "target": "complexity"
+    },
+    {
+      "source": "blog-thinking-in-systems",
+      "target": "problem-solving"
+    },
+    {
+      "source": "blog-thinking-in-systems",
+      "target": "book-review"
+    },
+    {
+      "source": "blog-thus-spoke-zarathustra",
+      "target": "philosophy"
+    },
+    {
+      "source": "blog-thus-spoke-zarathustra",
+      "target": "self-overcoming"
+    },
+    {
+      "source": "blog-thus-spoke-zarathustra",
+      "target": "creation"
+    },
+    {
+      "source": "blog-thus-spoke-zarathustra",
+      "target": "book-review"
+    }
+  ]
+}

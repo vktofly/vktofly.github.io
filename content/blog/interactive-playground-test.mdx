@@ -1,0 +1,109 @@
+---
+title: "Interactive Code Playgrounds in MDX"
+date: "2026-09-12"
+slug: "interactive-playground-test"
+description: "Testing Sandpack rendering inside MDX"
+summary: "Testing the power of Sandpack rendering directly inside MDX posts."
+tags: ["react", "mdx", "sandpack"]
+takeaways:
+  - "MDX is awesome"
+  - "Sandpack gives you live coding environments"
+---
+
+Welcome to the new era of interactive blog posts! 🚀
+
+Instead of just reading code, you can now write it, modify it, and see it run instantly within your browser. This is powered by **Sandpack** and **WebContainers**.
+
+Check out this simple React counter below. Go ahead, change the initial state or add a completely new component!
+
+<InteractivePlayground 
+  template="react"
+  files={{
+    "/App.js": `
+import React, { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div className="App">
+      <h1>Hello Sandpack! 🚀</h1>
+      <p>Edit this code to see the preview update instantly.</p>
+      
+      <div className="counter-card">
+        <h2>Counter: {count}</h2>
+        <button onClick={() => setCount(c => c + 1)}>
+          Increment
+        </button>
+        <button onClick={() => setCount(c => c - 1)} className="outline">
+          Decrement
+        </button>
+      </div>
+    </div>
+  );
+}
+`,
+    "/styles.css": `
+.App {
+  font-family: system-ui, sans-serif;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  background: #111;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #a855f7;
+}
+
+.counter-card {
+  background: #222;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 400px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+button {
+  background: #a855f7;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin: 0 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: #9333ea;
+  transform: translateY(-1px);
+}
+
+button.outline {
+  background: transparent;
+  border: 2px solid #a855f7;
+}
+
+button.outline:hover {
+  background: #a855f7;
+}
+    `
+  }}
+/>
+
+Because we transitioned the blog to **MDX**, you can include interactive elements seamlessly in the middle of standard markdown.
+
+## Why is this a 10x feature?
+
+1. **Active Learning**: Readers learn better by doing, not just reading.
+2. **Instant Feedback**: No need to `npm install` locally to try out concepts.
+3. **Zero Configuration**: It runs entirely in the browser using WebAssembly.
+
+---
+
+*This is a test post for the Sandpack MDX integration.*

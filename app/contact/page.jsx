@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Section from '../../components/Section';
+import ShareContact from '../../components/ShareContact';
+import profile from '../../data/profile';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -169,6 +171,9 @@ export default function ContactPage() {
         <p className="mt-6 text-sm text-zinc-600 dark:text-zinc-400">
           Direct email: <a className="underline hover:text-brand-600 dark:hover:text-brand-400" href="mailto:vktofly@gmail.com">vktofly@gmail.com</a>
         </p>
+        <div className="mt-6 border-t border-zinc-200 dark:border-zinc-800 pt-6">
+          <ShareContact name={profile.name} />
+        </div>
       </div>
     </Section>
   );

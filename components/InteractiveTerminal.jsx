@@ -168,7 +168,6 @@ export default function InteractiveTerminal() {
             onChange={(e) => setInput(e.target.value)}
             disabled={isLoading}
             className="flex-1 bg-transparent outline-none border-none text-zinc-100 shadow-none ring-0 p-0 m-0 focus:ring-0 disabled:opacity-50"
-            autoFocus
             spellCheck="false"
             autoComplete="off"
           />

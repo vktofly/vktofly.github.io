@@ -1,12 +1,26 @@
 import ContextualLinks from './ContextualLinks';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import InteractivePlayground from './InteractivePlayground';
 
-export default function BlogProse({ html, enableContextualLinks = false, currentSlug = '' }) {
+// Mapping custom components for MDX
+const mdxComponents = {
+  InteractivePlayground,
+};
+
+export default function BlogProse({ html, rawContent, enableContextualLinks = false, currentSlug = '' }) {
   // If contextual links are enabled, wrap content with ContextualLinks
-  const content = enableContextualLinks ? (
-    <ContextualLinks content={html} currentSlug={currentSlug} />
-  ) : (
-    <div dangerouslySetInnerHTML={{ __html: html }} />
-  );
+  let content;
+  if (rawContent) {
+    // If rawContent is available, render via MDXRemote (interactive React components supported)
+    content = <MDXRemote source={rawContent} components={mdxComponents} />;
+  } else {
+    // Fallback to raw HTML injection
+    content = <div dangerouslySetInnerHTML={{ __html: html }} />;
+  }
+
+  if (enableContextualLinks && !rawContent) {
+    content = <ContextualLinks content={html} currentSlug={currentSlug} />;
+  }
 
   return (
     <article

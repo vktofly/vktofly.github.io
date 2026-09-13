@@ -1,0 +1,11 @@
+{
+  "project-nl-to-chart-dashboard": "Explore how this AI analytics dashboard converts natural language to SQL queries with Next.js and OpenAI, saving teams 20+ hours a week in data reporting.",
+  "project-real-time-reasoning-ui": "Learn how I built a real-time reasoning AI chat UI with Next.js, Claude API, and SSE to stream thoughts and boost user trust. Explore the full case study.",
+  "project-self-optimizing-agent-pipeline": "Stop manual prompt tuning. Learn how to build a self-optimizing RAG agent pipeline with DSPy, LangGraph, and Python to boost production accuracy.",
+  "project-dpo-from-scratch": "Learn how to implement Direct Preference Optimization (DPO) from scratch in PyTorch. Master the math and fine-tune Llama-3 for LLM alignment without RLHF.",
+  "project-custom-gpu-kernel-triton": "Build high-performance GPU kernels with OpenAI Triton. See how custom Sliding Window Attention optimizes memory and throughput against standard PyTorch.",
+  "project-high-throughput-local-inference-engine": "Scale local LLM inference with this high-throughput, OpenAI-compatible FastAPI server. Monitor throughput and real-time latency using Prometheus.",
+  "project-infinite-growth-machine": "Unlock the compounding power of knowledge creation. Explore how deliberate systems and writing evolve into an infinite growth machine for your mind.",
+  "blog-books-that-shaped-my-philosophy-of-infinite-growth": "Explore the essential books that shaped my philosophy of infinite growth. Discover powerful ideas on knowledge, entrepreneurship, and human potential.",
+  "blog-david-deutsch": "Discover how David Deutsch's epistemology of better explanations transforms knowledge creation, universal constructors, and the physics of human progress."
+}

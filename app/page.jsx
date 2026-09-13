@@ -19,6 +19,7 @@ import RecruiterWidget from "../components/RecruiterWidget";
 import InteractiveTerminal from "../components/InteractiveTerminal";
 import DynamicHero from "../components/DynamicHero";
 import DynamicStats from "../components/DynamicStats";
+import GitHubStats from "../components/GitHubStats";
 import { Suspense } from 'react';
 
 export const metadata = {
@@ -162,6 +163,9 @@ export default async function HomePage() {
                   </a>
                 </div>
               </div>
+              
+              {/* Build-Time GitHub Data */}
+              <GitHubStats />
             </div>
 
             {/* profile_photo / minimal logo representation */}

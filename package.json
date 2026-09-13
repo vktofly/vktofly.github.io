@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "node scripts/generate-llms-context.js && next build && next-sitemap",
+    "build": "node scripts/generate-ai-meta.js && node scripts/generate-graph-data.js && node scripts/generate-llms-context.js && node scripts/generate-search-index.js && node scripts/generate-gems.js && next build && next-sitemap",
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
@@ -19,13 +19,20 @@
     "data:check": "npm run data:validate && npm run data:quality"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.20.0",
     "@google/genai": "^2.21.0",
+    "@mlc-ai/web-llm": "^0.2.85",
+    "@orama/orama": "^3.1.18",
+    "@orama/plugin-data-persistence": "^3.1.18",
     "framer-motion": "^12.23.25",
     "gray-matter": "^4.0.3",
     "next": "^14.2.6",
+    "next-mdx-remote": "^6.0.0",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-force-graph-3d": "^1.29.1",
+    "three": "^0.186.0",
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {

@@ -10,6 +10,7 @@ import { generateOgImageMetadata } from "../../lib/og-images";
 import profile from "../../data/profile";
 import { generalFAQs } from "../../data/faqs";
 import { loadMarkdownAsHtml } from "../../lib/markdown";
+import ShareContact from "../../components/ShareContact";
 
 export const metadata = {
   title: "About",
@@ -236,6 +237,9 @@ export default async function AboutPage() {
                 <a href="https://linkedin.com/in/vktofly" target="_blank" rel="noopener noreferrer" className="text-zinc-500 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-palette-accent transition-colors flex justify-between">
                   <span>LINKEDIN</span> <span>↗</span>
                 </a>
+              </div>
+              <div className="mt-8">
+                <ShareContact name={profile.name} />
               </div>
             </div>
 
